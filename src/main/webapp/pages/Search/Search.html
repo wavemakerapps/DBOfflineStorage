@@ -1,0 +1,17 @@
+<wm-page name="page1"> 
+    <wm-left-panel content="leftnav" name="left_panel1"></wm-left-panel> 
+    <wm-mobile-navbar name="mobile_navbar1" title="Search"> 
+        <wm-anchor caption="" name="AddLink" iconclass="wi wi-wifi" on-tap="Variables.goOnline.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor2" iconclass="wi wi-signal-wifi-off" caption="" on-tap="Variables.goOffline.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor3" iconclass="wi wi-arrow-downward" caption="" on-tap="Variables.datasyncPull.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor4" iconclass="wi wi-arrow-upward" caption="" on-tap="Variables.datasyncPush.invoke()"></wm-anchor> 
+    </wm-mobile-navbar> 
+    <wm-content name="content1"> 
+        <wm-page-content columnwidth="12" name="page_content1"> 
+            <wm-search name="search1" dataset="bind:Variables.CustomersData.dataSet" searchkey="customerName" displaylabel="customerName" datafield="customerName"></wm-search> 
+            <wm-label padding="unset 0.5em" name="label1" caption="bind:Widgets.search1.datavalue"></wm-label> 
+            <wm-search name="search2" type="autocomplete" dataset="bind:Variables.CustomersData1.dataSet" searchkey="customerName" displaylabel="customerName" datafield="customerName"></wm-search> 
+            <wm-label padding="unset 0.5em" name="label2" caption="bind:Widgets.search2.datavalue"></wm-label> 
+        </wm-page-content> 
+    </wm-content> 
+</wm-page>

@@ -1,0 +1,125 @@
+<wm-page name="page1"> 
+    <wm-left-panel content="leftnav" name="left_panel1"></wm-left-panel> 
+    <wm-mobile-navbar name="mobile_navbar1" title="HQL_QUERIES1"> 
+        <wm-anchor caption="" name="AddLink" iconclass="wi wi-wifi" on-tap="Variables.goOnline.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor2" iconclass="wi wi-signal-wifi-off" caption="" on-tap="Variables.goOffline.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor3" iconclass="wi wi-arrow-downward" caption="" on-tap="Variables.datasyncPull.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor4" iconclass="wi wi-arrow-upward" caption="" on-tap="Variables.datasyncPush.invoke()"></wm-anchor> 
+    </wm-mobile-navbar> 
+    <wm-content name="content1"> 
+        <wm-page-content columnwidth="12" name="page_content1"> 
+            <wm-tabs name="tabs1"> 
+                <wm-tabpane name="tabpane1" title="with Alias"> 
+                    <wm-list listclass="list-group" template="true" itemsperrow="xs-1 sm-2 md-3 lg-4" class="list-card" dataset="bind:Variables.OfflineClassicDBExecuteHQL_CustomQueryWithAlias.dataSet" navigation="Basic" name="list1" subheading="Custom Query with alias Names for columns"> 
+                        <wm-listtemplate layout="media" name="listtemplate1"> 
+                            <wm-card name="card1"> 
+                                <wm-card-content fontsize="0.8" fontunit="em" name="card_content1"> 
+                                    <wm-layoutgrid columns="2" name="layoutgrid1"> 
+                                        <wm-gridrow name="gridrow1"> 
+                                            <wm-gridcolumn colwidth="6" columnwidth="12" padding="unset 1.25em" class="col-xs-6" name="gridcolumn2"> 
+                                                <wm-label name="ID" caption="bind:Variables.OfflineClassicDBExecuteHQL_CustomQueryWithAlias.dataSet.empFirstname" class="text-muted p" margin="unset unset 0px unset" whitespace="nowrap"></wm-label> 
+                                                <wm-label name="Name" caption="bind:Variables.OfflineClassicDBExecuteHQL_CustomQueryWithAlias.dataSet.empLastname" class="h4" margin="0px unset" whitespace="nowrap"></wm-label> 
+                                                <wm-label name="JobTitle" caption="bind:Variables.OfflineClassicDBExecuteHQL_CustomQueryWithAlias.dataSet.empEmail" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label> 
+                                                <wm-label name="Department" caption="bind:Variables.OfflineClassicDBExecuteHQL_CustomQueryWithAlias.dataSet.empJobtitle" class="p text-muted" margin="unset unset 0px unset" whitespace="nowrap"></wm-label> 
+                                                <wm-label name="Location" caption="bind:Variables.OfflineClassicDBExecuteHQL_CustomQueryWithAlias.dataSet.empExtension" class="text-muted p" whitespace="nowrap"></wm-label> 
+                                                <wm-anchor name="PhoneNumber" caption="bind:Variables.OfflineClassicDBExecuteHQL_CustomQueryWithAlias.dataSet.empOfficecode" class="h5" margin="0px unset" whitespace="nowrap"></wm-anchor> 
+                                                <wm-anchor name="EmailID" class="p text-muted" caption="bind:Variables.OfflineClassicDBExecuteHQL_CustomQueryWithAlias.dataSet.empReportsto" whitespace="nowrap"></wm-anchor> 
+                                            </wm-gridcolumn> 
+                                        </wm-gridrow> 
+                                    </wm-layoutgrid> 
+                                </wm-card-content> 
+                            </wm-card> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane2" title="WithoutAlias"> 
+                    <wm-list listclass="list-group" template="true" itemsperrow="xs-1 sm-2 md-3 lg-4" class="list-card" dataset="bind:Variables.OfflineClassicDBExecuteHQL_CustomQueryWithoutAliasNames.dataSet" navigation="Pager" name="list2" subheading="custom query without alias names for columns"> 
+                        <wm-listtemplate layout="media" name="listtemplate2"> 
+                            <wm-card name="card2"> 
+                                <wm-card-content fontsize="0.8" fontunit="em" name="card_content2"> 
+                                    <wm-layoutgrid columns="2" name="layoutgrid2"> 
+                                        <wm-gridrow name="gridrow2"> 
+                                            <wm-gridcolumn colwidth="6" columnwidth="12" padding="unset 1.25em" class="col-xs-6" name="gridcolumn4"> 
+                                                <wm-label name="ID" caption="bind:Variables.OfflineClassicDBExecuteHQL_CustomQueryWithoutAliasNames.dataSet.col0" class="text-muted p" margin="unset unset 0px unset" whitespace="nowrap"></wm-label> 
+                                                <wm-label name="Name" caption="bind:Variables.OfflineClassicDBExecuteHQL_CustomQueryWithoutAliasNames.dataSet.col1" class="h4" margin="0px unset" whitespace="nowrap"></wm-label> 
+                                                <wm-label name="JobTitle" caption="bind:Variables.OfflineClassicDBExecuteHQL_CustomQueryWithoutAliasNames.dataSet.col2" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label> 
+                                                <wm-label name="Department" caption="bind:Variables.OfflineClassicDBExecuteHQL_CustomQueryWithoutAliasNames.dataSet.col4" class="p text-muted" margin="unset unset 0px unset" whitespace="nowrap"></wm-label> 
+                                                <wm-label name="Location" caption="bind:Variables.OfflineClassicDBExecuteHQL_CustomQueryWithoutAliasNames.dataSet.col5" class="text-muted p" whitespace="nowrap"></wm-label> 
+                                                <wm-anchor name="PhoneNumber" caption="bind:Variables.OfflineClassicDBExecuteHQL_CustomQueryWithoutAliasNames.dataSet.col6" class="h5" margin="0px unset" whitespace="nowrap"></wm-anchor> 
+                                                <wm-anchor name="EmailID" class="p text-muted" hyperlink="mailto://" caption="" whitespace="nowrap"></wm-anchor> 
+                                            </wm-gridcolumn> 
+                                        </wm-gridrow> 
+                                    </wm-layoutgrid> 
+                                </wm-card-content> 
+                            </wm-card> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane3" title="From Table"> 
+                    <wm-list listclass="list-group" itemsperrow="xs-1 sm-2 md-3 lg-4" template="true" class="list-card" name="executeHQL_FromCustomerList1" dataset="bind:Variables.OfflineClassicDBExecuteHQL_FromCustomer.dataSet" navigation="Classic" subheading="From tableName"> 
+                        <wm-listtemplate layout="media" name="listtemplate3"> 
+                            <wm-card name="Picture"> 
+                                <wm-card-content padding="1.25em" name="card_content3"> 
+                                    <wm-label name="Name" class="h4 text-muted" width="100%" caption="bind:Variables.OfflineClassicDBExecuteHQL_FromCustomer.dataSet.customerNumber" whitespace="nowrap" margin="0px unset unset unset"></wm-label> 
+                                    <wm-label name="Title" caption="bind:Variables.OfflineClassicDBExecuteHQL_FromCustomer.dataSet.contactFirstName" class="h4" margin="0px unset unset unset"></wm-label> 
+                                    <wm-label name="Description" caption="bind:Variables.OfflineClassicDBExecuteHQL_FromCustomer.dataSet.addressLine1" class="p text-muted" margin="0px unset unset unset"></wm-label> 
+                                    <wm-layoutgrid name="layoutgrid3"> 
+                                        <wm-gridrow name="gridrow3"> 
+                                            <wm-gridcolumn columnwidth="6" class="col-xs-6" name="gridcolumn5"> 
+                                                <wm-label name="Date" caption="bind:Variables.OfflineClassicDBExecuteHQL_FromCustomer.dataSet.salesRepEmployeeNumber" class="text-muted" margin="0.6em unset unset unset" fontsize="1.143" fontunit="em"></wm-label> 
+                                            </wm-gridcolumn> 
+                                            <wm-gridcolumn columnwidth="6" horizontalalign="right" class="col-xs-6" name="gridcolumn6"> 
+                                                <wm-anchor class="btn btn-transparent" iconclass="" caption="bind:&quot;Ref column:&quot;+Variables.OfflineClassicDBExecuteHQL_FromCustomer.dataSet[$i].employees.email" name="anchor9"></wm-anchor> 
+                                            </wm-gridcolumn> 
+                                        </wm-gridrow> 
+                                    </wm-layoutgrid> 
+                                </wm-card-content> 
+                                <wm-card-footer horizontalalign="center" name="card_footer1"> 
+                                    <wm-layoutgrid name="layoutgrid4"> 
+                                        <wm-gridrow name="gridrow4"> 
+                                            <wm-gridcolumn columnwidth="4" horizontalalign="left" class="col-xs-4" name="gridcolumn7"> 
+                                                <wm-anchor caption="bind:Variables.OfflineClassicDBExecuteHQL_FromCustomer.dataSet[$i].country" iconclass="" class="btn btn-transparent" name="anchor10"></wm-anchor> 
+                                            </wm-gridcolumn> 
+                                            <wm-gridcolumn columnwidth="4" horizontalalign="center" class="col-xs-4" name="gridcolumn8"> 
+                                                <wm-anchor caption="bind:Variables.OfflineClassicDBExecuteHQL_FromCustomer.dataSet[$i].employees.officeCode" iconclass="" class="btn btn-transparent" name="anchor11"></wm-anchor> 
+                                            </wm-gridcolumn> 
+                                            <wm-gridcolumn columnwidth="4" horizontalalign="right" class="col-xs-4" name="gridcolumn9"> 
+                                                <wm-anchor caption="bind:Variables.OfflineClassicDBExecuteHQL_FromCustomer.dataSet[$i].employees.employeesByReportsTo.email" iconclass="" class="btn btn-transparent" name="anchor12"></wm-anchor> 
+                                            </wm-gridcolumn> 
+                                        </wm-gridrow> 
+                                    </wm-layoutgrid> 
+                                </wm-card-footer> 
+                            </wm-card> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane4" title="Table Alias"> 
+                    <wm-list listclass="list-group" template="true" itemsperrow="xs-1 sm-2 md-3 lg-4" class="list-card" dataset="bind:Variables.OfflineClassicDBExecuteHQL_FromEntityUsingAlias.dataSet" navigation="On-Demand" paginationclass="btn-default" name="list4" subheading="from table with alis name for table"> 
+                        <wm-listtemplate layout="media" name="listtemplate4"> 
+                            <wm-card name="card4"> 
+                                <wm-card-content fontsize="0.8" fontunit="em" name="card_content4"> 
+                                    <wm-layoutgrid columns="2" name="layoutgrid5"> 
+                                        <wm-gridrow name="gridrow5"> 
+                                            <wm-gridcolumn colwidth="6" columnwidth="6" class="col-xs-6" name="gridcolumn8_1"> 
+                                                <wm-picture name="Picture" width="100%"></wm-picture> 
+                                            </wm-gridcolumn> 
+                                            <wm-gridcolumn colwidth="6" columnwidth="6" padding="unset 1.25em" class="col-xs-6" name="gridcolumn9_1"> 
+                                                <wm-label name="ID" caption="bind:Variables.OfflineClassicDBExecuteHQL_FromEntityUsingAlias.dataSet.productCode" class="text-muted p" margin="unset unset 0px unset" whitespace="nowrap"></wm-label> 
+                                                <wm-label name="Name" caption="bind:Variables.OfflineClassicDBExecuteHQL_FromEntityUsingAlias.dataSet.orderLineNumber" class="h4" margin="0px unset" whitespace="nowrap"></wm-label> 
+                                                <wm-label name="JobTitle" caption="bind:Variables.OfflineClassicDBExecuteHQL_FromEntityUsingAlias.dataSet.quantityOrdered" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label> 
+                                                <wm-label name="Department" caption="bind:Variables.OfflineClassicDBExecuteHQL_FromEntityUsingAlias.dataSet.priceEach" class="p text-muted" margin="unset unset 0px unset" whitespace="nowrap"></wm-label> 
+                                                <wm-label name="Location" caption="bind:Variables.OfflineClassicDBExecuteHQL_FromEntityUsingAlias.dataSet.products.productName" class="text-muted p" whitespace="nowrap"></wm-label> 
+                                                <wm-anchor name="PhoneNumber" caption="bind:Variables.OfflineClassicDBExecuteHQL_FromEntityUsingAlias.dataSet.products.productDescription" class="h5" hyperlink="tel:" margin="0px unset" whitespace="nowrap"></wm-anchor> 
+                                                <wm-anchor name="EmailID" class="p text-muted" hyperlink="mailto://" caption="bind:Variables.OfflineClassicDBExecuteHQL_FromEntityUsingAlias.dataSet.products.quantityInStock" whitespace="nowrap"></wm-anchor> 
+                                            </wm-gridcolumn> 
+                                        </wm-gridrow> 
+                                    </wm-layoutgrid> 
+                                </wm-card-content> 
+                            </wm-card> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+            </wm-tabs> 
+        </wm-page-content> 
+    </wm-content> 
+</wm-page>

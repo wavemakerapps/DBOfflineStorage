@@ -1,0 +1,102 @@
+<wm-partial name="leftnav" type="left-panel"> 
+    <wm-nav type="pills" layout="stacked" name="nav1"> 
+        <wm-nav-item name="nav_item1"> 
+            <wm-anchor caption="Default Filter Expression" iconclass="wi wi-plus" name="anchor1" on-tap="Actions.goToPage_Main.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item2"> 
+            <wm-anchor caption="Unique Constraints" iconclass="wi wi-bookmark" name="anchor2" on-tap="Actions.goToPage_UniqueConstraint.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item3"> 
+            <wm-anchor caption="Composite PK" iconclass="wi wi-bookmark" name="anchor3" on-tap="Actions.goToPage_CompositeKeys.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+    </wm-nav> 
+    <wm-nav type="pills" layout="stacked" name="nav2"> 
+        <wm-nav-item name="nav_item25"> 
+            <wm-anchor name="anchor25" iconclass="wi wi-file" caption="Hidden Fields" on-tap="Actions.goToPage_HiddenFields.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item4"> 
+            <wm-anchor caption="Database Defined" name="anchor4" badgevalue="4" on-tap="Actions.goToPage_DatabaseDefined.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item5"> 
+            <wm-anchor caption="Assigned PK" name="anchor5" on-tap="Actions.goToPage_AssignedPK.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item6"> 
+            <wm-anchor caption="All Types" name="anchor6" on-tap="Actions.goToPage_AllTypes.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item7"> 
+            <wm-anchor name="anchor7" iconclass="wi wi-file" caption="Server Defined" on-tap="Actions.goToPage_ServerDefined.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item8"> 
+            <wm-anchor name="anchor8" iconclass="wi wi-file" on-tap="Actions.goToPage_AppEnvTable.invoke()" caption="AppEnv Table"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item9"> 
+            <wm-anchor name="anchor9" iconclass="wi wi-file" caption="Validators" on-tap="Actions.goToPage_Validators.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item10"> 
+            <wm-anchor name="anchor10" iconclass="wi wi-file" caption="One2One Cascade" on-tap="Actions.goToPage_ONE2ONE_CASCADE.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item11"> 
+            <wm-anchor name="anchor11" iconclass="wi wi-file" caption="One2Many Cascade" on-tap="Actions.goToPage_ONE2MANY_CASCADE.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item12"> 
+            <wm-anchor name="anchor12" iconclass="wi wi-file" caption="Functions" on-tap="Actions.goToPage_Query_Functions.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item15"> 
+            <wm-anchor name="anchor15" iconclass="wi wi-file" caption="Other Functions" on-tap="Actions.goToPage_Query_Functions1.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item13"> 
+            <wm-anchor name="anchor13" iconclass="wi wi-file" caption="Joins" on-tap="Actions.goToPage_Query_Joins.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item14"> 
+            <wm-anchor name="anchor14" iconclass="wi wi-file" caption="GroupBy" on-tap="Actions.goToPage_Query_GroupBy.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item16"> 
+            <wm-anchor name="anchor16" iconclass="wi wi-file" on-tap="Actions.goToPage_QueriesCombination1.invoke()" caption="Queries Combination Set1"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item20_1"> 
+            <wm-anchor name="anchor20_1" iconclass="wi wi-file" caption="Queries Combination Set2" on-tap="Actions.goToPage_QueriesCombination2.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item21"> 
+            <wm-anchor name="anchor21" iconclass="wi wi-file" on-tap="Actions.goToPage_QueriesCombination3.invoke()" caption="Queries Combination Set3"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item17"> 
+            <wm-anchor name="anchor17" iconclass="wi wi-file" caption="Filter Criteria" on-tap="Actions.goToPage_filterCriteria.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item18"> 
+            <wm-anchor name="anchor18" iconclass="wi wi-file" on-tap="Actions.goToPage_FilterCriteriaWithDate.invoke()" caption="FilterCriteria with Date"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item20"> 
+            <wm-anchor name="anchor20" iconclass="wi wi-file" caption="Filter Criteria Using Script" on-tap="Actions.goToPage_filterCriteriaUsingScript.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item22"> 
+            <wm-anchor name="anchor22" iconclass="wi wi-file" caption="HQL Queries Set1" on-tap="Actions.goToPage_HQL_QueriesSet1.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item23"> 
+            <wm-anchor name="anchor23" iconclass="wi wi-file" caption="HQL Queries Set2" on-tap="Actions.goToPage_HQl_QueriesSet2.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item24"> 
+            <wm-anchor name="anchor24" iconclass="wi wi-file" caption="Native Queries with blob data" on-tap="Actions.goToPage_BlobDataInQuery.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item26"> 
+            <wm-anchor name="anchor26" iconclass="wi wi-file" caption="Search Widget" on-tap="Actions.goToPage_Search.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item27"> 
+            <wm-anchor name="anchor27" iconclass="wi wi-file" caption="FilterFields Issue from Script" on-tap="Actions.goToPage_FilterFieldsReference.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item28"> 
+            <wm-anchor name="anchor28" iconclass="wi wi-file" caption="File Upload" on-tap="Actions.goToPage_FileUpload.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item29"> 
+            <wm-anchor name="anchor29" iconclass="wi wi-file" caption="Live Insert,Update,Delete" on-tap="Actions.goToPage_EmployeeData.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item30"> 
+            <wm-anchor name="anchor30" iconclass="wi wi-file" caption="Current Date" on-tap="anchor30Tap($event, widget)"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item31"> 
+            <wm-anchor name="anchor31" iconclass="wi wi-file" caption="Style1" on-tap="Actions.goToPage_StylePage1.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+        <wm-nav-item name="nav_item32"> 
+            <wm-anchor name="anchor32" iconclass="wi wi-file" caption="Style2" on-tap="Actions.goToPage_StylePage2.invoke()"></wm-anchor> 
+        </wm-nav-item> 
+    </wm-nav> 
+</wm-partial>

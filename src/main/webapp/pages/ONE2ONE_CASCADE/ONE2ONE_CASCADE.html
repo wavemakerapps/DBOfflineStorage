@@ -1,0 +1,133 @@
+<wm-page name="page1"> 
+    <wm-left-panel content="leftnav" name="left_panel1"></wm-left-panel> 
+    <wm-mobile-navbar name="mobile_navbar1" title="CASCADE121"> 
+        <wm-anchor caption="" name="AddLink" iconclass="wi wi-wifi" on-tap="Variables.goOnline.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor2" iconclass="wi wi-signal-wifi-off" caption="" on-tap="Variables.goOffline.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor3" iconclass="wi wi-arrow-downward" caption="" on-tap="Variables.datasyncPull.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor4" iconclass="wi wi-arrow-upward" caption="" on-tap="Variables.datasyncPush.invoke()"></wm-anchor> 
+    </wm-mobile-navbar> 
+    <wm-content name="content1"> 
+        <wm-page-content columnwidth="12" name="page_content1"> 
+            <wm-segmented-control name="segmented_control1"> 
+                <wm-segment-content caption="Child fields configured in Parent" name="segment_content2"> 
+                    <wm-liveform errormessage="" title="One2one_p Info" iconclass="wi wi-edit" formlayout="inline" defaultmode="Edit" dataset="bind:Variables.One2onePData.dataSet" captionalign="left" captionposition="top" name="One2onePLiveForm1"> 
+                        <wm-layoutgrid columns="1" name="layoutgrid1"> 
+                            <wm-gridrow name="gridrow1"> 
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn1"> 
+                                    <wm-form-field name="byteCol" displayname="Byte Col" show="true" primary-key="false" generator="assigned" period="false" key="byteCol" type="byte" readonly="false" required="false" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow2"> 
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn2"> 
+                                    <wm-form-field name="stringCol" displayname="String Col" show="true" primary-key="false" generator="assigned" period="false" key="stringCol" type="string" readonly="false" required="false" widget="text" maxchars="50" inputtype="text" placeholder="Enter value"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow3"> 
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn3"> 
+                                    <wm-form-field name="booleanCol" displayname="Boolean Col" show="true" primary-key="false" generator="assigned" period="false" key="booleanCol" type="boolean" readonly="false" required="false" widget="checkbox" placeholder=""></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow1"> 
+                                <wm-gridcolumn name="gridcolumn1" columnwidth="12"> 
+                                    <wm-form-field name="one2oneC.dateCol" key="one2oneC.dateCol" displayname="One2 One C Date Col" show="true" type="date" widget="date" placeholder="Select date" outputformat="yyyy-MM-dd"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow2"> 
+                                <wm-gridcolumn name="gridcolumn2" columnwidth="12"> 
+                                    <wm-form-field name="one2oneC.timeCol" key="one2oneC.timeCol" displayname="One2 One C Time Col" show="true" type="time" widget="time" placeholder="Select time" outputformat="HH:mm:ss"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow3"> 
+                                <wm-gridcolumn name="gridcolumn3" columnwidth="12"> 
+                                    <wm-form-field name="one2oneC.charCol" key="one2oneC.charCol" displayname="One2 One C Char Col" show="true" type="string" widget="text" inputtype="text" placeholder="Enter value"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow4"> 
+                                <wm-gridcolumn name="gridcolumn4" columnwidth="12"> 
+                                    <wm-form-field name="one2oneC.blobCol" key="one2oneC.blobCol" displayname="One2 One C Blob Col" show="true" type="blob" widget="upload"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow1"> 
+                                <wm-gridcolumn name="gridcolumn1" columnwidth="12"> 
+                                    <wm-form-field name="datetimeCol" displayname="Datetime Col" show="true" primary-key="false" generator="assigned" period="false" key="datetimeCol" type="datetime" readonly="false" required="false" widget="datetime" placeholder="Select date time" outputformat="yyyy-MM-ddTHH:mm:ss" defaultvalue="CURRENT_DATE"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow2"> 
+                                <wm-gridcolumn name="gridcolumn2" columnwidth="12"> 
+                                    <wm-form-field name="timestampCol" displayname="Timestamp Col" show="true" primary-key="false" generator="assigned" period="false" key="timestampCol" type="timestamp" readonly="false" required="false" widget="timestamp" placeholder="Select date time" outputformat="timestamp" defaultvalue="CURRENT_DATE"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow1"> 
+                                <wm-gridcolumn name="gridcolumn1" columnwidth="12"> 
+                                    <wm-form-field name="one2oneC.datetimeCol" key="one2oneC.datetimeCol" displayname="One2 One C Datetime Col" show="true" type="datetime" defaultvalue="CURRENT_DATE" outputformat="yyyy-MM-ddTHH:mm:ss"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow2"> 
+                                <wm-gridcolumn name="gridcolumn2" columnwidth="12"> 
+                                    <wm-form-field name="one2oneC.timestampCol" key="one2oneC.timestampCol" displayname="One2 One C Timestamp Col" show="true" type="timestamp" defaultvalue="CURRENT_DATE"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                        </wm-layoutgrid> 
+                        <wm-form-field name="pid" displayname="Pid" show="false" primary-key="true" generator="identity" period="false" key="pid" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field> 
+                        <wm-form-action key="reset" display-name="Reset" show="true" class="form-reset btn-secondary" iconclass="wi wi-refresh" title="Reset" action="reset()" disabled="false" type="button" update-mode="true"></wm-form-action> 
+                        <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" disabled="false" type="submit" update-mode="true" action=""></wm-form-action> 
+                    </wm-liveform> 
+                </wm-segment-content> 
+                <wm-segment-content caption="List With Form Template" name="segment_content3" content="PartialOne2OneList"></wm-segment-content> 
+                <wm-segment-content caption="CHILD DATA" name="segment_content3_1"> 
+                    <wm-list listclass="list-group" itemclass="list-group-item media" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="One2oneCList1" dataset="bind:Variables.One2oneCData1.dataSet" navigation="Basic" title="CHILD DATA"> 
+                        <wm-listtemplate layout="media" name="listtemplate1"> 
+                            <wm-container class="media-left" name="container1"> 
+                                <wm-picture class="media-object picture" shape="circle" width="40pt" name="Picture" picturesource="bind:Variables.One2oneCData1.dataSet.blobCol" hint="bind:Variables.One2oneCData1.dataSet.cid"></wm-picture> 
+                            </wm-container> 
+                            <wm-container class="media-body" name="container2"> 
+                                <wm-label caption="bind:Variables.One2oneCData1.dataSet.charCol" name="Name" class="p media-heading"></wm-label> 
+                                <wm-label caption="bind:Variables.One2oneCData1.dataSet.timeCol" class="p text-muted" name="Title"></wm-label> 
+                            </wm-container> 
+                            <wm-container class="media-right media-top" width="20%" name="container9" horizontalalign="right"> 
+                                <wm-buttongroup name="buttongroup1"> 
+                                    <wm-button class="btn-transparent edit-list-item" caption="" name="button1" iconclass="wi wi-pencil fa-2x" margin="unset 0.2em unset unset"></wm-button> 
+                                    <wm-button class="btn-transparent delete-list-item" caption="" name="button2" iconclass="wi wi-trash fa-2x"></wm-button> 
+                                </wm-buttongroup> 
+                            </wm-container> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                    <wm-liveform errormessage="" title="One2one_c Info" formlayout="inline" iconclass="wi wi-edit" defaultmode="Edit" dataset="bind:Variables.One2oneCData1.dataSet" captionalign="left" captionposition="top" name="liveform2" formdata="bind:Widgets.One2oneCList1.selecteditem" dependson="One2oneCList1"> 
+                        <wm-layoutgrid columns="1" name="layoutgrid2"> 
+                            <wm-gridrow name="gridrow8"> 
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn8"> 
+                                    <wm-form-field name="dateCol" displayname="Date Col" show="true" primary-key="false" generator="assigned" period="false" key="dateCol" type="date" readonly="false" required="false" widget="date" placeholder="Select date" outputformat="yyyy-MM-dd"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow9"> 
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn9"> 
+                                    <wm-form-field name="timeCol" displayname="Time Col" show="true" primary-key="false" generator="assigned" period="false" key="timeCol" type="time" readonly="false" required="false" widget="time" placeholder="Select time" outputformat="HH:mm:ss"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow10"> 
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn10"> 
+                                    <wm-form-field name="charCol" displayname="Char Col" show="true" primary-key="false" generator="assigned" period="false" key="charCol" type="string" readonly="false" required="false" widget="text" maxchars="1" inputtype="text" placeholder="Enter value"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow11"> 
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn11"> 
+                                    <wm-form-field name="blobCol" displayname="Blob Col" show="true" primary-key="false" generator="assigned" period="false" key="blobCol" type="blob" readonly="false" required="false" widget="upload" maxchars="-1"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow12"> 
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn12"> 
+                                    <wm-form-field name="one2oneP" displayname="One2 One P" show="true" primary-key="true" generator="assigned" period="false" key="one2oneP" type="list" is-related="true" readonly="false" required="true" widget="select" placeholder="Select value"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                        </wm-layoutgrid> 
+                        <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-secondary" iconclass="wi wi-cancel" title="Cancel" action="cancel()" disabled="false" type="button" update-mode="true"></wm-form-action> 
+                        <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" disabled="false" type="submit" update-mode="true" action=""></wm-form-action> 
+                        <wm-form-action key="reset" class="form-reset btn-secondary" iconclass="wi wi-refresh" action="reset()" display-name="Reset" show="true" type="button" update-mode="true" shortcutkey=""></wm-form-action> 
+                        <wm-form-action key="new" class="form-new btn-success" iconclass="wi wi-plus" action="new()" display-name="New" show="true" type="button" update-mode="false" shortcutkey=""></wm-form-action> 
+                    </wm-liveform> 
+                </wm-segment-content> 
+            </wm-segmented-control> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-mobile-tabbar dataset="home,star,music" name="mobile_tabbar1"></wm-mobile-tabbar> 
+</wm-page>

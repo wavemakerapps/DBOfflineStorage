@@ -1,0 +1,292 @@
+{
+  "name" : "School_DB",
+  "entities" : [ {
+    "name" : "ACADEMIC_SUBJECTS",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : "",
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "BUNDLED"
+    },
+    "pushConfig" : {
+      "insertEnabled" : false,
+      "updateEnabled" : false,
+      "deleteEnabled" : false,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "ACADEMIC_TEST_SUBJECTS",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : "",
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "BUNDLED"
+    },
+    "pushConfig" : {
+      "insertEnabled" : false,
+      "updateEnabled" : false,
+      "deleteEnabled" : false,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "ACADEMIC_YEAR",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : null,
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "LIVE"
+    },
+    "pushConfig" : {
+      "insertEnabled" : false,
+      "updateEnabled" : false,
+      "deleteEnabled" : false,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "ACADEMICS",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : null,
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "LIVE"
+    },
+    "pushConfig" : {
+      "insertEnabled" : false,
+      "updateEnabled" : false,
+      "deleteEnabled" : false,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "EMPLOYEE_DETAILS",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : "",
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "BUNDLED"
+    },
+    "pushConfig" : {
+      "insertEnabled" : false,
+      "updateEnabled" : false,
+      "deleteEnabled" : false,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "GRADE_DETAILS",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : null,
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "LIVE"
+    },
+    "pushConfig" : {
+      "insertEnabled" : false,
+      "updateEnabled" : false,
+      "deleteEnabled" : false,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "RESULTS",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : null,
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "LIVE"
+    },
+    "pushConfig" : {
+      "insertEnabled" : false,
+      "updateEnabled" : false,
+      "deleteEnabled" : false,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "STANDARD_DETAILS",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : null,
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "LIVE"
+    },
+    "pushConfig" : {
+      "insertEnabled" : false,
+      "updateEnabled" : false,
+      "deleteEnabled" : false,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "STUDENT_ACADEMICS",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : "",
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "BUNDLED"
+    },
+    "pushConfig" : {
+      "insertEnabled" : false,
+      "updateEnabled" : false,
+      "deleteEnabled" : false,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "STUDENT_DETAILS",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : null,
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "LIVE"
+    },
+    "pushConfig" : {
+      "insertEnabled" : false,
+      "updateEnabled" : false,
+      "deleteEnabled" : false,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "STUDENT_IDENTIFICATION",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : null,
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "LIVE"
+    },
+    "pushConfig" : {
+      "insertEnabled" : false,
+      "updateEnabled" : false,
+      "deleteEnabled" : false,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "SUBJECT_DETAILS",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : null,
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "LIVE"
+    },
+    "pushConfig" : {
+      "insertEnabled" : false,
+      "updateEnabled" : false,
+      "deleteEnabled" : false,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "TEST_CONDUCTED",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : null,
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "LIVE"
+    },
+    "pushConfig" : {
+      "insertEnabled" : false,
+      "updateEnabled" : false,
+      "deleteEnabled" : false,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "TEST_DETAILS",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : null,
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "LIVE"
+    },
+    "pushConfig" : {
+      "insertEnabled" : false,
+      "updateEnabled" : false,
+      "deleteEnabled" : false,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "USER_LOGIN",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : null,
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "LIVE"
+    },
+    "pushConfig" : {
+      "insertEnabled" : false,
+      "updateEnabled" : false,
+      "deleteEnabled" : false,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "VIEW_RESULTS",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : "",
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "BUNDLED"
+    },
+    "pushConfig" : {
+      "insertEnabled" : false,
+      "updateEnabled" : false,
+      "deleteEnabled" : false,
+      "readEnabled" : true
+    }
+  } ]
+}

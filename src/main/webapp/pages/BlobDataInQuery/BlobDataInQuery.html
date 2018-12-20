@@ -1,0 +1,73 @@
+<wm-page name="page1"> 
+    <wm-left-panel content="leftnav" name="left_panel1"></wm-left-panel> 
+    <wm-mobile-navbar name="mobile_navbar1" title="Query Blob Data"> 
+        <wm-anchor caption="" name="AddLink" iconclass="wi wi-wifi" on-tap="Variables.goOnline.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor2" iconclass="wi wi-signal-wifi-off" caption="" on-tap="Variables.goOffline.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor3" iconclass="wi wi-arrow-downward" caption="" on-tap="Variables.datasyncPull.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor4" iconclass="wi wi-arrow-upward" caption="" on-tap="Variables.datasyncPush.invoke()"></wm-anchor> 
+    </wm-mobile-navbar> 
+    <wm-content name="content1"> 
+        <wm-page-content columnwidth="12" name="page_content1"> 
+            <wm-tabs name="tabs1"> 
+                <wm-tabpane name="tabpane1" title="Blob Data"> 
+                    <wm-list listclass="list-group" template="true" itemsperrow="xs-1 sm-2 md-3 lg-4" class="list-card" name="executeSV_StudentDetailsList1" dataset="bind:Variables.School_DBExecuteSV_StudentDetails.dataSet" navigation="Classic" subheading="Images should be loaded from query"> 
+                        <wm-listtemplate layout="media" name="listtemplate1"> 
+                            <wm-card name="card1"> 
+                                <wm-card-content fontsize="0.8" fontunit="em" name="card_content1"> 
+                                    <wm-layoutgrid columns="2" name="layoutgrid1"> 
+                                        <wm-gridrow name="gridrow1"> 
+                                            <wm-gridcolumn colwidth="6" columnwidth="6" class="col-xs-6" name="gridcolumn1"> 
+                                                <wm-picture name="Picture" width="100%" picturesource="bind:Variables.School_DBExecuteSV_StudentDetails.dataSet.profilePic"></wm-picture> 
+                                            </wm-gridcolumn> 
+                                            <wm-gridcolumn colwidth="6" columnwidth="6" padding="unset 1.25em" class="col-xs-6" name="gridcolumn2"> 
+                                                <wm-label name="ID" caption="bind:Variables.School_DBExecuteSV_StudentDetails.dataSet.studentId" class="text-muted p" margin="unset unset 0px unset" whitespace="nowrap"></wm-label> 
+                                                <wm-label name="Name" caption="bind:Variables.School_DBExecuteSV_StudentDetails.dataSet.studentName" class="h4" margin="0px unset" whitespace="nowrap"></wm-label> 
+                                                <wm-label name="JobTitle" caption="bind:Variables.School_DBExecuteSV_StudentDetails.dataSet.gender" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label> 
+                                                <wm-label name="Department" caption="bind:Variables.School_DBExecuteSV_StudentDetails.dataSet.address" class="p text-muted" margin="unset unset 0px unset" whitespace="nowrap"></wm-label> 
+                                                <wm-label name="Location" caption="bind:Variables.School_DBExecuteSV_StudentDetails.dataSet.studentIdentificationId" class="text-muted p" whitespace="nowrap"></wm-label> 
+                                                <wm-anchor name="PhoneNumber" caption="bind:Variables.School_DBExecuteSV_StudentDetails.dataSet.contactNumber" class="h5" hyperlink="tel:" margin="0px unset" whitespace="nowrap"></wm-anchor> 
+                                                <wm-anchor name="EmailID" class="p text-muted" hyperlink="mailto://" caption="bind:Variables.School_DBExecuteSV_StudentDetails.dataSet.joiningDate" whitespace="nowrap"></wm-anchor> 
+                                            </wm-gridcolumn> 
+                                        </wm-gridrow> 
+                                    </wm-layoutgrid> 
+                                </wm-card-content> 
+                            </wm-card> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane2" title="Query Param as Date"> 
+                    <wm-composite name="composite1"> 
+                        <wm-label class="col-xs-4 control-label" name="label6" caption="Joining Date"></wm-label> 
+                        <wm-container class="col-xs-8" name="container1"> 
+                            <wm-date name="date1" placeholder="2015-06-01"></wm-date> 
+                        </wm-container> 
+                    </wm-composite> 
+                    <wm-list listclass="list-group" template="true" itemsperrow="xs-1 sm-2 md-3 lg-4" class="list-card" name="executeSV_QueryWithDateList1" dataset="bind:Variables.School_DBExecuteSV_QueryWithDate.dataSet" navigation="Basic" subheading="Give Joining Date as '2015-06-01'"> 
+                        <wm-listtemplate layout="media" name="listtemplate2"> 
+                            <wm-card name="card2"> 
+                                <wm-card-content fontsize="0.8" fontunit="em" name="card_content2"> 
+                                    <wm-layoutgrid columns="2" name="layoutgrid2"> 
+                                        <wm-gridrow name="gridrow2"> 
+                                            <wm-gridcolumn colwidth="6" columnwidth="6" class="col-xs-6" name="gridcolumn3"> 
+                                                <wm-picture name="Picture" width="100%" picturesource="bind:Variables.School_DBExecuteSV_QueryWithDate.dataSet.profilePic"></wm-picture> 
+                                            </wm-gridcolumn> 
+                                            <wm-gridcolumn colwidth="6" columnwidth="6" padding="unset 1.25em" class="col-xs-6" name="gridcolumn4"> 
+                                                <wm-label name="ID" caption="bind:Variables.School_DBExecuteSV_QueryWithDate.dataSet.studentId" class="text-muted p" margin="unset unset 0px unset" whitespace="nowrap"></wm-label> 
+                                                <wm-label name="Name" caption="bind:Variables.School_DBExecuteSV_QueryWithDate.dataSet.studentName" class="h4" margin="0px unset" whitespace="nowrap"></wm-label> 
+                                                <wm-label name="JobTitle" caption="bind:Variables.School_DBExecuteSV_QueryWithDate.dataSet.dateOfBirth" class="h5" margin="0px unset unset unset" whitespace="nowrap"></wm-label> 
+                                                <wm-label name="Department" caption="bind:&quot;Joining Date:&quot;+Variables.School_DBExecuteSV_QueryWithDate.dataSet.joiningDate" class="p text-muted" margin="unset unset 0px unset" whitespace="nowrap"></wm-label> 
+                                                <wm-label name="Location" caption="bind:Variables.School_DBExecuteSV_QueryWithDate.dataSet.status" class="text-muted p" whitespace="nowrap"></wm-label> 
+                                                <wm-anchor name="PhoneNumber" caption="bind:Variables.School_DBExecuteSV_QueryWithDate.dataSet.gender" class="h5" hyperlink="tel:" margin="0px unset" whitespace="nowrap"></wm-anchor> 
+                                                <wm-anchor name="EmailID" class="p text-muted" hyperlink="mailto://" caption="bind:Variables.School_DBExecuteSV_QueryWithDate.dataSet.studentIdentificationId" whitespace="nowrap"></wm-anchor> 
+                                            </wm-gridcolumn> 
+                                        </wm-gridrow> 
+                                    </wm-layoutgrid> 
+                                </wm-card-content> 
+                            </wm-card> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+            </wm-tabs> 
+        </wm-page-content> 
+    </wm-content> 
+</wm-page>

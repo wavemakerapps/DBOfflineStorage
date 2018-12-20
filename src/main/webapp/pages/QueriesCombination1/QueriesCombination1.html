@@ -1,0 +1,77 @@
+<wm-page name="page1"> 
+    <wm-left-panel content="leftnav" name="left_panel1"></wm-left-panel> 
+    <wm-mobile-navbar name="mobile_navbar1" title="Queries"> 
+        <wm-anchor caption="" name="AddLink" iconclass="wi wi-wifi" on-tap="Variables.goOnline.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor2" iconclass="wi wi-signal-wifi-off" caption="" on-tap="Variables.goOffline.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor3" iconclass="wi wi-arrow-downward" caption="" on-tap="Variables.datasyncPull.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor4" iconclass="wi wi-arrow-upward" caption="" on-tap="Variables.datasyncPush.invoke()"></wm-anchor> 
+    </wm-mobile-navbar> 
+    <wm-content name="content1"> 
+        <wm-page-content columnwidth="12" name="page_content1"> 
+            <wm-tabs name="tabs1"> 
+                <wm-tabpane name="tabpane1" title="Nested"> 
+                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="executeSV_NestedQueryList1" dataset="bind:Variables.School_DBExecuteSV_NestedQuery.dataSet" navigation="Classic" title="Nested Queries"> 
+                        <wm-listtemplate layout="inline" name="listtemplate1"> 
+                            <wm-container name="pictureContainer" class="media-left"> 
+                                <wm-picture width="32pt" height="32pt" name="Picture" shape="circle" class="media-object"></wm-picture> 
+                            </wm-container> 
+                            <wm-container class="media-body" padding="unset unset unset 1.25em" name="container2"> 
+                                <wm-label name="Name" class="media-heading pull-left" caption="bind:Variables.School_DBExecuteSV_NestedQuery.dataSet.academicYear" fontunit="em"></wm-label> 
+                                <wm-label name="Time" caption="bind:Variables.School_DBExecuteSV_NestedQuery.dataSet.gradeId" class="pull-right" margin="0px unset unset unset"></wm-label> 
+                                <wm-label caption="bind:Variables.School_DBExecuteSV_NestedQuery.dataSet.studentId" class="h5" margin="0px unset unset unset" name="JobTitle"></wm-label> 
+                                <wm-label name="Content" caption="bind:Variables.School_DBExecuteSV_NestedQuery.dataSet.marksSecured" class="p text-muted"></wm-label> 
+                            </wm-container> 
+                            <wm-container class="media-right" name="container3"></wm-container> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane2" title="UnionAll"> 
+                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="executeSV_UnionAllList1" dataset="bind:Variables.School_DBExecuteSV_UnionAll.dataSet" navigation="On-Demand" paginationclass="btn-default"> 
+                        <wm-listtemplate layout="inline" name="listtemplate2"> 
+                            <wm-container name="pictureContainer" class="media-left"> 
+                                <wm-picture width="32pt" height="32pt" name="Picture" shape="circle" picturesource="bind:Variables.School_DBExecuteSV_UnionAll.dataSet.picUrl" class="media-object"></wm-picture> 
+                            </wm-container> 
+                            <wm-container class="media-body" padding="unset unset unset 1.25em" name="container5"> 
+                                <wm-label name="Name" class="media-heading pull-left" caption="bind:Variables.School_DBExecuteSV_UnionAll.dataSet.empId" fontunit="em"></wm-label> 
+                                <wm-label name="Time" caption="bind:Variables.School_DBExecuteSV_UnionAll.dataSet.firstname" class="pull-right" margin="0px unset unset unset"></wm-label> 
+                                <wm-label caption="bind:Variables.School_DBExecuteSV_UnionAll.dataSet.jobTitle" class="h5" margin="0px unset unset unset" name="JobTitle"></wm-label> 
+                                <wm-label name="Content" caption="bind:Variables.School_DBExecuteSV_UnionAll.dataSet.dateOfBirth" class="p text-muted"></wm-label> 
+                            </wm-container> 
+                            <wm-container class="media-right" name="container6"></wm-container> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane3" title="CONCAT"> 
+                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="executeSV_ConcatQueryList1" dataset="bind:Variables.School_DBExecuteSV_ConcatQuery.dataSet" navigation="Basic" title="CONCAT" subheading="CONCAT 1. firstName &amp; lastName as fullName 2. State, Street, City, pincode as Address"> 
+                        <wm-listtemplate layout="inline" name="listtemplate3"> 
+                            <wm-container class="media-body" padding="unset unset unset 1.25em" name="container8"> 
+                                <wm-label name="Name" class="media-heading pull-left" caption="bind:Variables.School_DBExecuteSV_ConcatQuery.dataSet.empId" fontunit="em"></wm-label> 
+                                <wm-label name="Time" caption="bind:Variables.School_DBExecuteSV_ConcatQuery.dataSet.fullName" class="pull-right" margin="0px unset unset unset"></wm-label> 
+                                <wm-label caption="bind:Variables.School_DBExecuteSV_ConcatQuery.dataSet.address" class="h5" margin="0px unset unset unset" name="JobTitle"></wm-label> 
+                                <wm-label name="Content" caption="bind:Variables.School_DBExecuteSV_ConcatQuery.dataSet.dateOfBirth" class="p text-muted"></wm-label> 
+                            </wm-container> 
+                            <wm-container class="media-right" name="container9"></wm-container> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane4" title="Using Alias"> 
+                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="executeSV_AliasList1" dataset="bind:Variables.School_DBExecuteSV_Alias.dataSet" navigation="Classic"> 
+                        <wm-listtemplate layout="inline" name="listtemplate4"> 
+                            <wm-container name="pictureContainer" class="media-left"> 
+                                <wm-picture width="32pt" height="32pt" name="Picture" shape="circle" class="media-object"></wm-picture> 
+                            </wm-container> 
+                            <wm-container class="media-body" padding="unset unset unset 1.25em" name="container10"> 
+                                <wm-label name="Name" class="media-heading pull-left" caption="bind:Variables.School_DBExecuteSV_Alias.dataSet.racademicYear" fontunit="em"></wm-label> 
+                                <wm-label name="Time" caption="bind:Variables.School_DBExecuteSV_Alias.dataSet.rstudentId" class="pull-right" margin="0px unset unset unset"></wm-label> 
+                                <wm-label caption="bind:Variables.School_DBExecuteSV_Alias.dataSet.rgradeId" class="h5" margin="0px unset unset unset" name="JobTitle"></wm-label> 
+                                <wm-label name="Content" caption="bind:Variables.School_DBExecuteSV_Alias.dataSet.rstandardId" class="p text-muted"></wm-label> 
+                            </wm-container> 
+                            <wm-container class="media-right" name="container11"></wm-container> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+            </wm-tabs> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-mobile-tabbar dataset="home,star,music" name="mobile_tabbar1"></wm-mobile-tabbar> 
+</wm-page>

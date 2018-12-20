@@ -1,0 +1,149 @@
+[ {
+  "name" : "AllTypes",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "AppEnvTable",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "AssignedPK",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "BlobDataInQuery",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Common",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "CompositeKeys",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Current_Date",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "DatabaseDefined",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "EmployeeData",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "FileUpload",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "FilterCriteriaWithDate",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "FilterFieldsReference",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "HQL_QueriesSet1",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "HQl_QueriesSet2",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "HiddenFields",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Login",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Main",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ONE2MANY_CASCADE",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ONE2ONE_CASCADE",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "PartialOne2OneList",
+  "type" : "PARTIAL",
+  "params" : [ ]
+}, {
+  "name" : "QueriesCombination1",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "QueriesCombination2",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "QueriesCombination3",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Query_Functions",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Query_Functions1",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Query_GroupBy",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Query_Joins",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Search",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "ServerDefined",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "StylePage1",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "StylePage2",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "UniqueConstraint",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "Validators",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "WhereClause",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "filterCriteria",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "filterCriteriaUsingScript",
+  "type" : "PAGE",
+  "params" : [ ]
+}, {
+  "name" : "leftnav",
+  "type" : "LEFTNAV",
+  "params" : [ ]
+} ]

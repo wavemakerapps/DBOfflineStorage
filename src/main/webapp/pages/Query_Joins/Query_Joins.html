@@ -1,0 +1,98 @@
+<wm-page name="page1"> 
+    <wm-left-panel content="leftnav" name="left_panel1"></wm-left-panel> 
+    <wm-mobile-navbar name="mobile_navbar1" title="Joins"> 
+        <wm-anchor caption="" name="AddLink" iconclass="wi wi-wifi" on-tap="Variables.goOnline.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor2" iconclass="wi wi-signal-wifi-off" caption="" on-tap="Variables.goOffline.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor3" iconclass="wi wi-arrow-downward" caption="" on-tap="Variables.datasyncPull.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor4" iconclass="wi wi-arrow-upward" caption="" on-tap="Variables.datasyncPush.invoke()"></wm-anchor> 
+    </wm-mobile-navbar> 
+    <wm-content name="content1"> 
+        <wm-page-content columnwidth="12" name="page_content1"> 
+            <wm-tabs name="LeftOuter"> 
+                <wm-tabpane name="tabpane1" title="Full Join"> 
+                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="executeSV_FullJoinList1" dataset="bind:Variables.School_DBExecuteSV_FullJoin.dataSet" navigation="Classic"> 
+                        <wm-listtemplate layout="media" name="listtemplate1"> 
+                            <wm-container class="media-body" padding="unset 1.5em unset 1.25em" name="container2"> 
+                                <wm-label class="pull-left" caption="bind:&quot;Student_Id: &quot;+Variables.School_DBExecuteSV_FullJoin.dataSet.studentId" name="Name" margin="0em unset 0.5em unset" fontsize="1.143" fontunit="em"></wm-label> 
+                                <wm-label name="Time" class="pull-right text-muted" caption="bind:&quot;Subject_Id:&quot;+Variables.School_DBExecuteSV_FullJoin.dataSet.subjectId"></wm-label> 
+                                <wm-label caption="bind:&quot;Max_Marks:&quot;+Variables.School_DBExecuteSV_FullJoin.dataSet.maxMarks" name="Description" class="p text-muted"></wm-label> 
+                                <wm-label caption="bind:&quot;Marks_Secured: &quot;+Variables.School_DBExecuteSV_FullJoin.dataSet[$i].marksSecured" class="p text-muted" name="label4"></wm-label> 
+                                <wm-label caption="bind:&quot;GradeId: &quot;+Variables.School_DBExecuteSV_FullJoin.dataSet[$i].gradeId" class="p text-muted" name="label5"></wm-label> 
+                            </wm-container> 
+                            <wm-container class="media-right" horizontalalign="right" padding="unset 1em unset unset" name="container3"> 
+                                <wm-menu autoclose="outsideClick" caption="" type="anchor" iconclass="wi wi-more-vert" menuposition="down,left" name="menu1"></wm-menu> 
+                            </wm-container> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane2" title="Inner Join-OrderBy"> 
+                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" dataset="bind:Variables.School_DBExecuteSV_InnerJoinWithOrderBy.dataSet" navigation="Pager" name="list2"> 
+                        <wm-listtemplate layout="media" name="listtemplate2"> 
+                            <wm-container class="media-left media-top" name="container3_1"> 
+                                <wm-picture name="Picture" class="media-object" width="32pt" height="32pt" picturesource="bind:Variables.School_DBExecuteSV_InnerJoinWithOrderBy.dataSet.picUrl"></wm-picture> 
+                            </wm-container> 
+                            <wm-container class="media-body" padding="unset 1.5em unset 1.25em" name="container4"> 
+                                <wm-label class="pull-left" caption="bind:Variables.School_DBExecuteSV_InnerJoinWithOrderBy.dataSet.empId" name="Name" margin="0em unset 0.5em unset" fontsize="1.143" fontunit="em"></wm-label> 
+                                <wm-label name="Time" class="pull-right text-muted" caption="bind:Variables.School_DBExecuteSV_InnerJoinWithOrderBy.dataSet.firstname"></wm-label> 
+                                <wm-label caption="bind:Variables.School_DBExecuteSV_InnerJoinWithOrderBy.dataSet.dateOfBirth" name="Description" class="p text-muted"></wm-label> 
+                            </wm-container> 
+                            <wm-container class="media-right" horizontalalign="right" padding="unset 1em unset unset" name="container5"> 
+                                <wm-menu autoclose="outsideClick" caption="" type="anchor" iconclass="wi wi-more-vert" menuposition="down,left" name="menu2"></wm-menu> 
+                            </wm-container> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane3" title="Inner Join"> 
+                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="executeSV_InnerJoinsList1" dataset="bind:Variables.School_DBExecuteSV_InnerJoins.dataSet" navigation="Basic"> 
+                        <wm-listtemplate layout="media" name="listtemplate3"> 
+                            <wm-container class="media-left media-top" name="container6"> 
+                                <wm-picture name="Picture" class="media-object" width="32pt" height="32pt"></wm-picture> 
+                            </wm-container> 
+                            <wm-container class="media-body" padding="unset 1.5em unset 1.25em" name="container7"> 
+                                <wm-label class="pull-left" caption="bind:Variables.School_DBExecuteSV_InnerJoins.dataSet.studentId" name="Name" margin="0em unset 0.5em unset" fontsize="1.143" fontunit="em"></wm-label> 
+                                <wm-label name="Time" class="pull-right text-muted" caption="bind:Variables.School_DBExecuteSV_InnerJoins.dataSet.academicYear"></wm-label> 
+                                <wm-label caption="bind:Variables.School_DBExecuteSV_InnerJoins.dataSet.marksSecured" name="Description" class="p text-muted"></wm-label> 
+                            </wm-container> 
+                            <wm-container class="media-right" horizontalalign="right" padding="unset 1em unset unset" name="container8"> 
+                                <wm-menu autoclose="outsideClick" caption="" type="anchor" iconclass="wi wi-more-vert" menuposition="down,left" name="menu3"></wm-menu> 
+                            </wm-container> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane4" title="LeftOuter"> 
+                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="executeSV_LeftOuterJoinList1" dataset="bind:Variables.School_DBExecuteSV_LeftOuterJoin.dataSet" navigation="Basic"> 
+                        <wm-listtemplate layout="inline" name="listtemplate4"> 
+                            <wm-container name="pictureContainer" class="media-left"> 
+                                <wm-picture width="32pt" height="32pt" name="Picture" shape="circle" class="media-object"></wm-picture> 
+                            </wm-container> 
+                            <wm-container class="media-body" padding="unset unset unset 1.25em" name="container10"> 
+                                <wm-label name="Name" class="media-heading pull-left" caption="bind:Variables.School_DBExecuteSV_LeftOuterJoin.dataSet.academicYear" fontunit="em"></wm-label> 
+                                <wm-label name="Time" caption="bind:Variables.School_DBExecuteSV_LeftOuterJoin.dataSet.subjectId" class="pull-right" margin="0px unset unset unset"></wm-label> 
+                                <wm-label caption="bind:Variables.School_DBExecuteSV_LeftOuterJoin.dataSet.standardId" class="h5" margin="0px unset unset unset" name="JobTitle"></wm-label> 
+                                <wm-label name="Content" caption="bind:Variables.School_DBExecuteSV_LeftOuterJoin.dataSet.classRoom" class="p text-muted"></wm-label> 
+                            </wm-container> 
+                            <wm-container class="media-right" name="container11"></wm-container> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane5" title="RightJoin"> 
+                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="executeSV_RightJoinList1" dataset="bind:Variables.School_DBExecuteSV_RightJoin.dataSet" navigation="Classic"> 
+                        <wm-listtemplate layout="inline" name="listtemplate5"> 
+                            <wm-container name="pictureContainer" class="media-left"> 
+                                <wm-picture width="32pt" height="32pt" name="Picture" shape="circle" class="media-object"></wm-picture> 
+                            </wm-container> 
+                            <wm-container class="media-body" padding="unset unset unset 1.25em" name="container13"> 
+                                <wm-label name="Name" class="media-heading pull-left" caption="bind:Variables.School_DBExecuteSV_RightJoin.dataSet.academicYear" fontunit="em"></wm-label> 
+                                <wm-label name="Time" caption="bind:Variables.School_DBExecuteSV_RightJoin.dataSet.subjectId" class="pull-right" margin="0px unset unset unset"></wm-label> 
+                                <wm-label caption="bind:Variables.School_DBExecuteSV_RightJoin.dataSet.classRoom" class="h5" margin="0px unset unset unset" name="JobTitle"></wm-label> 
+                                <wm-label name="Content" caption="bind:Variables.School_DBExecuteSV_RightJoin.dataSet.maxMarks" class="p text-muted"></wm-label> 
+                            </wm-container> 
+                            <wm-container class="media-right" name="container14"></wm-container> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+            </wm-tabs> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-mobile-tabbar dataset="home,star,music" name="mobile_tabbar1"></wm-mobile-tabbar> 
+</wm-page>

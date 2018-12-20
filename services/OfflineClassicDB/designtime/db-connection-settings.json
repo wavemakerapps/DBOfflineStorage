@@ -1,0 +1,76 @@
+{
+  "username" : "root",
+  "password" : "7b6a43524a122c0c6e6166771a13057c4838313a6b124c1a",
+  "url" : "jdbc:mysql://54.189.223.203:3306/OfflineClassicDB?useUnicode=yes&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull",
+  "driverClass" : "com.mysql.jdbc.Driver",
+  "dialect" : "com.wavemaker.runtime.data.dialect.MySQLDialect",
+  "serviceId" : "OfflineClassicDB",
+  "packageName" : "com.dbofflinestorage.offlineclassicdb",
+  "dbType" : "MySQL",
+  "host" : "54.189.223.203",
+  "dbName" : "OfflineClassicDB",
+  "port" : "3306",
+  "schemaName" : null,
+  "tableFilter" : [ {
+    "table" : "ALL TYPES",
+    "schema" : null
+  }, {
+    "table" : "APP_ENV_TABLE",
+    "schema" : null
+  }, {
+    "table" : "AssignedType",
+    "schema" : null
+  }, {
+    "table" : "customers",
+    "schema" : null
+  }, {
+    "table" : "employees",
+    "schema" : null
+  }, {
+    "table" : "Hidden Field",
+    "schema" : null
+  }, {
+    "table" : "offices",
+    "schema" : null
+  }, {
+    "table" : "order_details",
+    "schema" : null
+  }, {
+    "table" : "orders",
+    "schema" : null
+  }, {
+    "table" : "payments",
+    "schema" : null
+  }, {
+    "table" : "productlines",
+    "schema" : null
+  }, {
+    "table" : "products",
+    "schema" : null
+  }, {
+    "table" : "Server Defined",
+    "schema" : null
+  }, {
+    "table" : "UniqueConstraint",
+    "schema" : null
+  }, {
+    "table" : "User Details",
+    "schema" : null
+  } ],
+  "schemaFilter" : [ ],
+  "impersonateUser" : false,
+  "activeDirectoryDomain" : null,
+  "hbm2ddl" : "none",
+  "maxPageSize" : 100,
+  "minPoolSize" : 2,
+  "maxPoolSize" : 4,
+  "transactionTimeout" : 30,
+  "dataSourceType" : "WM_MANAGED_DATASOURCE",
+  "jndiName" : "",
+  "reloadInfo" : {
+    "reload" : true,
+    "reason" : "MIGRATION_FAILED",
+    "message" : "Regenerating Source to implement the newly added method in the classes extending WMGenericDaoImpl."
+  },
+  "readOnly" : false
+}

@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <sql-query name="SV_SubStr">
+        <![CDATA[
+        select substr(CITY,1,8) as SHORTEN_CITY from EMPLOYEE_DETAILS
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_SubStr__count">
+        <![CDATA[
+        select count(*) from (select substr(CITY,1,8) as SHORTEN_CITY from EMPLOYEE_DETAILS) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_InnerJoins">
+        <![CDATA[
+        SELECT R.*,A.CLASS_TEACHER,A.CLASS_ROOM,ACS.SUBJECT_ID,ACS.SUBJECT_TEACHER,ATS.TEST_ID,ATS.MAX_MARKS 
+FROM RESULTS R 
+INNER JOIN ACADEMICS A ON R.ACADEMIC_YEAR=A.ACADEMIC_YEAR AND R.STANDARD_ID=A.STANDARD_ID 
+INNER JOIN ACADEMIC_SUBJECTS ACS ON ACS.ACADEMIC_YEAR=R.ACADEMIC_YEAR AND ACS.STANDARD_ID=R.STANDARD_ID
+INNER JOIN ACADEMIC_TEST_SUBJECTS ATS ON ATS.ACADEMIC_YEAR=R.ACADEMIC_YEAR AND ATS.STANDARD_ID=R.STANDARD_ID
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_InnerJoins__count">
+        <![CDATA[
+        select count(*) from (SELECT R.*,A.CLASS_TEACHER,A.CLASS_ROOM,ACS.SUBJECT_ID,ACS.SUBJECT_TEACHER,ATS.TEST_ID,ATS.MAX_MARKS 
+FROM RESULTS R 
+INNER JOIN ACADEMICS A ON R.ACADEMIC_YEAR=A.ACADEMIC_YEAR AND R.STANDARD_ID=A.STANDARD_ID 
+INNER JOIN ACADEMIC_SUBJECTS ACS ON ACS.ACADEMIC_YEAR=R.ACADEMIC_YEAR AND ACS.STANDARD_ID=R.STANDARD_ID
+INNER JOIN ACADEMIC_TEST_SUBJECTS ATS ON ATS.ACADEMIC_YEAR=R.ACADEMIC_YEAR AND ATS.STANDARD_ID=R.STANDARD_ID) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_NOTNULL">
+        <![CDATA[
+        SELECT * FROM RESULTS Where PRESENCE IS NOT NULL
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_NOTNULL__count">
+        <![CDATA[
+        select count(*) from (SELECT * FROM RESULTS Where PRESENCE IS NOT NULL) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_StudentDetails">
+        <![CDATA[
+        select * from STUDENT_DETAILS
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_StudentDetails__count">
+        <![CDATA[
+        select count(*) from (select * from STUDENT_DETAILS) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_StudentDetails__identifier">
+        <![CDATA[
+        select * from (select * from STUDENT_DETAILS) wmTempTable where `STUDENT_ID`=:studentId
+        ]]>
+    <query-param name="studentId" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="SV_LeftOuterJoin">
+        <![CDATA[
+        select ATS.*,A.CLASS_ROOM,A.CLASS_TEACHER from ACADEMIC_TEST_SUBJECTS ATS LEFT OUTER JOIN ACADEMICS A ON ATS.ACADEMIC_YEAR=A.ACADEMIC_YEAR AND ATS.STANDARD_ID=A.STANDARD_ID
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_LeftOuterJoin__count">
+        <![CDATA[
+        select count(*) from (select ATS.*,A.CLASS_ROOM,A.CLASS_TEACHER from ACADEMIC_TEST_SUBJECTS ATS LEFT OUTER JOIN ACADEMICS A ON ATS.ACADEMIC_YEAR=A.ACADEMIC_YEAR AND ATS.STANDARD_ID=A.STANDARD_ID) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_DateFormatSyntax">
+        <![CDATA[
+        select FIRSTNAME,LASTNAME,DATE_FORMAT(DATE_OF_BIRTH,'%a %D %b %Y') as DATE_OF_BIRTH from EMPLOYEE_DETAILS
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_DateFormatSyntax__count">
+        <![CDATA[
+        select count(*) from (select FIRSTNAME,LASTNAME,DATE_FORMAT(DATE_OF_BIRTH,'%a %D %b %Y') as DATE_OF_BIRTH from EMPLOYEE_DETAILS) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_InnerJoinWithOrderBy">
+        <![CDATA[
+        select E.*,U.* from EMPLOYEE_DETAILS E INNER JOIN USER_LOGIN U ON E.EMP_ID=U.USER_ID ORDER BY E.FIRSTNAME ASC
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_InnerJoinWithOrderBy__count">
+        <![CDATA[
+        select count(*) from (select E.*,U.* from EMPLOYEE_DETAILS E INNER JOIN USER_LOGIN U ON E.EMP_ID=U.USER_ID ORDER BY E.FIRSTNAME ASC) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_InnerJoinWithOrderBy__identifier">
+        <![CDATA[
+        select * from (select E.*,U.* from EMPLOYEE_DETAILS E INNER JOIN USER_LOGIN U ON E.EMP_ID=U.USER_ID ORDER BY E.FIRSTNAME ASC) wmTempTable where `EMP_ID`=:empId
+        ]]>
+    <query-param name="empId" type="java.lang.Integer"/>
+    </sql-query>
+
+    <query name="HQL_COUNT_DISTINCT">
+        <![CDATA[
+        SELECT count(distinct A.classTeacher) AS COUNT_DISTINCT_CLASSTEACHER FROM Academics A
+        ]]>
+    </query>
+
+    <query name="HQL_COUNT_DISTINCT__count">
+        <![CDATA[
+        select count(*)  FROM Academics A
+        ]]>
+    </query>
+
+    <sql-query name="SV_MAXFunction">
+        <![CDATA[
+        select MAX(MARKS_SECURED) from RESULTS WHERE ACADEMIC_YEAR=:ACADEMIC_YEAR AND STANDARD_ID=1 AND TEST_CONDUCTED_ID=1
+        ]]>
+    <query-param name="ACADEMIC_YEAR" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="SV_MAXFunction__count">
+        <![CDATA[
+        select count(*) from (select MAX(MARKS_SECURED) from RESULTS WHERE ACADEMIC_YEAR=:ACADEMIC_YEAR AND STANDARD_ID=1 AND TEST_CONDUCTED_ID=1) wmTempTable
+        ]]>
+    <query-param name="ACADEMIC_YEAR" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="SV_LowerFunction">
+        <![CDATA[
+        select LCASE(FIRSTNAME) AS FIRSTNAME,LOWER(LASTNAME) AS LASTNAME from EMPLOYEE_DETAILS
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_LowerFunction__count">
+        <![CDATA[
+        select count(*) from (select LCASE(FIRSTNAME) AS FIRSTNAME,LOWER(LASTNAME) AS LASTNAME from EMPLOYEE_DETAILS) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_SumFunction">
+        <![CDATA[
+        select sum(MARKS_SECURED) as TOTAL_MARKS_SECURED, STUDENT_ID from RESULTS where ACADEMIC_YEAR=:ACADEMIC_YEAR and STANDARD_ID=1 group by STUDENT_ID
+        ]]>
+    <query-param name="ACADEMIC_YEAR" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="SV_SumFunction__count">
+        <![CDATA[
+        select count(*) from (select sum(MARKS_SECURED) as TOTAL_MARKS_SECURED, STUDENT_ID from RESULTS where ACADEMIC_YEAR=:ACADEMIC_YEAR and STANDARD_ID=1 group by STUDENT_ID) wmTempTable
+        ]]>
+    <query-param name="ACADEMIC_YEAR" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="SV_GroupByHavingClause">
+        <![CDATA[
+        select sum(R.MARKS_SECURED) as MARKS_SECURED,R.STUDENT_ID,R.TEST_CONDUCTED_ID,ACADEMIC_YEAR,STANDARD_ID from RESULTS R where R.ACADEMIC_YEAR=:ACADEMIC_YEAR and R.STANDARD_ID=1 GROUP BY STUDENT_ID HAVING MARKS_SECURED>700
+        ]]>
+    <query-param name="ACADEMIC_YEAR" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="SV_GroupByHavingClause__count">
+        <![CDATA[
+        select count(*) from (select sum(R.MARKS_SECURED) as MARKS_SECURED,R.STUDENT_ID,R.TEST_CONDUCTED_ID,ACADEMIC_YEAR,STANDARD_ID from RESULTS R where R.ACADEMIC_YEAR=:ACADEMIC_YEAR and R.STANDARD_ID=1 GROUP BY STUDENT_ID HAVING MARKS_SECURED>700) wmTempTable
+        ]]>
+    <query-param name="ACADEMIC_YEAR" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="SV_MinFunction">
+        <![CDATA[
+        select MIN(MARKS_SECURED) from RESULTS WHERE ACADEMIC_YEAR=:ACADEMIC_YEAR AND STANDARD_ID=1 AND TEST_CONDUCTED_ID=1
+        ]]>
+    <query-param name="ACADEMIC_YEAR" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="SV_MinFunction__count">
+        <![CDATA[
+        select count(*) from (select MIN(MARKS_SECURED) from RESULTS WHERE ACADEMIC_YEAR=:ACADEMIC_YEAR AND STANDARD_ID=1 AND TEST_CONDUCTED_ID=1) wmTempTable
+        ]]>
+    <query-param name="ACADEMIC_YEAR" type="java.lang.String"/>
+    </sql-query>
+
+    <query name="HQL_GroupBy">
+        <![CDATA[
+        SELECT SUM(R.marksSecured) as SUM_MARKS, R.academicYear AS ACADEMIC_YEAR,R.studentId AS STUDENT_ID FROM Results R  GROUP BY R.studentId
+        ]]>
+    </query>
+
+    <sql-query name="SV_Alias">
+        <![CDATA[
+        select R.ACADEMIC_YEAR AS R_ACADEMIC_YEAR,R.STANDARD_ID AS R_STANDARD_ID,R.STUDENT_ID AS R_STUDENT_ID,R.MARKS_SECURED AS R_MARKS_SECURED,R.GRADE_ID AS R_GRADE_ID,ATS.* from RESULTS R, ACADEMIC_TEST_SUBJECTS ATS
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_Alias__count">
+        <![CDATA[
+        select count(*) from (select R.ACADEMIC_YEAR AS R_ACADEMIC_YEAR,R.STANDARD_ID AS R_STANDARD_ID,R.STUDENT_ID AS R_STUDENT_ID,R.MARKS_SECURED AS R_MARKS_SECURED,R.GRADE_ID AS R_GRADE_ID,ATS.* from RESULTS R, ACADEMIC_TEST_SUBJECTS ATS) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_GroupBy">
+        <![CDATA[
+        select sum(R.MARKS_SECURED) as MARKS_SECURED,R.STUDENT_ID,R.TEST_CONDUCTED_ID,ACADEMIC_YEAR,STANDARD_ID from RESULTS R where R.ACADEMIC_YEAR=:ACADEMIC_YEAR and R.STANDARD_ID=1 GROUP BY STUDENT_ID
+        ]]>
+    <query-param name="ACADEMIC_YEAR" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="SV_GroupBy__count">
+        <![CDATA[
+        select count(*) from (select sum(R.MARKS_SECURED) as MARKS_SECURED,R.STUDENT_ID,R.TEST_CONDUCTED_ID,ACADEMIC_YEAR,STANDARD_ID from RESULTS R where R.ACADEMIC_YEAR=:ACADEMIC_YEAR and R.STANDARD_ID=1 GROUP BY STUDENT_ID) wmTempTable
+        ]]>
+    <query-param name="ACADEMIC_YEAR" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="SV_UnionAll">
+        <![CDATA[
+        select * from EMPLOYEE_DETAILS UNION ALL select * FROM STUDENT_DETAILS ORDER BY CITY
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_UnionAll__count">
+        <![CDATA[
+        select count(*) from (select * from EMPLOYEE_DETAILS UNION ALL select * FROM STUDENT_DETAILS ORDER BY CITY) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_UnionAll__identifier">
+        <![CDATA[
+        select * from (select * from EMPLOYEE_DETAILS UNION ALL select * FROM STUDENT_DETAILS ORDER BY CITY) wmTempTable where `EMP_ID`=:empId
+        ]]>
+    <query-param name="empId" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="SV_UpperFunction">
+        <![CDATA[
+        select UCASE(FIRSTNAME),UPPER(LASTNAME) from EMPLOYEE_DETAILS
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_UpperFunction__count">
+        <![CDATA[
+        select count(*) from (select UCASE(FIRSTNAME),UPPER(LASTNAME) from EMPLOYEE_DETAILS) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_CountSyntax">
+        <![CDATA[
+        select count(STUDENT_ID) from RESULTS where TEST_CONDUCTED_ID=2
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_CountSyntax__count">
+        <![CDATA[
+        select count(*) from (select count(STUDENT_ID) from RESULTS where TEST_CONDUCTED_ID=2) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_AVGFunction">
+        <![CDATA[
+        select avg(MARKS_SECURED) from RESULTS where STUDENT_ID=:STUDENT_ID
+        ]]>
+    <query-param name="STUDENT_ID" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="SV_AVGFunction__count">
+        <![CDATA[
+        select count(*) from (select avg(MARKS_SECURED) from RESULTS where STUDENT_ID=:STUDENT_ID) wmTempTable
+        ]]>
+    <query-param name="STUDENT_ID" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="SV_FullJoin">
+        <![CDATA[
+        select R.STUDENT_ID,R.MARKS_SECURED,R.GRADE_ID,R.TEST_CONDUCTED_ID,ATS.MAX_MARKS,ATS.SUBJECT_ID from RESULTS R LEFT OUTER JOIN ACADEMIC_TEST_SUBJECTS ATS ON R.ACADEMIC_YEAR=ATS.ACADEMIC_YEAR AND R.STANDARD_ID=ATS.STANDARD_ID
+UNION ALL
+select R.STUDENT_ID,R.MARKS_SECURED,R.GRADE_ID,R.TEST_CONDUCTED_ID,ATS.MAX_MARKS,ATS.SUBJECT_ID from RESULTS R RIGHT OUTER JOIN ACADEMIC_TEST_SUBJECTS ATS ON R.ACADEMIC_YEAR=ATS.ACADEMIC_YEAR AND R.STANDARD_ID=ATS.STANDARD_ID
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_FullJoin__count">
+        <![CDATA[
+        select count(*) from (select R.STUDENT_ID,R.MARKS_SECURED,R.GRADE_ID,R.TEST_CONDUCTED_ID,ATS.MAX_MARKS,ATS.SUBJECT_ID from RESULTS R LEFT OUTER JOIN ACADEMIC_TEST_SUBJECTS ATS ON R.ACADEMIC_YEAR=ATS.ACADEMIC_YEAR AND R.STANDARD_ID=ATS.STANDARD_ID
+UNION ALL
+select R.STUDENT_ID,R.MARKS_SECURED,R.GRADE_ID,R.TEST_CONDUCTED_ID,ATS.MAX_MARKS,ATS.SUBJECT_ID from RESULTS R RIGHT OUTER JOIN ACADEMIC_TEST_SUBJECTS ATS ON R.ACADEMIC_YEAR=ATS.ACADEMIC_YEAR AND R.STANDARD_ID=ATS.STANDARD_ID) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_NestedQuery">
+        <![CDATA[
+        select * from RESULTS WHERE TEST_CONDUCTED_ID=(select TEST_CONDUCTED_ID from TEST_CONDUCTED where ACADEMIC_YEAR=:ACADEMIC_YEAR and STANDARD_ID=1 and SUBJECT_ID=1 and TEST_ID=3)
+        ]]>
+    <query-param name="ACADEMIC_YEAR" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="SV_NestedQuery__count">
+        <![CDATA[
+        select count(*) from (select * from RESULTS WHERE TEST_CONDUCTED_ID=(select TEST_CONDUCTED_ID from TEST_CONDUCTED where ACADEMIC_YEAR=:ACADEMIC_YEAR and STANDARD_ID=1 and SUBJECT_ID=1 and TEST_ID=3)) wmTempTable
+        ]]>
+    <query-param name="ACADEMIC_YEAR" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="SV_ConcatQuery">
+        <![CDATA[
+        select EMP_ID,CONCAT(FIRSTNAME,'.',LASTNAME) AS FULL_NAME,CONCAT(STATE,', ',CITY,', ',STREET,', ',ZIP) AS ADDRESS,DATE_OF_BIRTH from EMPLOYEE_DETAILS
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_ConcatQuery__count">
+        <![CDATA[
+        select count(*) from (select EMP_ID,CONCAT(FIRSTNAME,'.',LASTNAME) AS FULL_NAME,CONCAT(STATE,', ',CITY,', ',STREET,', ',ZIP) AS ADDRESS,DATE_OF_BIRTH from EMPLOYEE_DETAILS) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_LengthFunction">
+        <![CDATA[
+        SELECT DISTINCT ADDRESS,LENGTH(ADDRESS) AS ADDRESS_LENGTH FROM STUDENT_DETAILS
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_LengthFunction__count">
+        <![CDATA[
+        select count(*) from (SELECT DISTINCT ADDRESS,LENGTH(ADDRESS) AS ADDRESS_LENGTH FROM STUDENT_DETAILS) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_QueryWithDate">
+        <![CDATA[
+        select * from STUDENT_DETAILS where JOINING_DATE=:JDATE
+        ]]>
+    <query-param name="JDATE" type="java.sql.Date"/>
+    </sql-query>
+
+    <sql-query name="SV_QueryWithDate__count">
+        <![CDATA[
+        select count(*) from (select * from STUDENT_DETAILS where JOINING_DATE=:JDATE) wmTempTable
+        ]]>
+    <query-param name="JDATE" type="java.sql.Date"/>
+    </sql-query>
+
+    <sql-query name="SV_QueryWithDate__identifier">
+        <![CDATA[
+        select * from (select * from STUDENT_DETAILS where JOINING_DATE=:JDATE) wmTempTable where `STUDENT_ID`=:studentId
+        ]]>
+    <query-param name="JDATE" type="java.sql.Date"/>
+    <query-param name="studentId" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="SV_IsNULL">
+        <![CDATA[
+        SELECT * FROM RESULTS Where  PRESENCE IS NULL
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_IsNULL__count">
+        <![CDATA[
+        select count(*) from (SELECT * FROM RESULTS Where  PRESENCE IS NULL) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_RightJoin">
+        <![CDATA[
+        select ATS.*,A.CLASS_ROOM,A.CLASS_TEACHER from ACADEMIC_TEST_SUBJECTS ATS RIGHT OUTER JOIN ACADEMICS A ON ATS.ACADEMIC_YEAR=A.ACADEMIC_YEAR AND ATS.STANDARD_ID=A.STANDARD_ID
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_RightJoin__count">
+        <![CDATA[
+        select count(*) from (select ATS.*,A.CLASS_ROOM,A.CLASS_TEACHER from ACADEMIC_TEST_SUBJECTS ATS RIGHT OUTER JOIN ACADEMICS A ON ATS.ACADEMIC_YEAR=A.ACADEMIC_YEAR AND ATS.STANDARD_ID=A.STANDARD_ID) wmTempTable
+        ]]>
+    </sql-query>
+</hibernate-mapping>

@@ -1,0 +1,221 @@
+{
+  "GoingOfflline" : {
+    "_id" : "wm-GoingOflline-wm.NotificationVariable-1543904231131",
+    "name" : "GoingOfflline",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "string"
+    }, {
+      "target" : "text",
+      "value" : "Going oflline",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "5000",
+      "type" : "number"
+    }, {
+      "target" : "class",
+      "value" : "Info",
+      "type" : "string"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "top center",
+      "type" : "string"
+    } ],
+    "operation" : "toast"
+  },
+  "GoingOnline" : {
+    "_id" : "wm-GoingOnline-wm.NotificationVariable-1543904285426",
+    "name" : "GoingOnline",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "string"
+    }, {
+      "target" : "text",
+      "value" : "Going Online",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "5000",
+      "type" : "number"
+    }, {
+      "target" : "class",
+      "value" : "Info",
+      "type" : "string"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "top center",
+      "type" : "string"
+    } ],
+    "operation" : "toast"
+  },
+  "goOffline" : {
+    "_id" : "wm-goOffline-wm.DeviceVariable-1543834112314",
+    "name" : "goOffline",
+    "owner" : "Page",
+    "category" : "wm.DeviceVariable",
+    "dataBinding" : [ ],
+    "service" : "device",
+    "operation" : "goOffline",
+    "dataSet" : { },
+    "onSuccess" : "Actions.GoingOfflline.invoke()"
+  },
+  "goOnline" : {
+    "_id" : "wm-goOnline-wm.DeviceVariable-1543834126217",
+    "name" : "goOnline",
+    "owner" : "Page",
+    "category" : "wm.DeviceVariable",
+    "dataBinding" : [ ],
+    "service" : "device",
+    "operation" : "goOnline",
+    "dataSet" : { },
+    "onSuccess" : "Actions.GoingOnline.invoke()"
+  },
+  "OfflineClassicDBUserDetailsData" : {
+    "_id" : "wm-OfflineClassicDBUserDetailsData-wm.LiveVariable-1543834270387",
+    "name" : "OfflineClassicDBUserDetailsData",
+    "owner" : "Page",
+    "category" : "wm.LiveVariable",
+    "dataBinding" : [ ],
+    "operation" : "read",
+    "dataSet" : [ ],
+    "type" : "UserDetails",
+    "isList" : true,
+    "saveInPhonegap" : false,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "inFlightBehavior" : "executeLast",
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "transformationRequired" : false,
+    "liveSource" : "OfflineClassicDB",
+    "ignoreCase" : true,
+    "matchMode" : "startignorecase",
+    "orderBy" : "userId asc",
+    "propertiesMap" : {
+      "columns" : [ {
+        "fieldName" : "userId",
+        "type" : "integer",
+        "fullyQualifiedType" : "integer",
+        "columnName" : "UserId",
+        "isPrimaryKey" : true,
+        "notNull" : true,
+        "length" : 0,
+        "precision" : 10,
+        "generator" : "identity",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      }, {
+        "fieldName" : "username",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "Username",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 50,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      }, {
+        "fieldName" : "password",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "Password",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 50,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      }, {
+        "fieldName" : "role",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "Role",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 50,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      }, {
+        "fieldName" : "phone",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "Phone",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 255,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      }, {
+        "fieldName" : "gender",
+        "type" : "string",
+        "fullyQualifiedType" : "string",
+        "columnName" : "Gender",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 10,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      }, {
+        "fieldName" : "datetimeCol",
+        "type" : "datetime",
+        "fullyQualifiedType" : "datetime",
+        "columnName" : "DatetimeCol",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      }, {
+        "fieldName" : "timestampCol",
+        "type" : "timestamp",
+        "fullyQualifiedType" : "timestamp",
+        "columnName" : "TimestampCol",
+        "isPrimaryKey" : false,
+        "notNull" : false,
+        "length" : 0,
+        "precision" : 0,
+        "generator" : "assigned",
+        "isRelated" : false,
+        "defaultValue" : "",
+        "scale" : 0
+      } ],
+      "entityName" : "UserDetails",
+      "fullyQualifiedName" : "com.dbofflinestorage.offlineclassicdb.UserDetails",
+      "tableType" : "TABLE",
+      "primaryFields" : [ "userId" ]
+    },
+    "isDefault" : true,
+    "bindCount" : 1,
+    "tableName" : "User Details",
+    "tableType" : "TABLE",
+    "properties" : [ ],
+    "relatedTables" : [ ],
+    "filterExpressions" : { },
+    "package" : "com.dbofflinestorage.offlineclassicdb.UserDetails"
+  }
+}

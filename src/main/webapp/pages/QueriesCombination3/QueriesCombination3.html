@@ -1,0 +1,118 @@
+<wm-page name="page1"> 
+    <wm-left-panel content="leftnav" name="left_panel1"></wm-left-panel> 
+    <wm-mobile-navbar name="mobile_navbar1" title="Queries"> 
+        <wm-anchor caption="" name="AddLink" iconclass="wi wi-wifi" on-tap="Variables.goOnline.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor2" iconclass="wi wi-signal-wifi-off" caption="" on-tap="Variables.goOffline.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor3" iconclass="wi wi-arrow-downward" caption="" on-tap="Variables.datasyncPull.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor4" iconclass="wi wi-arrow-upward" caption="" on-tap="Variables.datasyncPush.invoke()"></wm-anchor> 
+    </wm-mobile-navbar> 
+    <wm-content name="content1"> 
+        <wm-page-content columnwidth="12" name="page_content1"> 
+            <wm-tabs name="tabs1"> 
+                <wm-tabpane name="tabpane1" title="> Than"> 
+                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="executeSV_GreaterThanList1" dataset="bind:Variables.OfflineClassicDBExecuteSV_GreaterThan.dataSet" navigation="Basic" subheading="EMPNUMBER>1500"> 
+                        <wm-listtemplate layout="inline" name="listtemplate1"> 
+                            <wm-container name="pictureContainer" class="media-left"> 
+                                <wm-picture width="32pt" height="32pt" name="Picture" shape="circle" class="media-object"></wm-picture> 
+                            </wm-container> 
+                            <wm-container class="media-body" padding="unset unset unset 1.25em" name="container2"> 
+                                <wm-label name="Name" class="media-heading pull-left" caption="bind:Variables.OfflineClassicDBExecuteSV_GreaterThan.dataSet.employeeNumber" fontunit="em"></wm-label> 
+                                <wm-label name="Time" caption="bind:Variables.OfflineClassicDBExecuteSV_GreaterThan.dataSet.firstName" class="pull-right" margin="0px unset unset unset"></wm-label> 
+                                <wm-label caption="bind:Variables.OfflineClassicDBExecuteSV_GreaterThan.dataSet.email" class="h5" margin="0px unset unset unset" name="JobTitle"></wm-label> 
+                                <wm-label name="Content" caption="bind:Variables.OfflineClassicDBExecuteSV_GreaterThan.dataSet.officeCode" class="p text-muted"></wm-label> 
+                            </wm-container> 
+                            <wm-container class="media-right" name="container3"></wm-container> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane2" title="IN Operator"> 
+                    <wm-composite name="composite1"> 
+                        <wm-label class="col-xs-4 control-label" name="label5" caption="PRODUCTS"></wm-label> 
+                        <wm-container class="col-xs-8" name="container4"> 
+                            <wm-checkboxset height="auto" name="checkboxset1" dataset="bind:Variables.ProductsData.dataSet" datafield="productCode" displayfield="productCode"></wm-checkboxset> 
+                        </wm-container> 
+                        <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="executeSV_INOperatorList1" dataset="bind:Variables.OfflineClassicDBExecuteSV_INOperator.dataSet" navigation="Basic"> 
+                            <wm-listtemplate layout="inline" name="listtemplate2"> 
+                                <wm-container class="media-body" padding="unset unset unset 1.25em" name="container6"> 
+                                    <wm-label name="Name" class="media-heading pull-left" caption="bind:Variables.OfflineClassicDBExecuteSV_INOperator.dataSet.productCode" fontunit="em"></wm-label> 
+                                    <wm-label name="Time" caption="bind:Variables.OfflineClassicDBExecuteSV_INOperator.dataSet.productName" class="pull-right" margin="0px unset unset unset"></wm-label> 
+                                    <wm-label caption="bind:Variables.OfflineClassicDBExecuteSV_INOperator.dataSet.productVendor" class="h5" margin="0px unset unset unset" name="JobTitle"></wm-label> 
+                                    <wm-label name="Content" caption="bind:Variables.OfflineClassicDBExecuteSV_INOperator.dataSet.productDescription" class="p text-muted"></wm-label> 
+                                </wm-container> 
+                                <wm-container class="media-right" name="container7"></wm-container> 
+                            </wm-listtemplate> 
+                        </wm-list> 
+                    </wm-composite> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane3" title="< Than"> 
+                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="executeSV_LessThanList1" dataset="bind:Variables.OfflineClassicDBExecuteSV_LessThan.dataSet" navigation="Pager" subheading="EMPNUMBER<1500"> 
+                        <wm-listtemplate layout="inline" name="listtemplate3"> 
+                            <wm-container name="pictureContainer" class="media-left"> 
+                                <wm-picture width="32pt" height="32pt" name="Picture" shape="circle" class="media-object"></wm-picture> 
+                            </wm-container> 
+                            <wm-container class="media-body" padding="unset unset unset 1.25em" name="container8"> 
+                                <wm-label name="Name" class="media-heading pull-left" caption="bind:Variables.OfflineClassicDBExecuteSV_LessThan.dataSet.employeeNumber" fontunit="em"></wm-label> 
+                                <wm-label name="Time" caption="bind:Variables.OfflineClassicDBExecuteSV_LessThan.dataSet.firstName" class="pull-right" margin="0px unset unset unset"></wm-label> 
+                                <wm-label caption="bind:Variables.OfflineClassicDBExecuteSV_LessThan.dataSet.officeCode" class="h5" margin="0px unset unset unset" name="JobTitle"></wm-label> 
+                                <wm-label name="Content" caption="bind:Variables.OfflineClassicDBExecuteSV_LessThan.dataSet.reportsTo" class="p text-muted"></wm-label> 
+                            </wm-container> 
+                            <wm-container class="media-right" name="container9"></wm-container> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane4" title="LIKE"> 
+                    <wm-composite name="composite2"> 
+                        <wm-label class="col-xs-4 control-label" name="label14" caption="GENDER"></wm-label> 
+                        <wm-container class="col-xs-8" name="container10"> 
+                            <wm-text name="text1" placeholder="%rep or %ting etc..."></wm-text> 
+                        </wm-container> 
+                    </wm-composite> 
+                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="executeSV_LIKEList1" dataset="bind:Variables.OfflineClassicDBExecuteSV_LIKE.dataSet" navigation="Classic"> 
+                        <wm-listtemplate layout="inline" name="listtemplate5"> 
+                            <wm-container name="pictureContainer" class="media-left"> 
+                                <wm-picture width="32pt" height="32pt" name="Picture" shape="circle" class="media-object"></wm-picture> 
+                            </wm-container> 
+                            <wm-container class="media-body" padding="unset unset unset 1.25em" name="container15"> 
+                                <wm-label name="Name" class="media-heading pull-left" caption="bind:Variables.OfflineClassicDBExecuteSV_LIKE.dataSet.jobTitle" fontunit="em"></wm-label> 
+                                <wm-label name="Time" caption="bind:Variables.OfflineClassicDBExecuteSV_LIKE.dataSet.firstName" class="pull-right" margin="0px unset unset unset"></wm-label> 
+                                <wm-label caption="bind:Variables.OfflineClassicDBExecuteSV_LIKE.dataSet.reportsTo" class="h5" margin="0px unset unset unset" name="JobTitle"></wm-label> 
+                                <wm-label name="Content" caption="bind:Variables.OfflineClassicDBExecuteSV_LIKE.dataSet.employeeNumber" class="p text-muted"></wm-label> 
+                            </wm-container> 
+                            <wm-container class="media-right" name="container16"></wm-container> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane5" title="OR"> 
+                    <wm-composite name="composite3"> 
+                        <wm-label class="col-xs-4 control-label" name="label19" caption="Office Code"></wm-label> 
+                        <wm-container class="col-xs-8" name="container14"> 
+                            <wm-text name="text2" type="number" placeholder="Enter 1"></wm-text> 
+                        </wm-container> 
+                    </wm-composite> 
+                    <wm-composite name="composite4"> 
+                        <wm-label class="col-xs-4 control-label" name="label20" caption="Office Code"></wm-label> 
+                        <wm-container class="col-xs-8" name="container15_1"> 
+                            <wm-text name="text3" type="number" placeholder="Enter 2"></wm-text> 
+                        </wm-container> 
+                        <wm-button class="btn-default" caption="INVOKE" type="button" margin="unset 0.5em" name="button1" on-tap="Variables.OfflineClassicDBExecuteSV_OROperator.invoke()"></wm-button> 
+                    </wm-composite> 
+                    <wm-list listclass="list-group" itemclass="list-group-item" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="executeSV_OROperatorList1" dataset="bind:Variables.OfflineClassicDBExecuteSV_OROperator.dataSet" navigation="Classic"> 
+                        <wm-listtemplate layout="inline" name="listtemplate5_1"> 
+                            <wm-container name="pictureContainer" class="media-left"> 
+                                <wm-picture width="32pt" height="32pt" name="Picture" shape="circle" class="media-object"></wm-picture> 
+                            </wm-container> 
+                            <wm-container class="media-body" padding="unset unset unset 1.25em" name="container17"> 
+                                <wm-label name="Name" class="media-heading pull-left" caption="bind:Variables.OfflineClassicDBExecuteSV_OROperator.dataSet.officeCode" fontunit="em"></wm-label> 
+                                <wm-label name="Time" caption="bind:Variables.OfflineClassicDBExecuteSV_OROperator.dataSet.phone" class="pull-right" margin="0px unset unset unset"></wm-label> 
+                                <wm-label caption="bind:Variables.OfflineClassicDBExecuteSV_OROperator.dataSet.city" class="h5" margin="0px unset unset unset" name="JobTitle"></wm-label> 
+                                <wm-label name="Content" caption="bind:Variables.OfflineClassicDBExecuteSV_OROperator.dataSet.country" class="p text-muted"></wm-label> 
+                            </wm-container> 
+                            <wm-container class="media-right" name="container18"></wm-container> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                </wm-tabpane> 
+            </wm-tabs> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-mobile-tabbar dataset="home,star,music" name="mobile_tabbar1"></wm-mobile-tabbar> 
+</wm-page>

@@ -1,0 +1,131 @@
+<wm-page name="page1"> 
+    <wm-left-panel content="leftnav" name="left_panel1"></wm-left-panel> 
+    <wm-mobile-navbar name="mobile_navbar1" title="CASCADE12MANY"> 
+        <wm-anchor caption="" name="AddLink" iconclass="wi wi-wifi" on-tap="Variables.goOnline.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor2" iconclass="wi wi-signal-wifi-off" caption="" on-tap="Variables.goOffline.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor3" iconclass="wi wi-arrow-downward" caption="" on-tap="Variables.datasyncPull.invoke()"></wm-anchor> 
+        <wm-anchor name="anchor4" iconclass="wi wi-arrow-upward" caption="" on-tap="Variables.datasyncPush.invoke()"></wm-anchor> 
+    </wm-mobile-navbar> 
+    <wm-content name="content1"> 
+        <wm-page-content columnwidth="12" name="page_content1"> 
+            <wm-tabs name="tabs1"> 
+                <wm-tabpane name="tabpane1" title="Parent With Child"> 
+                    <wm-list listclass="list-group" itemclass="list-group-item media" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="One2manyPList1" dataset="bind:Variables.OfflineDatabaseDefinedOne2manyPData.dataSet" navigation="Classic"> 
+                        <wm-listtemplate layout="media" name="listtemplate1"> 
+                            <wm-container class="media-left" name="container1"> 
+                                <wm-picture class="media-object picture" shape="circle" width="40pt" name="Picture"></wm-picture> 
+                            </wm-container> 
+                            <wm-container class="media-body" name="container2"> 
+                                <wm-label caption="bind:Variables.OfflineDatabaseDefinedOne2manyPData.dataSet.pid" name="Name" class="p media-heading"></wm-label> 
+                                <wm-label caption="bind:Variables.OfflineDatabaseDefinedOne2manyPData.dataSet.dateCol" class="p text-muted" name="Title"></wm-label> 
+                            </wm-container> 
+                            <wm-container class="media-right media-top" width="20%" name="container9" horizontalalign="right"> 
+                                <wm-buttongroup name="buttongroup1"> 
+                                    <wm-button class="btn-transparent edit-list-item" caption="" name="button1" iconclass="wi wi-pencil fa-2x" margin="unset 0.2em unset unset"></wm-button> 
+                                    <wm-button class="btn-transparent delete-list-item" caption="" name="button2" iconclass="wi wi-trash fa-2x"></wm-button> 
+                                </wm-buttongroup> 
+                            </wm-container> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                    <wm-liveform errormessage="" title="One2many_p Info" formlayout="inline" iconclass="wi wi-edit" defaultmode="Edit" dataset="bind:Variables.OfflineDatabaseDefinedOne2manyPData.dataSet" captionalign="left" captionposition="top" name="liveform1" formdata="bind:Widgets.One2manyPList1.selecteditem" dependson="One2manyPList1"> 
+                        <wm-layoutgrid columns="1" name="layoutgrid1"> 
+                            <wm-gridrow name="gridrow1"> 
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn1"> 
+                                    <wm-form-field name="pid" displayname="Pid" show="true" primary-key="true" generator="assigned" period="false" key="pid" type="string" readonly="false" required="true" widget="text" maxchars="255" inputtype="text" placeholder="Enter value"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow2"> 
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn2"> 
+                                    <wm-form-field name="dateCol" displayname="Date Col" show="true" primary-key="false" generator="assigned" period="false" key="dateCol" type="date" readonly="false" required="false" widget="date" placeholder="Select date" outputformat="yyyy-MM-dd"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow3"> 
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn3"> 
+                                    <wm-form-field name="booleanCol" displayname="Boolean Col" show="true" primary-key="false" generator="assigned" period="false" key="booleanCol" type="boolean" readonly="false" required="false" widget="checkbox" placeholder=""></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow4"> 
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn4"> 
+                                    <wm-form-field name="floatCol" displayname="Float Col" show="true" primary-key="false" generator="assigned" period="false" key="floatCol" type="float" readonly="false" required="false" step="0.0001" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow1"> 
+                                <wm-gridcolumn name="gridcolumn1" columnwidth="12"> 
+                                    <wm-form-field name="many2oneCs" key="many2oneCs" displayname="Many2 One Cs" show="true" type="list" widget="chips" displayexpression="bind:$[data[$i].pkId]+'.'+$[data[$i].textCol]" dataset="bind:Variables.Many2oneCData.dataSet" searchkey="textCol" datafield="All Fields" displayfield="textCol" on-beforeadd="liveform1_many2oneCsBeforeadd($event, widget, newItem)" required="false" placeholder="Type here..."></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow1"> 
+                                <wm-gridcolumn name="gridcolumn1" columnwidth="12"> 
+                                    <wm-form-field name="datetimeCol" displayname="Datetime Col" show="true" primary-key="false" generator="assigned" period="false" key="datetimeCol" type="datetime" readonly="false" required="false" widget="datetime" defaultvalue="CURRENT_DATE"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow2"> 
+                                <wm-gridcolumn name="gridcolumn2" columnwidth="12"> 
+                                    <wm-form-field name="timestampCol" displayname="Timestamp Col" show="true" primary-key="false" generator="assigned" period="false" key="timestampCol" type="timestamp" readonly="false" required="false" widget="timestamp" defaultvalue="CURRENT_DATE"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                        </wm-layoutgrid> 
+                        <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-secondary" iconclass="wi wi-cancel" title="Cancel" action="cancel()" disabled="false" type="button" update-mode="true"></wm-form-action> 
+                        <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" disabled="false" type="submit" update-mode="true" action=""></wm-form-action> 
+                        <wm-form-action key="reset" display-name="Reset" show="true" class="form-reset btn-secondary" iconclass="wi wi-refresh" title="Reset" action="reset()" shortcutkey="" disabled="false" type="button" update-mode="true"></wm-form-action> 
+                        <wm-form-action key="new" display-name="New" show="true" class="form-new btn-success" iconclass="wi wi-plus" title="New" action="new()" shortcutkey="" disabled="false" type="button" update-mode="false"></wm-form-action> 
+                    </wm-liveform> 
+                </wm-tabpane> 
+                <wm-tabpane name="tabpane2" title="Child Data"> 
+                    <wm-list listclass="list-group" itemclass="list-group-item media" template="true" itemsperrow="xs-1 sm-1 md-1 lg-1" class="media-list" name="Many2oneCList2" dataset="bind:Variables.Many2oneCData.dataSet" navigation="Classic"> 
+                        <wm-listtemplate layout="media" name="listtemplate2"> 
+                            <wm-container class="media-left" name="container4"> 
+                                <wm-picture class="media-object picture" shape="circle" width="40pt" name="Picture"></wm-picture> 
+                            </wm-container> 
+                            <wm-container class="media-body" name="container5"> 
+                                <wm-label caption="bind:Variables.Many2oneCData.dataSet.pkId" name="Name" class="p media-heading"></wm-label> 
+                                <wm-label caption="bind:Variables.Many2oneCData.dataSet.cid" class="p text-muted" name="Title"></wm-label> 
+                            </wm-container> 
+                            <wm-container class="media-right media-top" width="20%" name="container9" horizontalalign="right"> 
+                                <wm-buttongroup name="buttongroup1"> 
+                                    <wm-button class="btn-transparent edit-list-item" caption="" name="button1" iconclass="wi wi-pencil fa-2x" margin="unset 0.2em unset unset"></wm-button> 
+                                    <wm-button class="btn-transparent delete-list-item" caption="" name="button2" iconclass="wi wi-trash fa-2x"></wm-button> 
+                                </wm-buttongroup> 
+                            </wm-container> 
+                        </wm-listtemplate> 
+                    </wm-list> 
+                    <wm-liveform errormessage="" title="Many2one_c Info" formlayout="inline" iconclass="wi wi-edit" defaultmode="Edit" dataset="bind:Variables.Many2oneCData.dataSet" captionalign="left" captionposition="top" name="liveform2" formdata="bind:Widgets.Many2oneCList2.selecteditem" dependson="Many2oneCList2"> 
+                        <wm-layoutgrid columns="1" name="layoutgrid2"> 
+                            <wm-gridrow name="gridrow5"> 
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn5"> 
+                                    <wm-form-field name="textCol" displayname="Text Col" show="true" primary-key="false" generator="assigned" period="false" key="textCol" type="text" readonly="false" required="false" widget="text" maxchars="2147483647" inputtype="text" placeholder="Enter value"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow6"> 
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn6"> 
+                                    <wm-form-field name="timeCol" displayname="Time Col" show="true" primary-key="false" generator="assigned" period="false" key="timeCol" type="time" readonly="false" required="false" widget="time" placeholder="Select time" outputformat="HH:mm:ss"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow7"> 
+                                <wm-gridcolumn columnwidth="12" name="gridcolumn7"> 
+                                    <wm-form-field name="one2manyP" displayname="One2 Many P" show="true" primary-key="false" generator="assigned" period="false" key="one2manyP" type="list" is-related="true" readonly="false" required="false" widget="select" maxchars="255" placeholder="Select value"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow3"> 
+                                <wm-gridcolumn name="gridcolumn3" columnwidth="12"> 
+                                    <wm-form-field name="datetimeCol" displayname="Datetime Col" show="true" primary-key="false" generator="assigned" period="false" key="datetimeCol" type="datetime" readonly="false" required="false" widget="datetime" defaultvalue="CURRENT_DATE"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                            <wm-gridrow name="gridrow4"> 
+                                <wm-gridcolumn name="gridcolumn4" columnwidth="12"> 
+                                    <wm-form-field name="timestampCol" displayname="Timestamp Col" show="true" primary-key="false" generator="assigned" period="false" key="timestampCol" type="timestamp" readonly="false" required="false" widget="timestamp" defaultvalue="CURRENT_DATE"></wm-form-field> 
+                                </wm-gridcolumn> 
+                            </wm-gridrow> 
+                        </wm-layoutgrid> 
+                        <wm-form-field name="pkId" displayname="Pk Id" show="false" primary-key="true" generator="identity" period="false" key="pkId" type="integer" readonly="true" required="true" step="0" widget="number" inputtype="number" placeholder="Enter value"></wm-form-field> 
+                        <wm-form-action key="cancel" display-name="Cancel" show="true" class="form-cancel btn-secondary" iconclass="wi wi-cancel" title="Cancel" action="cancel()" disabled="false" type="button" update-mode="true"></wm-form-action> 
+                        <wm-form-action key="save" display-name="Save" show="true" class="form-save btn-success" iconclass="wi wi-save" title="Save" disabled="false" type="submit" update-mode="true" action=""></wm-form-action> 
+                        <wm-form-action key="reset" display-name="Reset" show="true" class="form-reset btn-secondary" iconclass="wi wi-refresh" title="Reset" action="reset()" shortcutkey="" disabled="false" type="button" update-mode="true"></wm-form-action> 
+                        <wm-form-action key="new" display-name="New" show="true" class="form-new btn-success" iconclass="wi wi-plus" title="New" action="new()" shortcutkey="" disabled="false" type="button" update-mode="false"></wm-form-action> 
+                    </wm-liveform> 
+                </wm-tabpane> 
+            </wm-tabs> 
+        </wm-page-content> 
+    </wm-content> 
+    <wm-mobile-tabbar dataset="home,star,music" name="mobile_tabbar1"></wm-mobile-tabbar> 
+</wm-page>

@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <sql-query name="SV_OROperator">
+        <![CDATA[
+        select * from `offices` where `officeCode`=:officeCode1 
+OR `officeCode`=:officeCode2
+        ]]>
+    <query-param name="officeCode1" type="java.lang.Integer"/>
+    <query-param name="officeCode2" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="SV_OROperator__count">
+        <![CDATA[
+        select count(*) from (select * from `offices` where `officeCode`=:officeCode1 
+OR `officeCode`=:officeCode2) wmTempTable
+        ]]>
+    <query-param name="officeCode1" type="java.lang.Integer"/>
+    <query-param name="officeCode2" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="SV_ANDOperator">
+        <![CDATA[
+        select * from `orders` where `status`=:status AND
+`customerNumber`=:custNumber
+        ]]>
+    <query-param name="status" type="java.lang.String"/>
+    <query-param name="custNumber" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="SV_ANDOperator__count">
+        <![CDATA[
+        select count(*) from (select * from `orders` where `status`=:status AND
+`customerNumber`=:custNumber) wmTempTable
+        ]]>
+    <query-param name="status" type="java.lang.String"/>
+    <query-param name="custNumber" type="java.lang.Integer"/>
+    </sql-query>
+
+    <query name="HQL_FromCustomer">
+        <![CDATA[
+        from Customers
+        ]]>
+    </query>
+
+    <query name="HQL_FromCustomer__count">
+        <![CDATA[
+        select count(*) from Customers
+        ]]>
+    </query>
+
+    <sql-query name="SV_LessThan">
+        <![CDATA[
+        select * from `employees` where `employeeNumber`<1500
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_LessThan__count">
+        <![CDATA[
+        select count(*) from (select * from `employees` where `employeeNumber`<1500) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_DISTINCT">
+        <![CDATA[
+        select DISTINCT `state` FROM `customers`
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_DISTINCT__count">
+        <![CDATA[
+        select count(*) from (select DISTINCT `state` FROM `customers`) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_WhereClause">
+        <![CDATA[
+        select * from customers where city=:city
+        ]]>
+    <query-param name="city" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="SV_WhereClause__count">
+        <![CDATA[
+        select count(*) from (select * from customers where city=:city) wmTempTable
+        ]]>
+    <query-param name="city" type="java.lang.String"/>
+    </sql-query>
+
+    <query name="HQL_CustomQueryWithAlias">
+        <![CDATA[
+        SELECT E.firstName AS EMP_FIRSTNAME,E.lastName AS EMP_LASTNAME,E.email AS EMP_EMAIL,E.extension AS EMP_EXTENSION,E.officeCode AS EMP_OFFICECODE,E.reportsTo AS EMP_REPORTSTO,E.jobTitle AS EMP_JOBTITLE FROM Employees E
+        ]]>
+    </query>
+
+    <query name="HQL_CustomQueryWithAlias__count">
+        <![CDATA[
+        select count(*)  FROM Employees E
+        ]]>
+    </query>
+
+    <query name="HQL_GreaterThanOrderBy">
+        <![CDATA[
+        FROM Employees E WHERE E.employeeNumber > 1000 ORDER BY E.firstName DESC
+        ]]>
+    </query>
+
+    <query name="HQL_GreaterThanOrderBy__count">
+        <![CDATA[
+        select count(*) FROM Employees E WHERE E.employeeNumber > 1000
+        ]]>
+    </query>
+
+    <query name="HQL_FromEntityWhereClause">
+        <![CDATA[
+        from Employees where employeeNumber=:empNumber
+        ]]>
+    <query-param name="empNumber" type="java.lang.Integer"/>
+    </query>
+
+    <query name="HQL_FromEntityWhereClause__count">
+        <![CDATA[
+        select count(*) from Employees where employeeNumber=:empNumber
+        ]]>
+    <query-param name="empNumber" type="java.lang.Integer"/>
+    </query>
+
+    <sql-query name="SV_BetweenOperator">
+        <![CDATA[
+        select * from `ALL TYPES` where `BYTE COL` BETWEEN :bytevalue1 and :bytevalue2
+        ]]>
+    <query-param name="bytevalue1" type="java.lang.Byte"/>
+    <query-param name="bytevalue2" type="java.lang.Byte"/>
+    </sql-query>
+
+    <sql-query name="SV_BetweenOperator__count">
+        <![CDATA[
+        select count(*) from (select * from `ALL TYPES` where `BYTE COL` BETWEEN :bytevalue1 and :bytevalue2) wmTempTable
+        ]]>
+    <query-param name="bytevalue1" type="java.lang.Byte"/>
+    <query-param name="bytevalue2" type="java.lang.Byte"/>
+    </sql-query>
+
+    <sql-query name="SV_BetweenOperator__identifier">
+        <![CDATA[
+        select * from (select * from `ALL TYPES` where `BYTE COL` BETWEEN :bytevalue1 and :bytevalue2) wmTempTable where `PK ID`=:pkId
+        ]]>
+    <query-param name="bytevalue1" type="java.lang.Byte"/>
+    <query-param name="bytevalue2" type="java.lang.Byte"/>
+    <query-param name="pkId" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="SV_CombinedOrderBy">
+        <![CDATA[
+        select * from `ALL TYPES` ORDER BY `BYTE COL` ASC,`CHAR COL` DESC
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_CombinedOrderBy__count">
+        <![CDATA[
+        select count(*) from (select * from `ALL TYPES` ORDER BY `BYTE COL` ASC,`CHAR COL` DESC) wmTempTable
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_CombinedOrderBy__identifier">
+        <![CDATA[
+        select * from (select * from `ALL TYPES` ORDER BY `BYTE COL` ASC,`CHAR COL` DESC) wmTempTable where `PK ID`=:pkId
+        ]]>
+    <query-param name="pkId" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="SV_INOperator">
+        <![CDATA[
+        select * from `products` where productCode IN (:PCODE)
+        ]]>
+    <query-param name="PCODE" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="SV_INOperator__count">
+        <![CDATA[
+        select count(*) from (select * from `products` where productCode IN (:PCODE)) wmTempTable
+        ]]>
+    <query-param name="PCODE" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="SV_LIKE">
+        <![CDATA[
+        select * from `employees` where `jobTitle` LIKE :jobtitle
+        ]]>
+    <query-param name="jobtitle" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="SV_LIKE__count">
+        <![CDATA[
+        select count(*) from (select * from `employees` where `jobTitle` LIKE :jobtitle) wmTempTable
+        ]]>
+    <query-param name="jobtitle" type="java.lang.String"/>
+    </sql-query>
+
+    <sql-query name="SV_GreaterThan">
+        <![CDATA[
+        select * from `employees` where `employeeNumber`>1500
+        ]]>
+    </sql-query>
+
+    <sql-query name="SV_GreaterThan__count">
+        <![CDATA[
+        select count(*) from (select * from `employees` where `employeeNumber`>1500) wmTempTable
+        ]]>
+    </sql-query>
+
+    <query name="HQL_FromEntityUsingAlias">
+        <![CDATA[
+        from OrderDetails as ORDER_DETAILS
+        ]]>
+    </query>
+
+    <query name="HQL_FromEntityUsingAlias__count">
+        <![CDATA[
+        select count(*) from OrderDetails as ORDER_DETAILS
+        ]]>
+    </query>
+
+    <query name="HQL_CustomQueryWithoutAliasNames">
+        <![CDATA[
+        SELECT E.firstName,E.lastName,E.email,E.extension,E.officeCode,E.reportsTo,E.jobTitle FROM Employees E
+        ]]>
+    </query>
+
+    <query name="HQL_CustomQueryWithoutAliasNames__count">
+        <![CDATA[
+        select count(*)  FROM Employees E
+        ]]>
+    </query>
+
+    <sql-query name="SV_AND_OR">
+        <![CDATA[
+        select * from `orders` where `status`=:status AND 
+(`customerNumber`=:custNumber1 OR `customerNumber`=:custNumber2)
+        ]]>
+    <query-param name="status" type="java.lang.String"/>
+    <query-param name="custNumber1" type="java.lang.Integer"/>
+    <query-param name="custNumber2" type="java.lang.Integer"/>
+    </sql-query>
+
+    <sql-query name="SV_AND_OR__count">
+        <![CDATA[
+        select count(*) from (select * from `orders` where `status`=:status AND 
+(`customerNumber`=:custNumber1 OR `customerNumber`=:custNumber2)) wmTempTable
+        ]]>
+    <query-param name="status" type="java.lang.String"/>
+    <query-param name="custNumber1" type="java.lang.Integer"/>
+    <query-param name="custNumber2" type="java.lang.Integer"/>
+    </sql-query>
+</hibernate-mapping>

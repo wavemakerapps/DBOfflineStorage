@@ -1,0 +1,61 @@
+{
+  "username" : "root",
+  "password" : "7b6a43524a322c0c6e6166771a1378700d662158",
+  "url" : "jdbc:mysql://54.189.223.203:3307/offlineDatabaseDefined?useUnicode=yes&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull",
+  "driverClass" : "com.mysql.jdbc.Driver",
+  "dialect" : "com.wavemaker.runtime.data.dialect.MySQLDialect",
+  "serviceId" : "offlineDatabaseDefined",
+  "packageName" : "com.dbofflinestorage.offlinedatabasedefined",
+  "dbType" : "MySQL",
+  "host" : "54.189.223.203",
+  "dbName" : "offlineDatabaseDefined",
+  "port" : "3307",
+  "schemaName" : null,
+  "tableFilter" : [ {
+    "table" : "CURRENT_DATE",
+    "schema" : null
+  }, {
+    "table" : "DateDatabaseDefined",
+    "schema" : null
+  }, {
+    "table" : "Department",
+    "schema" : null
+  }, {
+    "table" : "Employee",
+    "schema" : null
+  }, {
+    "table" : "fullNameDatabaseDefined",
+    "schema" : null
+  }, {
+    "table" : "MANY2ONE_C",
+    "schema" : null
+  }, {
+    "table" : "ONE2MANY_P",
+    "schema" : null
+  }, {
+    "table" : "ONE2ONE_C",
+    "schema" : null
+  }, {
+    "table" : "ONE2ONE_P",
+    "schema" : null
+  }, {
+    "table" : "Validators Table",
+    "schema" : null
+  } ],
+  "schemaFilter" : [ ],
+  "impersonateUser" : false,
+  "activeDirectoryDomain" : null,
+  "hbm2ddl" : "none",
+  "maxPageSize" : 100,
+  "minPoolSize" : 2,
+  "maxPoolSize" : 4,
+  "transactionTimeout" : 30,
+  "dataSourceType" : "WM_MANAGED_DATASOURCE",
+  "jndiName" : "",
+  "reloadInfo" : {
+    "reload" : true,
+    "reason" : "MIGRATION_FAILED",
+    "message" : "Regenerating Source to implement the newly added method in the classes extending WMGenericDaoImpl."
+  },
+  "readOnly" : false
+}

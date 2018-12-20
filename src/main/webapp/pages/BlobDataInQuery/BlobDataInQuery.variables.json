@@ -1,0 +1,52 @@
+{
+  "School_DBExecuteSV_QueryWithDate" : {
+    "_id" : "wm-School_DBExecuteSV_QueryWithDate-wm.ServiceVariable-1544090581200",
+    "name" : "School_DBExecuteSV_QueryWithDate",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ {
+      "target" : "JDATE",
+      "value" : "bind:Widgets.date1.datavalue",
+      "type" : "string"
+    } ],
+    "type" : "com.dbofflinestorage.school_db.models.query.SvQueryWithDateResponse",
+    "service" : "School_DB",
+    "operation" : "executeSV_QueryWithDate",
+    "operationId" : "QueryExecutionController_executeSV_QueryWithDate",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "startUpdate" : false,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true,
+    "controller" : "QueryExecution"
+  },
+  "School_DBExecuteSV_StudentDetails" : {
+    "_id" : "wm-School_DBExecuteSV_StudentDetails-wm.ServiceVariable-1544090330221",
+    "name" : "School_DBExecuteSV_StudentDetails",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "com.dbofflinestorage.school_db.models.query.SvStudentDetailsResponse",
+    "service" : "School_DB",
+    "operation" : "executeSV_StudentDetails",
+    "operationId" : "QueryExecutionController_executeSV_StudentDetails",
+    "operationType" : "get",
+    "serviceType" : "DataService",
+    "dataSet" : [ ],
+    "isList" : true,
+    "maxResults" : 20,
+    "startUpdate" : true,
+    "autoUpdate" : true,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true,
+    "controller" : "QueryExecution"
+  }
+}

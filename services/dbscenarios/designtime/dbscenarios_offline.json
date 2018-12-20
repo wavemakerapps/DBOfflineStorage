@@ -1,0 +1,40 @@
+{
+  "name" : "dbscenarios",
+  "entities" : [ {
+    "name" : "BLOBTABLE_PROCEDURE",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : "",
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "BUNDLED"
+    },
+    "pushConfig" : {
+      "insertEnabled" : true,
+      "updateEnabled" : true,
+      "deleteEnabled" : true,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "USER_LOGIN",
+    "enabled" : false,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : null,
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "LIVE"
+    },
+    "pushConfig" : {
+      "insertEnabled" : false,
+      "updateEnabled" : false,
+      "deleteEnabled" : false,
+      "readEnabled" : true
+    }
+  } ]
+}

@@ -1,0 +1,2001 @@
+{
+  "HQL_COUNT_DISTINCT" : {
+    "name" : "HQL_COUNT_DISTINCT",
+    "description" : "HQL_COUNT_DISTINCT",
+    "version" : "V2",
+    "queryString" : "SELECT count(distinct A.classTeacher) AS COUNT_DISTINCT_CLASSTEACHER FROM Academics A",
+    "countQueryString" : "select count(*)  FROM Academics A",
+    "nativeSql" : false,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.HqlCountDistinctResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "COUNT_DISTINCT_CLASSTEACHER",
+        "fieldName" : "countDistinctClassteacher",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "HQL_GroupBy" : {
+    "name" : "HQL_GroupBy",
+    "description" : "HQL_GroupBy",
+    "version" : "V2",
+    "queryString" : "SELECT SUM(R.marksSecured) as SUM_MARKS, R.academicYear AS ACADEMIC_YEAR,R.studentId AS STUDENT_ID FROM Results R  GROUP BY R.studentId",
+    "countQueryString" : null,
+    "nativeSql" : false,
+    "fetchCount" : false,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.HqlGroupByResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "SUM_MARKS",
+        "fieldName" : "sumMarks",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      }, {
+        "name" : "ACADEMIC_YEAR",
+        "fieldName" : "academicYear",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "STUDENT_ID",
+        "fieldName" : "studentId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_AVGFunction" : {
+    "name" : "SV_AVGFunction",
+    "description" : "SV_AVGFunction",
+    "version" : "V2",
+    "queryString" : "select avg(MARKS_SECURED) from RESULTS where STUDENT_ID=:STUDENT_ID",
+    "countQueryString" : "select count(*) from (select avg(MARKS_SECURED) from RESULTS where STUDENT_ID=:STUDENT_ID) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "STUDENT_ID",
+      "type" : "integer",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "1",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvAvgfunctionResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "avg(MARKS_SECURED)",
+        "fieldName" : "avg_marksSecured_",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Double",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_Alias" : {
+    "name" : "SV_Alias",
+    "description" : "SV_Alias",
+    "version" : "V2",
+    "queryString" : "select R.ACADEMIC_YEAR AS R_ACADEMIC_YEAR,R.STANDARD_ID AS R_STANDARD_ID,R.STUDENT_ID AS R_STUDENT_ID,R.MARKS_SECURED AS R_MARKS_SECURED,R.GRADE_ID AS R_GRADE_ID,ATS.* from RESULTS R, ACADEMIC_TEST_SUBJECTS ATS",
+    "countQueryString" : "select count(*) from (select R.ACADEMIC_YEAR AS R_ACADEMIC_YEAR,R.STANDARD_ID AS R_STANDARD_ID,R.STUDENT_ID AS R_STUDENT_ID,R.MARKS_SECURED AS R_MARKS_SECURED,R.GRADE_ID AS R_GRADE_ID,ATS.* from RESULTS R, ACADEMIC_TEST_SUBJECTS ATS) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvAliasResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "R_ACADEMIC_YEAR",
+        "fieldName" : "racademicYear",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "R_STANDARD_ID",
+        "fieldName" : "rstandardId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "R_STUDENT_ID",
+        "fieldName" : "rstudentId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "R_MARKS_SECURED",
+        "fieldName" : "rmarksSecured",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Short",
+          "list" : false
+        }
+      }, {
+        "name" : "R_GRADE_ID",
+        "fieldName" : "rgradeId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "ACADEMIC_YEAR",
+        "fieldName" : "academicYear",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "TEST_ID",
+        "fieldName" : "testId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "SUBJECT_ID",
+        "fieldName" : "subjectId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "MAX_MARKS",
+        "fieldName" : "maxMarks",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "STANDARD_ID",
+        "fieldName" : "standardId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_ConcatQuery" : {
+    "name" : "SV_ConcatQuery",
+    "description" : "SV_ConcatQuery",
+    "version" : "V2",
+    "queryString" : "select EMP_ID,CONCAT(FIRSTNAME,'.',LASTNAME) AS FULL_NAME,CONCAT(STATE,', ',CITY,', ',STREET,', ',ZIP) AS ADDRESS,DATE_OF_BIRTH from EMPLOYEE_DETAILS",
+    "countQueryString" : "select count(*) from (select EMP_ID,CONCAT(FIRSTNAME,'.',LASTNAME) AS FULL_NAME,CONCAT(STATE,', ',CITY,', ',STREET,', ',ZIP) AS ADDRESS,DATE_OF_BIRTH from EMPLOYEE_DETAILS) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvConcatQueryResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "EMP_ID",
+        "fieldName" : "empId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "FULL_NAME",
+        "fieldName" : "fullName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "ADDRESS",
+        "fieldName" : "address",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "DATE_OF_BIRTH",
+        "fieldName" : "dateOfBirth",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_CountSyntax" : {
+    "name" : "SV_CountSyntax",
+    "description" : "SV_CountSyntax",
+    "version" : "V2",
+    "queryString" : "select count(STUDENT_ID) from RESULTS where TEST_CONDUCTED_ID=2",
+    "countQueryString" : "select count(*) from (select count(STUDENT_ID) from RESULTS where TEST_CONDUCTED_ID=2) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvCountSyntaxResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "count(STUDENT_ID)",
+        "fieldName" : "count_studentId_",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_DateFormatSyntax" : {
+    "name" : "SV_DateFormatSyntax",
+    "description" : "SV_DateFormatSyntax",
+    "version" : "V2",
+    "queryString" : "select FIRSTNAME,LASTNAME,DATE_FORMAT(DATE_OF_BIRTH,'%a %D %b %Y') as DATE_OF_BIRTH from EMPLOYEE_DETAILS",
+    "countQueryString" : "select count(*) from (select FIRSTNAME,LASTNAME,DATE_FORMAT(DATE_OF_BIRTH,'%a %D %b %Y') as DATE_OF_BIRTH from EMPLOYEE_DETAILS) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvDateFormatSyntaxResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "FIRSTNAME",
+        "fieldName" : "firstname",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "LASTNAME",
+        "fieldName" : "lastname",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "DATE_OF_BIRTH",
+        "fieldName" : "dateOfBirth",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_FullJoin" : {
+    "name" : "SV_FullJoin",
+    "description" : "SV_FullJoin",
+    "version" : "V2",
+    "queryString" : "select R.STUDENT_ID,R.MARKS_SECURED,R.GRADE_ID,R.TEST_CONDUCTED_ID,ATS.MAX_MARKS,ATS.SUBJECT_ID from RESULTS R LEFT OUTER JOIN ACADEMIC_TEST_SUBJECTS ATS ON R.ACADEMIC_YEAR=ATS.ACADEMIC_YEAR AND R.STANDARD_ID=ATS.STANDARD_ID\nUNION ALL\nselect R.STUDENT_ID,R.MARKS_SECURED,R.GRADE_ID,R.TEST_CONDUCTED_ID,ATS.MAX_MARKS,ATS.SUBJECT_ID from RESULTS R RIGHT OUTER JOIN ACADEMIC_TEST_SUBJECTS ATS ON R.ACADEMIC_YEAR=ATS.ACADEMIC_YEAR AND R.STANDARD_ID=ATS.STANDARD_ID",
+    "countQueryString" : "select count(*) from (select R.STUDENT_ID,R.MARKS_SECURED,R.GRADE_ID,R.TEST_CONDUCTED_ID,ATS.MAX_MARKS,ATS.SUBJECT_ID from RESULTS R LEFT OUTER JOIN ACADEMIC_TEST_SUBJECTS ATS ON R.ACADEMIC_YEAR=ATS.ACADEMIC_YEAR AND R.STANDARD_ID=ATS.STANDARD_ID\nUNION ALL\nselect R.STUDENT_ID,R.MARKS_SECURED,R.GRADE_ID,R.TEST_CONDUCTED_ID,ATS.MAX_MARKS,ATS.SUBJECT_ID from RESULTS R RIGHT OUTER JOIN ACADEMIC_TEST_SUBJECTS ATS ON R.ACADEMIC_YEAR=ATS.ACADEMIC_YEAR AND R.STANDARD_ID=ATS.STANDARD_ID) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvFullJoinResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "STUDENT_ID",
+        "fieldName" : "studentId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "MARKS_SECURED",
+        "fieldName" : "marksSecured",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Short",
+          "list" : false
+        }
+      }, {
+        "name" : "GRADE_ID",
+        "fieldName" : "gradeId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "TEST_CONDUCTED_ID",
+        "fieldName" : "testConductedId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "MAX_MARKS",
+        "fieldName" : "maxMarks",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "SUBJECT_ID",
+        "fieldName" : "subjectId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_GroupBy" : {
+    "name" : "SV_GroupBy",
+    "description" : "SV_GroupBy",
+    "version" : "V2",
+    "queryString" : "select sum(R.MARKS_SECURED) as MARKS_SECURED,R.STUDENT_ID,R.TEST_CONDUCTED_ID,ACADEMIC_YEAR,STANDARD_ID from RESULTS R where R.ACADEMIC_YEAR=:ACADEMIC_YEAR and R.STANDARD_ID=1 GROUP BY STUDENT_ID",
+    "countQueryString" : "select count(*) from (select sum(R.MARKS_SECURED) as MARKS_SECURED,R.STUDENT_ID,R.TEST_CONDUCTED_ID,ACADEMIC_YEAR,STANDARD_ID from RESULTS R where R.ACADEMIC_YEAR=:ACADEMIC_YEAR and R.STANDARD_ID=1 GROUP BY STUDENT_ID) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "ACADEMIC_YEAR",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "2015-2016",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvGroupByResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "MARKS_SECURED",
+        "fieldName" : "marksSecured",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigInteger",
+          "list" : false
+        }
+      }, {
+        "name" : "STUDENT_ID",
+        "fieldName" : "studentId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "TEST_CONDUCTED_ID",
+        "fieldName" : "testConductedId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "ACADEMIC_YEAR",
+        "fieldName" : "academicYear",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "STANDARD_ID",
+        "fieldName" : "standardId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_GroupByHavingClause" : {
+    "name" : "SV_GroupByHavingClause",
+    "description" : "SV_GroupByHavingClause",
+    "version" : "V2",
+    "queryString" : "select sum(R.MARKS_SECURED) as MARKS_SECURED,R.STUDENT_ID,R.TEST_CONDUCTED_ID,ACADEMIC_YEAR,STANDARD_ID from RESULTS R where R.ACADEMIC_YEAR=:ACADEMIC_YEAR and R.STANDARD_ID=1 GROUP BY STUDENT_ID HAVING MARKS_SECURED>700",
+    "countQueryString" : "select count(*) from (select sum(R.MARKS_SECURED) as MARKS_SECURED,R.STUDENT_ID,R.TEST_CONDUCTED_ID,ACADEMIC_YEAR,STANDARD_ID from RESULTS R where R.ACADEMIC_YEAR=:ACADEMIC_YEAR and R.STANDARD_ID=1 GROUP BY STUDENT_ID HAVING MARKS_SECURED>700) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "ACADEMIC_YEAR",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "2015-2016",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvGroupByHavingClauseResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "MARKS_SECURED",
+        "fieldName" : "marksSecured",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigInteger",
+          "list" : false
+        }
+      }, {
+        "name" : "STUDENT_ID",
+        "fieldName" : "studentId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "TEST_CONDUCTED_ID",
+        "fieldName" : "testConductedId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "ACADEMIC_YEAR",
+        "fieldName" : "academicYear",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "STANDARD_ID",
+        "fieldName" : "standardId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_InnerJoinWithOrderBy" : {
+    "name" : "SV_InnerJoinWithOrderBy",
+    "description" : "SV_InnerJoinWithOrderBy",
+    "version" : "V2",
+    "queryString" : "select E.*,U.* from EMPLOYEE_DETAILS E INNER JOIN USER_LOGIN U ON E.EMP_ID=U.USER_ID ORDER BY E.FIRSTNAME ASC",
+    "countQueryString" : "select count(*) from (select E.*,U.* from EMPLOYEE_DETAILS E INNER JOIN USER_LOGIN U ON E.EMP_ID=U.USER_ID ORDER BY E.FIRSTNAME ASC) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ "EMP_ID" ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvInnerJoinWithOrderByResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "EMP_ID",
+        "fieldName" : "empId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "FIRSTNAME",
+        "fieldName" : "firstname",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "LASTNAME",
+        "fieldName" : "lastname",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "STATE",
+        "fieldName" : "state",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "CITY",
+        "fieldName" : "city",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "STREET",
+        "fieldName" : "street",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "ZIP",
+        "fieldName" : "zip",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "DATE_OF_BIRTH",
+        "fieldName" : "dateOfBirth",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "JOB_TITLE",
+        "fieldName" : "jobTitle",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "PIC_URL",
+        "fieldName" : "picUrl",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "byte[]",
+          "list" : false
+        }
+      }, {
+        "name" : "MANAGER_ID",
+        "fieldName" : "managerId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "USER_ID",
+        "fieldName" : "userId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "USER_NAME",
+        "fieldName" : "userName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "PASSWORD",
+        "fieldName" : "password",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "ROLE",
+        "fieldName" : "role",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_InnerJoins" : {
+    "name" : "SV_InnerJoins",
+    "description" : "SV_InnerJoins",
+    "version" : "V2",
+    "queryString" : "SELECT R.*,A.CLASS_TEACHER,A.CLASS_ROOM,ACS.SUBJECT_ID,ACS.SUBJECT_TEACHER,ATS.TEST_ID,ATS.MAX_MARKS \nFROM RESULTS R \nINNER JOIN ACADEMICS A ON R.ACADEMIC_YEAR=A.ACADEMIC_YEAR AND R.STANDARD_ID=A.STANDARD_ID \nINNER JOIN ACADEMIC_SUBJECTS ACS ON ACS.ACADEMIC_YEAR=R.ACADEMIC_YEAR AND ACS.STANDARD_ID=R.STANDARD_ID\nINNER JOIN ACADEMIC_TEST_SUBJECTS ATS ON ATS.ACADEMIC_YEAR=R.ACADEMIC_YEAR AND ATS.STANDARD_ID=R.STANDARD_ID",
+    "countQueryString" : "select count(*) from (SELECT R.*,A.CLASS_TEACHER,A.CLASS_ROOM,ACS.SUBJECT_ID,ACS.SUBJECT_TEACHER,ATS.TEST_ID,ATS.MAX_MARKS \nFROM RESULTS R \nINNER JOIN ACADEMICS A ON R.ACADEMIC_YEAR=A.ACADEMIC_YEAR AND R.STANDARD_ID=A.STANDARD_ID \nINNER JOIN ACADEMIC_SUBJECTS ACS ON ACS.ACADEMIC_YEAR=R.ACADEMIC_YEAR AND ACS.STANDARD_ID=R.STANDARD_ID\nINNER JOIN ACADEMIC_TEST_SUBJECTS ATS ON ATS.ACADEMIC_YEAR=R.ACADEMIC_YEAR AND ATS.STANDARD_ID=R.STANDARD_ID) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvInnerJoinsResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "TEST_CONDUCTED_ID",
+        "fieldName" : "testConductedId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "STUDENT_ID",
+        "fieldName" : "studentId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "MARKS_SECURED",
+        "fieldName" : "marksSecured",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Short",
+          "list" : false
+        }
+      }, {
+        "name" : "GRADE_ID",
+        "fieldName" : "gradeId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "ACADEMIC_YEAR",
+        "fieldName" : "academicYear",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "STANDARD_ID",
+        "fieldName" : "standardId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "PRESENCE",
+        "fieldName" : "presence",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      }, {
+        "name" : "CLASS_TEACHER",
+        "fieldName" : "classTeacher",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "CLASS_ROOM",
+        "fieldName" : "classRoom",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "SUBJECT_ID",
+        "fieldName" : "subjectId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "SUBJECT_TEACHER",
+        "fieldName" : "subjectTeacher",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "TEST_ID",
+        "fieldName" : "testId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "MAX_MARKS",
+        "fieldName" : "maxMarks",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_IsNULL" : {
+    "name" : "SV_IsNULL",
+    "description" : "SV_IsNULL",
+    "version" : "V2",
+    "queryString" : "SELECT * FROM RESULTS Where  PRESENCE IS NULL",
+    "countQueryString" : "select count(*) from (SELECT * FROM RESULTS Where  PRESENCE IS NULL) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvIsNullResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "TEST_CONDUCTED_ID",
+        "fieldName" : "testConductedId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "STUDENT_ID",
+        "fieldName" : "studentId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "MARKS_SECURED",
+        "fieldName" : "marksSecured",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Short",
+          "list" : false
+        }
+      }, {
+        "name" : "GRADE_ID",
+        "fieldName" : "gradeId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "ACADEMIC_YEAR",
+        "fieldName" : "academicYear",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "STANDARD_ID",
+        "fieldName" : "standardId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "PRESENCE",
+        "fieldName" : "presence",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_LeftOuterJoin" : {
+    "name" : "SV_LeftOuterJoin",
+    "description" : "SV_LeftOuterJoin",
+    "version" : "V2",
+    "queryString" : "select ATS.*,A.CLASS_ROOM,A.CLASS_TEACHER from ACADEMIC_TEST_SUBJECTS ATS LEFT OUTER JOIN ACADEMICS A ON ATS.ACADEMIC_YEAR=A.ACADEMIC_YEAR AND ATS.STANDARD_ID=A.STANDARD_ID",
+    "countQueryString" : "select count(*) from (select ATS.*,A.CLASS_ROOM,A.CLASS_TEACHER from ACADEMIC_TEST_SUBJECTS ATS LEFT OUTER JOIN ACADEMICS A ON ATS.ACADEMIC_YEAR=A.ACADEMIC_YEAR AND ATS.STANDARD_ID=A.STANDARD_ID) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvLeftOuterJoinResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "ACADEMIC_YEAR",
+        "fieldName" : "academicYear",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "TEST_ID",
+        "fieldName" : "testId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "SUBJECT_ID",
+        "fieldName" : "subjectId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "MAX_MARKS",
+        "fieldName" : "maxMarks",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "STANDARD_ID",
+        "fieldName" : "standardId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "CLASS_ROOM",
+        "fieldName" : "classRoom",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "CLASS_TEACHER",
+        "fieldName" : "classTeacher",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_LengthFunction" : {
+    "name" : "SV_LengthFunction",
+    "description" : "SV_LengthFunction",
+    "version" : "V2",
+    "queryString" : "SELECT DISTINCT ADDRESS,LENGTH(ADDRESS) AS ADDRESS_LENGTH FROM STUDENT_DETAILS",
+    "countQueryString" : "select count(*) from (SELECT DISTINCT ADDRESS,LENGTH(ADDRESS) AS ADDRESS_LENGTH FROM STUDENT_DETAILS) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvLengthFunctionResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "ADDRESS",
+        "fieldName" : "address",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "ADDRESS_LENGTH",
+        "fieldName" : "addressLength",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Long",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_LowerFunction" : {
+    "name" : "SV_LowerFunction",
+    "description" : "SV_LowerFunction",
+    "version" : "V2",
+    "queryString" : "select LCASE(FIRSTNAME) AS FIRSTNAME,LOWER(LASTNAME) AS LASTNAME from EMPLOYEE_DETAILS",
+    "countQueryString" : "select count(*) from (select LCASE(FIRSTNAME) AS FIRSTNAME,LOWER(LASTNAME) AS LASTNAME from EMPLOYEE_DETAILS) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvLowerFunctionResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "FIRSTNAME",
+        "fieldName" : "firstname",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "LASTNAME",
+        "fieldName" : "lastname",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_MAXFunction" : {
+    "name" : "SV_MAXFunction",
+    "description" : "SV_MAXFunction",
+    "version" : "V2",
+    "queryString" : "select MAX(MARKS_SECURED) from RESULTS WHERE ACADEMIC_YEAR=:ACADEMIC_YEAR AND STANDARD_ID=1 AND TEST_CONDUCTED_ID=1",
+    "countQueryString" : "select count(*) from (select MAX(MARKS_SECURED) from RESULTS WHERE ACADEMIC_YEAR=:ACADEMIC_YEAR AND STANDARD_ID=1 AND TEST_CONDUCTED_ID=1) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "ACADEMIC_YEAR",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "2015-2016",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvMaxfunctionResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "MAX(MARKS_SECURED)",
+        "fieldName" : "max_marksSecured_",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Short",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_MinFunction" : {
+    "name" : "SV_MinFunction",
+    "description" : "SV_MinFunction",
+    "version" : "V2",
+    "queryString" : "select MIN(MARKS_SECURED) from RESULTS WHERE ACADEMIC_YEAR=:ACADEMIC_YEAR AND STANDARD_ID=1 AND TEST_CONDUCTED_ID=1",
+    "countQueryString" : "select count(*) from (select MIN(MARKS_SECURED) from RESULTS WHERE ACADEMIC_YEAR=:ACADEMIC_YEAR AND STANDARD_ID=1 AND TEST_CONDUCTED_ID=1) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "ACADEMIC_YEAR",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "2015-2016",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvMinFunctionResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "MIN(MARKS_SECURED)",
+        "fieldName" : "min_marksSecured_",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Short",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_NOTNULL" : {
+    "name" : "SV_NOTNULL",
+    "description" : "SV_NOTNULL",
+    "version" : "V2",
+    "queryString" : "SELECT * FROM RESULTS Where PRESENCE IS NOT NULL",
+    "countQueryString" : "select count(*) from (SELECT * FROM RESULTS Where PRESENCE IS NOT NULL) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvNotnullResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "TEST_CONDUCTED_ID",
+        "fieldName" : "testConductedId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "STUDENT_ID",
+        "fieldName" : "studentId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "MARKS_SECURED",
+        "fieldName" : "marksSecured",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Short",
+          "list" : false
+        }
+      }, {
+        "name" : "GRADE_ID",
+        "fieldName" : "gradeId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "ACADEMIC_YEAR",
+        "fieldName" : "academicYear",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "STANDARD_ID",
+        "fieldName" : "standardId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "PRESENCE",
+        "fieldName" : "presence",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_NestedQuery" : {
+    "name" : "SV_NestedQuery",
+    "description" : "SV_NestedQuery",
+    "version" : "V2",
+    "queryString" : "select * from RESULTS WHERE TEST_CONDUCTED_ID=(select TEST_CONDUCTED_ID from TEST_CONDUCTED where ACADEMIC_YEAR=:ACADEMIC_YEAR and STANDARD_ID=1 and SUBJECT_ID=1 and TEST_ID=3)",
+    "countQueryString" : "select count(*) from (select * from RESULTS WHERE TEST_CONDUCTED_ID=(select TEST_CONDUCTED_ID from TEST_CONDUCTED where ACADEMIC_YEAR=:ACADEMIC_YEAR and STANDARD_ID=1 and SUBJECT_ID=1 and TEST_ID=3)) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "ACADEMIC_YEAR",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "2015-2016",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvNestedQueryResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "TEST_CONDUCTED_ID",
+        "fieldName" : "testConductedId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "STUDENT_ID",
+        "fieldName" : "studentId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "MARKS_SECURED",
+        "fieldName" : "marksSecured",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Short",
+          "list" : false
+        }
+      }, {
+        "name" : "GRADE_ID",
+        "fieldName" : "gradeId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "ACADEMIC_YEAR",
+        "fieldName" : "academicYear",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "STANDARD_ID",
+        "fieldName" : "standardId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "PRESENCE",
+        "fieldName" : "presence",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Boolean",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_QueryWithDate" : {
+    "name" : "SV_QueryWithDate",
+    "description" : "SV_QueryWithDate",
+    "version" : "V2",
+    "queryString" : "select * from STUDENT_DETAILS where JOINING_DATE=:JDATE",
+    "countQueryString" : "select count(*) from (select * from STUDENT_DETAILS where JOINING_DATE=:JDATE) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "JDATE",
+      "type" : "date",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "2015-06-01",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ "STUDENT_ID" ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvQueryWithDateResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "STUDENT_ID",
+        "fieldName" : "studentId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "STUDENT_NAME",
+        "fieldName" : "studentName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "DATE_OF_BIRTH",
+        "fieldName" : "dateOfBirth",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "FATHER_NAME",
+        "fieldName" : "fatherName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "ADDRESS",
+        "fieldName" : "address",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "JOINING_DATE",
+        "fieldName" : "joiningDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "PROFILE_PIC",
+        "fieldName" : "profilePic",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "byte[]",
+          "list" : false
+        }
+      }, {
+        "name" : "STATUS",
+        "fieldName" : "status",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "CONTACT_NUMBER",
+        "fieldName" : "contactNumber",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "GENDER",
+        "fieldName" : "gender",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "STUDENT_IDENTIFICATION_ID",
+        "fieldName" : "studentIdentificationId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_RightJoin" : {
+    "name" : "SV_RightJoin",
+    "description" : "SV_RightJoin",
+    "version" : "V2",
+    "queryString" : "select ATS.*,A.CLASS_ROOM,A.CLASS_TEACHER from ACADEMIC_TEST_SUBJECTS ATS RIGHT OUTER JOIN ACADEMICS A ON ATS.ACADEMIC_YEAR=A.ACADEMIC_YEAR AND ATS.STANDARD_ID=A.STANDARD_ID",
+    "countQueryString" : "select count(*) from (select ATS.*,A.CLASS_ROOM,A.CLASS_TEACHER from ACADEMIC_TEST_SUBJECTS ATS RIGHT OUTER JOIN ACADEMICS A ON ATS.ACADEMIC_YEAR=A.ACADEMIC_YEAR AND ATS.STANDARD_ID=A.STANDARD_ID) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvRightJoinResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "ACADEMIC_YEAR",
+        "fieldName" : "academicYear",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "TEST_ID",
+        "fieldName" : "testId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "SUBJECT_ID",
+        "fieldName" : "subjectId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "MAX_MARKS",
+        "fieldName" : "maxMarks",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "STANDARD_ID",
+        "fieldName" : "standardId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "CLASS_ROOM",
+        "fieldName" : "classRoom",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "CLASS_TEACHER",
+        "fieldName" : "classTeacher",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_StudentDetails" : {
+    "name" : "SV_StudentDetails",
+    "description" : "SV_StudentDetails",
+    "version" : "V2",
+    "queryString" : "select * from STUDENT_DETAILS",
+    "countQueryString" : "select count(*) from (select * from STUDENT_DETAILS) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ "STUDENT_ID" ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvStudentDetailsResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "STUDENT_ID",
+        "fieldName" : "studentId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "STUDENT_NAME",
+        "fieldName" : "studentName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "DATE_OF_BIRTH",
+        "fieldName" : "dateOfBirth",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "FATHER_NAME",
+        "fieldName" : "fatherName",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "ADDRESS",
+        "fieldName" : "address",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "JOINING_DATE",
+        "fieldName" : "joiningDate",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.sql.Date",
+          "list" : false
+        }
+      }, {
+        "name" : "PROFILE_PIC",
+        "fieldName" : "profilePic",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "byte[]",
+          "list" : false
+        }
+      }, {
+        "name" : "STATUS",
+        "fieldName" : "status",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "CONTACT_NUMBER",
+        "fieldName" : "contactNumber",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "GENDER",
+        "fieldName" : "gender",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "STUDENT_IDENTIFICATION_ID",
+        "fieldName" : "studentIdentificationId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_SubStr" : {
+    "name" : "SV_SubStr",
+    "description" : "SV_SubStr",
+    "version" : "V2",
+    "queryString" : "select substr(CITY,1,8) as SHORTEN_CITY from EMPLOYEE_DETAILS",
+    "countQueryString" : "select count(*) from (select substr(CITY,1,8) as SHORTEN_CITY from EMPLOYEE_DETAILS) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvSubStrResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "SHORTEN_CITY",
+        "fieldName" : "shortenCity",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_SumFunction" : {
+    "name" : "SV_SumFunction",
+    "description" : "SV_SumFunction",
+    "version" : "V2",
+    "queryString" : "select sum(MARKS_SECURED) as TOTAL_MARKS_SECURED, STUDENT_ID from RESULTS where ACADEMIC_YEAR=:ACADEMIC_YEAR and STANDARD_ID=1 group by STUDENT_ID",
+    "countQueryString" : "select count(*) from (select sum(MARKS_SECURED) as TOTAL_MARKS_SECURED, STUDENT_ID from RESULTS where ACADEMIC_YEAR=:ACADEMIC_YEAR and STANDARD_ID=1 group by STUDENT_ID) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ {
+      "name" : "ACADEMIC_YEAR",
+      "type" : "string",
+      "list" : false,
+      "variableType" : "PROMPT",
+      "variableName" : "",
+      "testValue" : "2015-2016",
+      "required" : true
+    } ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvSumFunctionResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "TOTAL_MARKS_SECURED",
+        "fieldName" : "totalMarksSecured",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.math.BigInteger",
+          "list" : false
+        }
+      }, {
+        "name" : "STUDENT_ID",
+        "fieldName" : "studentId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_UnionAll" : {
+    "name" : "SV_UnionAll",
+    "description" : "SV_UnionAll",
+    "version" : "V2",
+    "queryString" : "select * from EMPLOYEE_DETAILS UNION ALL select * FROM STUDENT_DETAILS ORDER BY CITY",
+    "countQueryString" : "select count(*) from (select * from EMPLOYEE_DETAILS UNION ALL select * FROM STUDENT_DETAILS ORDER BY CITY) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ "EMP_ID" ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvUnionAllResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "EMP_ID",
+        "fieldName" : "empId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      }, {
+        "name" : "FIRSTNAME",
+        "fieldName" : "firstname",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "LASTNAME",
+        "fieldName" : "lastname",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "STATE",
+        "fieldName" : "state",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "CITY",
+        "fieldName" : "city",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "STREET",
+        "fieldName" : "street",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "ZIP",
+        "fieldName" : "zip",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "byte[]",
+          "list" : false
+        }
+      }, {
+        "name" : "DATE_OF_BIRTH",
+        "fieldName" : "dateOfBirth",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "JOB_TITLE",
+        "fieldName" : "jobTitle",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "PIC_URL",
+        "fieldName" : "picUrl",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "byte[]",
+          "list" : false
+        }
+      }, {
+        "name" : "MANAGER_ID",
+        "fieldName" : "managerId",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.Integer",
+          "list" : false
+        }
+      } ]
+    }
+  },
+  "SV_UpperFunction" : {
+    "name" : "SV_UpperFunction",
+    "description" : "SV_UpperFunction",
+    "version" : "V2",
+    "queryString" : "select UCASE(FIRSTNAME),UPPER(LASTNAME) from EMPLOYEE_DETAILS",
+    "countQueryString" : "select count(*) from (select UCASE(FIRSTNAME),UPPER(LASTNAME) from EMPLOYEE_DETAILS) wmTempTable",
+    "nativeSql" : true,
+    "fetchCount" : true,
+    "type" : "SELECT",
+    "parameters" : [ ],
+    "request" : {
+      "wrapped" : false,
+      "typeRef" : null,
+      "method" : "GET"
+    },
+    "identifiers" : [ ],
+    "response" : {
+      "typeRef" : "com.dbofflinestorage.school_db.models.query.SvUpperFunctionResponse",
+      "returns" : "CUSTOM",
+      "responseType" : "PAGINATED",
+      "properties" : [ {
+        "name" : "UCASE(FIRSTNAME)",
+        "fieldName" : "ucase_firstname_",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      }, {
+        "name" : "UPPER(LASTNAME)",
+        "fieldName" : "upper_lastname_",
+        "optional" : false,
+        "fieldType" : {
+          "type" : "PRIMITIVE",
+          "typeRef" : "java.lang.String",
+          "list" : false
+        }
+      } ]
+    }
+  }
+}

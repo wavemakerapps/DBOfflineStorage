@@ -1,0 +1,37 @@
+{
+  "username" : "root",
+  "password" : "7b6a43524a122c0c6e6166771a13057c4838313a6b124c1a",
+  "url" : "jdbc:mysql://54.189.223.203:3306/dbscenarios?useUnicode=yes&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull",
+  "driverClass" : "com.mysql.jdbc.Driver",
+  "dialect" : "com.wavemaker.runtime.data.dialect.MySQLDialect",
+  "serviceId" : "dbscenarios",
+  "packageName" : "com.dbofflinestorage.dbscenarios",
+  "dbType" : "MySQL",
+  "host" : "54.189.223.203",
+  "dbName" : "dbscenarios",
+  "port" : "3306",
+  "schemaName" : null,
+  "tableFilter" : [ {
+    "table" : "BLOBTABLE_PROCEDURE",
+    "schema" : null
+  }, {
+    "table" : "USER_LOGIN",
+    "schema" : null
+  } ],
+  "schemaFilter" : [ ],
+  "impersonateUser" : false,
+  "activeDirectoryDomain" : null,
+  "hbm2ddl" : "none",
+  "maxPageSize" : 100,
+  "minPoolSize" : 2,
+  "maxPoolSize" : 4,
+  "transactionTimeout" : 30,
+  "dataSourceType" : "WM_MANAGED_DATASOURCE",
+  "jndiName" : "",
+  "reloadInfo" : {
+    "reload" : true,
+    "reason" : "MIGRATION_FAILED",
+    "message" : "Regenerating Source to implement the newly added method in the classes extending WMGenericDaoImpl."
+  },
+  "readOnly" : false
+}

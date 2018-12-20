@@ -1,0 +1,184 @@
+{
+  "name" : "offlineDatabaseDefined",
+  "entities" : [ {
+    "name" : "DateDatabaseDefined",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : "",
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : "datetimeCol",
+      "pullType" : "BUNDLED"
+    },
+    "pushConfig" : {
+      "insertEnabled" : true,
+      "updateEnabled" : true,
+      "deleteEnabled" : true,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "Department",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : null,
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "APP_START"
+    },
+    "pushConfig" : {
+      "insertEnabled" : true,
+      "updateEnabled" : true,
+      "deleteEnabled" : true,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "Employee",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : null,
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "APP_START"
+    },
+    "pushConfig" : {
+      "insertEnabled" : true,
+      "updateEnabled" : true,
+      "deleteEnabled" : true,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "fullNameDatabaseDefined",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : null,
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "APP_START"
+    },
+    "pushConfig" : {
+      "insertEnabled" : true,
+      "updateEnabled" : true,
+      "deleteEnabled" : true,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "MANY2ONE_C",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : "",
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : "timestampCol",
+      "pullType" : "BUNDLED"
+    },
+    "pushConfig" : {
+      "insertEnabled" : true,
+      "updateEnabled" : true,
+      "deleteEnabled" : true,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "ONE2MANY_P",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : null,
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : "datetimeCol",
+      "pullType" : "APP_START"
+    },
+    "pushConfig" : {
+      "insertEnabled" : true,
+      "updateEnabled" : true,
+      "deleteEnabled" : true,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "ONE2ONE_C",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : null,
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : "datetimeCol",
+      "pullType" : "APP_START"
+    },
+    "pushConfig" : {
+      "insertEnabled" : true,
+      "updateEnabled" : true,
+      "deleteEnabled" : true,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "ONE2ONE_P",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : "",
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : "timestampCol",
+      "pullType" : "BUNDLED"
+    },
+    "pushConfig" : {
+      "insertEnabled" : true,
+      "updateEnabled" : true,
+      "deleteEnabled" : true,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "Validators Table",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : null,
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : "datetimeCol",
+      "pullType" : "APP_START"
+    },
+    "pushConfig" : {
+      "insertEnabled" : true,
+      "updateEnabled" : true,
+      "deleteEnabled" : true,
+      "readEnabled" : true
+    }
+  }, {
+    "name" : "CURRENT_DATE",
+    "enabled" : true,
+    "pullConfig" : {
+      "size" : 20,
+      "filter" : [ ],
+      "query" : null,
+      "orderBy" : "",
+      "maxNumberOfRecords" : 100,
+      "deltaFieldName" : null,
+      "pullType" : "APP_START"
+    },
+    "pushConfig" : {
+      "insertEnabled" : true,
+      "updateEnabled" : true,
+      "deleteEnabled" : true,
+      "readEnabled" : true
+    }
+  } ]
+}
