@@ -13,6 +13,7 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.wavemaker.runtime.data.dao.WMGenericDaoImpl;
+import com.wavemaker.runtime.data.dao.query.types.wmql.WMQLTypeHelper;
 
 import com.dbofflinestorage.school_db.AcademicYear;
 
@@ -27,9 +28,19 @@ public class AcademicYearDao extends WMGenericDaoImpl<AcademicYear, String> {
     @Qualifier("School_DBTemplate")
     private HibernateTemplate template;
 
+    @Autowired
+    @Qualifier("School_DBWMQLTypeHelper")
+    private WMQLTypeHelper wmqlTypeHelper;
+
 
     @Override
     public HibernateTemplate getTemplate() {
         return this.template;
     }
+
+    @Override
+    public WMQLTypeHelper getWMQLTypeHelper() {
+        return this.wmqlTypeHelper;
+    }
+
 }

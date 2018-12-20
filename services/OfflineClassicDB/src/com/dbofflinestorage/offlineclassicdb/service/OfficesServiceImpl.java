@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+import com.wavemaker.commons.MessageResource;
 import com.wavemaker.runtime.data.dao.WMGenericDao;
 import com.wavemaker.runtime.data.exception.EntityNotFoundException;
 import com.wavemaker.runtime.data.export.DataExportOptions;
@@ -112,7 +113,7 @@ public class OfficesServiceImpl implements OfficesService {
         Offices deleted = this.wmGenericDao.findById(officesId);
         if (deleted == null) {
             LOGGER.debug("No Offices found with id: {}", officesId);
-            throw new EntityNotFoundException(String.valueOf(officesId));
+            throw new EntityNotFoundException(MessageResource.create("com.wavemaker.runtime.entity.not.found"), Offices.class.getSimpleName(), officesId);
         }
         this.wmGenericDao.delete(deleted);
         return deleted;

@@ -1,5 +1,6 @@
 [ {
-  "name" : "simply-red",
-  "version" : "2.6",
-  "artifactType" : "THEME"
+  "name" : "pink-shaded",
+  "version" : "1.0",
+  "artifactType" : "THEME",
+  "artifactDependencyList" : null
 } ]

@@ -31,17 +31,17 @@ import com.wavemaker.runtime.data.replacers.providers.VariableType;
 public class ServerDefined implements Serializable {
 
     private Integer id;
-    @WMValueInject( type = VariableType.SERVER, name = "USER_ID", scopes = { Scope.UPDATE, Scope.INSERT })
+    @WMValueInject( type = VariableType.SERVER, name = "USER_ID", scopes = { Scope.INSERT, Scope.UPDATE })
     private Integer userIdInteger;
     @WMValueInject( type = VariableType.SERVER, name = "USER_ID", scopes = { Scope.INSERT })
     private String userIdString;
-    @WMValueInject( type = VariableType.SERVER, name = "USER_NAME", scopes = { Scope.UPDATE, Scope.INSERT })
+    @WMValueInject( type = VariableType.SERVER, name = "USER_NAME", scopes = { Scope.INSERT, Scope.UPDATE })
     private String username;
-    @WMValueInject( type = VariableType.SERVER, name = "DATE", scopes = { Scope.UPDATE, Scope.INSERT })
+    @WMValueInject( type = VariableType.SERVER, name = "DATE", scopes = { Scope.INSERT, Scope.UPDATE })
     private Date currentDate;
-    @WMValueInject( type = VariableType.SERVER, name = "TIME", scopes = { Scope.UPDATE, Scope.INSERT })
+    @WMValueInject( type = VariableType.SERVER, name = "TIME", scopes = { Scope.INSERT, Scope.UPDATE })
     private Time currentTime;
-    @WMValueInject( type = VariableType.SERVER, name = "DATE_TIME", scopes = { Scope.UPDATE, Scope.INSERT })
+    @WMValueInject( type = VariableType.SERVER, name = "DATE_TIME", scopes = { Scope.INSERT, Scope.UPDATE })
     private LocalDateTime currentDatetime;
     private String stringCol;
     @WMValueInject( type = VariableType.SERVER, name = "DATE", scopes = { Scope.UPDATE })

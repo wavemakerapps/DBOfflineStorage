@@ -150,8 +150,8 @@
     }, {
       "columnValue" : {
         "defaultValue" : null,
-        "insertable" : false,
         "updatable" : false,
+        "insertable" : false,
         "type" : "database-defined"
       },
       "constraintList" : [ ],
@@ -179,8 +179,8 @@
     }, {
       "columnValue" : {
         "defaultValue" : null,
-        "insertable" : false,
         "updatable" : false,
+        "insertable" : false,
         "type" : "database-defined"
       },
       "constraintList" : [ ],
@@ -2257,8 +2257,8 @@
     }, {
       "columnValue" : {
         "defaultValue" : null,
-        "insertable" : false,
         "updatable" : false,
+        "insertable" : false,
         "type" : "database-defined"
       },
       "constraintList" : [ ],

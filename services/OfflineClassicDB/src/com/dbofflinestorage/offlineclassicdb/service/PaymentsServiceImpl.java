@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+import com.wavemaker.commons.MessageResource;
 import com.wavemaker.runtime.data.dao.WMGenericDao;
 import com.wavemaker.runtime.data.exception.EntityNotFoundException;
 import com.wavemaker.runtime.data.export.DataExportOptions;
@@ -107,7 +108,7 @@ public class PaymentsServiceImpl implements PaymentsService {
         Payments deleted = this.wmGenericDao.findById(paymentsId);
         if (deleted == null) {
             LOGGER.debug("No Payments found with id: {}", paymentsId);
-            throw new EntityNotFoundException(String.valueOf(paymentsId));
+            throw new EntityNotFoundException(MessageResource.create("com.wavemaker.runtime.entity.not.found"), Payments.class.getSimpleName(), paymentsId);
         }
         this.wmGenericDao.delete(deleted);
         return deleted;

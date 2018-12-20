@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+import com.wavemaker.commons.MessageResource;
 import com.wavemaker.runtime.data.dao.WMGenericDao;
 import com.wavemaker.runtime.data.exception.EntityNotFoundException;
 import com.wavemaker.runtime.data.export.DataExportOptions;
@@ -106,7 +107,7 @@ public class BlobtableProcedureServiceImpl implements BlobtableProcedureService 
         BlobtableProcedure deleted = this.wmGenericDao.findById(blobtableprocedureId);
         if (deleted == null) {
             LOGGER.debug("No BlobtableProcedure found with id: {}", blobtableprocedureId);
-            throw new EntityNotFoundException(String.valueOf(blobtableprocedureId));
+            throw new EntityNotFoundException(MessageResource.create("com.wavemaker.runtime.entity.not.found"), BlobtableProcedure.class.getSimpleName(), blobtableprocedureId);
         }
         this.wmGenericDao.delete(deleted);
         return deleted;

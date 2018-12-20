@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+import com.wavemaker.commons.MessageResource;
 import com.wavemaker.runtime.data.dao.WMGenericDao;
 import com.wavemaker.runtime.data.exception.EntityNotFoundException;
 import com.wavemaker.runtime.data.export.DataExportOptions;
@@ -122,7 +123,7 @@ public class AcademicYearServiceImpl implements AcademicYearService {
         AcademicYear deleted = this.wmGenericDao.findById(academicyearId);
         if (deleted == null) {
             LOGGER.debug("No AcademicYear found with id: {}", academicyearId);
-            throw new EntityNotFoundException(String.valueOf(academicyearId));
+            throw new EntityNotFoundException(MessageResource.create("com.wavemaker.runtime.entity.not.found"), AcademicYear.class.getSimpleName(), academicyearId);
         }
         this.wmGenericDao.delete(deleted);
         return deleted;

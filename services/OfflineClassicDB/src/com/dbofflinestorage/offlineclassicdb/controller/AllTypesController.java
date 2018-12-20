@@ -35,6 +35,7 @@ import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.manager.ExportedFileManager;
 import com.wavemaker.runtime.file.model.DownloadResponse;
 import com.wavemaker.runtime.file.model.Downloadable;
+import com.wavemaker.runtime.security.xss.XssDisable;
 import com.wavemaker.runtime.util.WMMultipartUtils;
 import com.wavemaker.runtime.util.WMRuntimeUtils;
 import com.wavemaker.tools.api.core.annotations.WMAccessVisibility;
@@ -150,6 +151,7 @@ public class AllTypesController {
     @ApiOperation(value = "Returns the list of AllTypes instances matching the search criteria.")
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public Page<AllTypes> searchAllTypesByQueryFilters( Pageable pageable, @RequestBody QueryFilter[] queryFilters) {
         LOGGER.debug("Rendering AllTypes list by query filter:{}", (Object) queryFilters);
         return allTypesService.findAll(queryFilters, pageable);
@@ -166,6 +168,7 @@ public class AllTypesController {
     @ApiOperation(value = "Returns the paginated list of AllTypes instances matching the optional query (q) request param. This API should be used only if the query string is too big to fit in GET request with request param. The request has to made in application/x-www-form-urlencoded format.")
     @RequestMapping(value="/filter", method = RequestMethod.POST, consumes= "application/x-www-form-urlencoded")
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public Page<AllTypes> filterAllTypes(@ApiParam("conditions to filter the results") @RequestParam(value = "q", required = false) String query, Pageable pageable) {
         LOGGER.debug("Rendering AllTypes list by filter", query);
         return allTypesService.findAll(query, pageable);
@@ -174,6 +177,7 @@ public class AllTypesController {
     @ApiOperation(value = "Returns downloadable file for the data matching the optional query (q) request param. If query string is too big to fit in GET request's query param, use POST method with application/x-www-form-urlencoded format.")
     @RequestMapping(value = "/export/{exportType}", method = {RequestMethod.GET,  RequestMethod.POST}, produces = "application/octet-stream")
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public Downloadable exportAllTypes(@PathVariable("exportType") ExportType exportType, @ApiParam("conditions to filter the results") @RequestParam(value = "q", required = false) String query, Pageable pageable) {
          return allTypesService.export(exportType, query, pageable);
     }
@@ -181,6 +185,7 @@ public class AllTypesController {
     @ApiOperation(value = "Returns a URL to download a file for the data matching the optional query (q) request param and the required fields provided in the Export Options.") 
     @RequestMapping(value = "/export", method = {RequestMethod.POST}, consumes = "application/json")
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportAllTypesAndGetURL(@RequestBody DataExportOptions exportOptions, Pageable pageable) {
         String exportedFileName = exportOptions.getFileName();
         if(exportedFileName == null || exportedFileName.isEmpty()) {
@@ -194,6 +199,7 @@ public class AllTypesController {
 	@ApiOperation(value = "Returns the total count of AllTypes instances matching the optional query (q) request param. If query string is too big to fit in GET request's query param, use POST method with application/x-www-form-urlencoded format.")
 	@RequestMapping(value = "/count", method = {RequestMethod.GET, RequestMethod.POST})
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+	@XssDisable
 	public Long countAllTypes( @ApiParam("conditions to filter the results") @RequestParam(value = "q", required = false) String query) {
 		LOGGER.debug("counting AllTypes");
 		return allTypesService.count(query);
@@ -202,6 +208,7 @@ public class AllTypesController {
     @ApiOperation(value = "Returns aggregated result with given aggregation info")
 	@RequestMapping(value = "/aggregations", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+	@XssDisable
 	public Page<Map<String, Object>> getAllTypesAggregatedValues(@RequestBody AggregationInfo aggregationInfo, Pageable pageable) {
         LOGGER.debug("Fetching aggregated results for {}", aggregationInfo);
         return allTypesService.getAggregatedValues(aggregationInfo, pageable);

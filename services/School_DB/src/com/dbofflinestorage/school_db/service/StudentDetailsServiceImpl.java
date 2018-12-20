@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+import com.wavemaker.commons.MessageResource;
 import com.wavemaker.runtime.data.dao.WMGenericDao;
 import com.wavemaker.runtime.data.exception.EntityNotFoundException;
 import com.wavemaker.runtime.data.export.DataExportOptions;
@@ -128,7 +129,7 @@ public class StudentDetailsServiceImpl implements StudentDetailsService {
         StudentDetails deleted = this.wmGenericDao.findById(studentdetailsId);
         if (deleted == null) {
             LOGGER.debug("No StudentDetails found with id: {}", studentdetailsId);
-            throw new EntityNotFoundException(String.valueOf(studentdetailsId));
+            throw new EntityNotFoundException(MessageResource.create("com.wavemaker.runtime.entity.not.found"), StudentDetails.class.getSimpleName(), studentdetailsId);
         }
         this.wmGenericDao.delete(deleted);
         return deleted;

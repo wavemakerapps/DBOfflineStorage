@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+import com.wavemaker.commons.MessageResource;
 import com.wavemaker.runtime.data.dao.WMGenericDao;
 import com.wavemaker.runtime.data.exception.EntityNotFoundException;
 import com.wavemaker.runtime.data.export.DataExportOptions;
@@ -106,7 +107,7 @@ public class ServerDefinedServiceImpl implements ServerDefinedService {
         ServerDefined deleted = this.wmGenericDao.findById(serverdefinedId);
         if (deleted == null) {
             LOGGER.debug("No ServerDefined found with id: {}", serverdefinedId);
-            throw new EntityNotFoundException(String.valueOf(serverdefinedId));
+            throw new EntityNotFoundException(MessageResource.create("com.wavemaker.runtime.entity.not.found"), ServerDefined.class.getSimpleName(), serverdefinedId);
         }
         this.wmGenericDao.delete(deleted);
         return deleted;

@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+import com.wavemaker.commons.MessageResource;
 import com.wavemaker.runtime.data.dao.WMGenericDao;
 import com.wavemaker.runtime.data.exception.EntityNotFoundException;
 import com.wavemaker.runtime.data.export.DataExportOptions;
@@ -106,7 +107,7 @@ public class Many2oneCServiceImpl implements Many2oneCService {
         Many2oneC deleted = this.wmGenericDao.findById(many2onecId);
         if (deleted == null) {
             LOGGER.debug("No Many2oneC found with id: {}", many2onecId);
-            throw new EntityNotFoundException(String.valueOf(many2onecId));
+            throw new EntityNotFoundException(MessageResource.create("com.wavemaker.runtime.entity.not.found"), Many2oneC.class.getSimpleName(), many2onecId);
         }
         this.wmGenericDao.delete(deleted);
         return deleted;

@@ -48,7 +48,7 @@ public class OfflineDatabaseDefinedQueryExecutorServiceImpl implements OfflineDa
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_HiddenFields", params, SvHiddenFieldsResponse.class);
+        QueryProcedureInput<SvHiddenFieldsResponse> queryInput = new QueryProcedureInput<>("SV_HiddenFields", params, SvHiddenFieldsResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }

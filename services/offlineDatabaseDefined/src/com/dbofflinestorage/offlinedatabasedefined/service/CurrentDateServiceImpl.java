@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+import com.wavemaker.commons.MessageResource;
 import com.wavemaker.runtime.data.dao.WMGenericDao;
 import com.wavemaker.runtime.data.exception.EntityNotFoundException;
 import com.wavemaker.runtime.data.export.DataExportOptions;
@@ -106,7 +107,7 @@ public class CurrentDateServiceImpl implements CurrentDateService {
         CurrentDate deleted = this.wmGenericDao.findById(currentdateId);
         if (deleted == null) {
             LOGGER.debug("No CurrentDate found with id: {}", currentdateId);
-            throw new EntityNotFoundException(String.valueOf(currentdateId));
+            throw new EntityNotFoundException(MessageResource.create("com.wavemaker.runtime.entity.not.found"), CurrentDate.class.getSimpleName(), currentdateId);
         }
         this.wmGenericDao.delete(deleted);
         return deleted;

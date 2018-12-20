@@ -29,19 +29,19 @@ import com.wavemaker.runtime.data.replacers.providers.VariableType;
 public class AppEnvTable implements Serializable {
 
     private Integer pkId;
-    @WMValueInject( type = VariableType.APP_ENVIRONMENT, name = "byteKey", scopes = { Scope.UPDATE, Scope.INSERT })
+    @WMValueInject( type = VariableType.APP_ENVIRONMENT, name = "byteKey", scopes = { Scope.INSERT, Scope.UPDATE })
     private Byte byteKey;
-    @WMValueInject( type = VariableType.APP_ENVIRONMENT, name = "shortKey", scopes = { Scope.UPDATE, Scope.INSERT })
+    @WMValueInject( type = VariableType.APP_ENVIRONMENT, name = "shortKey", scopes = { Scope.INSERT, Scope.UPDATE })
     private Short shortKey;
-    @WMValueInject( type = VariableType.APP_ENVIRONMENT, name = "floatKey", scopes = { Scope.UPDATE, Scope.INSERT })
+    @WMValueInject( type = VariableType.APP_ENVIRONMENT, name = "floatKey", scopes = { Scope.INSERT, Scope.UPDATE })
     private Float floatKey;
-    @WMValueInject( type = VariableType.APP_ENVIRONMENT, name = "doubleKey", scopes = { Scope.UPDATE, Scope.INSERT })
+    @WMValueInject( type = VariableType.APP_ENVIRONMENT, name = "doubleKey", scopes = { Scope.INSERT, Scope.UPDATE })
     private Double doubleKey;
-    @WMValueInject( type = VariableType.APP_ENVIRONMENT, name = "charKey", scopes = { Scope.UPDATE, Scope.INSERT })
+    @WMValueInject( type = VariableType.APP_ENVIRONMENT, name = "charKey", scopes = { Scope.INSERT, Scope.UPDATE })
     private String charKey;
-    @WMValueInject( type = VariableType.APP_ENVIRONMENT, name = "stringKey", scopes = { Scope.UPDATE, Scope.INSERT })
+    @WMValueInject( type = VariableType.APP_ENVIRONMENT, name = "stringKey", scopes = { Scope.INSERT, Scope.UPDATE })
     private String stringKey;
-    @WMValueInject( type = VariableType.APP_ENVIRONMENT, name = "textKey", scopes = { Scope.UPDATE, Scope.INSERT })
+    @WMValueInject( type = VariableType.APP_ENVIRONMENT, name = "textKey", scopes = { Scope.INSERT, Scope.UPDATE })
     private String textKey;
     private Boolean booleanCol;
     private LocalDateTime deltaDatetimeCol;

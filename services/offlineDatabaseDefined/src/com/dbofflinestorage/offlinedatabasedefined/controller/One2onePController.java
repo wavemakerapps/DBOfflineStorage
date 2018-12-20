@@ -27,6 +27,7 @@ import com.wavemaker.runtime.data.expression.QueryFilter;
 import com.wavemaker.runtime.data.model.AggregationInfo;
 import com.wavemaker.runtime.file.manager.ExportedFileManager;
 import com.wavemaker.runtime.file.model.Downloadable;
+import com.wavemaker.runtime.security.xss.XssDisable;
 import com.wavemaker.tools.api.core.annotations.WMAccessVisibility;
 import com.wavemaker.tools.api.core.models.AccessSpecifier;
 import com.wordnik.swagger.annotations.Api;
@@ -110,6 +111,7 @@ public class One2onePController {
     @ApiOperation(value = "Returns the list of One2oneP instances matching the search criteria.")
     @RequestMapping(value = "/search", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public Page<One2oneP> searchOne2onePsByQueryFilters( Pageable pageable, @RequestBody QueryFilter[] queryFilters) {
         LOGGER.debug("Rendering One2onePs list by query filter:{}", (Object) queryFilters);
         return one2onePService.findAll(queryFilters, pageable);
@@ -126,6 +128,7 @@ public class One2onePController {
     @ApiOperation(value = "Returns the paginated list of One2oneP instances matching the optional query (q) request param. This API should be used only if the query string is too big to fit in GET request with request param. The request has to made in application/x-www-form-urlencoded format.")
     @RequestMapping(value="/filter", method = RequestMethod.POST, consumes= "application/x-www-form-urlencoded")
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public Page<One2oneP> filterOne2onePs(@ApiParam("conditions to filter the results") @RequestParam(value = "q", required = false) String query, Pageable pageable) {
         LOGGER.debug("Rendering One2onePs list by filter", query);
         return one2onePService.findAll(query, pageable);
@@ -134,6 +137,7 @@ public class One2onePController {
     @ApiOperation(value = "Returns downloadable file for the data matching the optional query (q) request param. If query string is too big to fit in GET request's query param, use POST method with application/x-www-form-urlencoded format.")
     @RequestMapping(value = "/export/{exportType}", method = {RequestMethod.GET,  RequestMethod.POST}, produces = "application/octet-stream")
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public Downloadable exportOne2onePs(@PathVariable("exportType") ExportType exportType, @ApiParam("conditions to filter the results") @RequestParam(value = "q", required = false) String query, Pageable pageable) {
          return one2onePService.export(exportType, query, pageable);
     }
@@ -141,6 +145,7 @@ public class One2onePController {
     @ApiOperation(value = "Returns a URL to download a file for the data matching the optional query (q) request param and the required fields provided in the Export Options.") 
     @RequestMapping(value = "/export", method = {RequestMethod.POST}, consumes = "application/json")
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportOne2onePsAndGetURL(@RequestBody DataExportOptions exportOptions, Pageable pageable) {
         String exportedFileName = exportOptions.getFileName();
         if(exportedFileName == null || exportedFileName.isEmpty()) {
@@ -154,6 +159,7 @@ public class One2onePController {
 	@ApiOperation(value = "Returns the total count of One2oneP instances matching the optional query (q) request param. If query string is too big to fit in GET request's query param, use POST method with application/x-www-form-urlencoded format.")
 	@RequestMapping(value = "/count", method = {RequestMethod.GET, RequestMethod.POST})
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+	@XssDisable
 	public Long countOne2onePs( @ApiParam("conditions to filter the results") @RequestParam(value = "q", required = false) String query) {
 		LOGGER.debug("counting One2onePs");
 		return one2onePService.count(query);
@@ -162,6 +168,7 @@ public class One2onePController {
     @ApiOperation(value = "Returns aggregated result with given aggregation info")
 	@RequestMapping(value = "/aggregations", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+	@XssDisable
 	public Page<Map<String, Object>> getOne2onePAggregatedValues(@RequestBody AggregationInfo aggregationInfo, Pageable pageable) {
         LOGGER.debug("Fetching aggregated results for {}", aggregationInfo);
         return one2onePService.getAggregatedValues(aggregationInfo, pageable);

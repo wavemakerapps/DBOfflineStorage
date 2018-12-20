@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+import com.wavemaker.commons.MessageResource;
 import com.wavemaker.runtime.data.dao.WMGenericDao;
 import com.wavemaker.runtime.data.exception.EntityNotFoundException;
 import com.wavemaker.runtime.data.export.DataExportOptions;
@@ -106,7 +107,7 @@ public class ValidatorsTableServiceImpl implements ValidatorsTableService {
         ValidatorsTable deleted = this.wmGenericDao.findById(validatorstableId);
         if (deleted == null) {
             LOGGER.debug("No ValidatorsTable found with id: {}", validatorstableId);
-            throw new EntityNotFoundException(String.valueOf(validatorstableId));
+            throw new EntityNotFoundException(MessageResource.create("com.wavemaker.runtime.entity.not.found"), ValidatorsTable.class.getSimpleName(), validatorstableId);
         }
         this.wmGenericDao.delete(deleted);
         return deleted;

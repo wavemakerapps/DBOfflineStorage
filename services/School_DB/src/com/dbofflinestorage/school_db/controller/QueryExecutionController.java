@@ -32,6 +32,7 @@ import com.wavemaker.commons.wrapper.StringWrapper;
 import com.wavemaker.runtime.data.export.ExportOptions;
 import com.wavemaker.runtime.file.manager.ExportedFileManager;
 import com.wavemaker.runtime.file.model.Downloadable;
+import com.wavemaker.runtime.security.xss.XssDisable;
 import com.wavemaker.runtime.util.WMMultipartUtils;
 import com.wavemaker.tools.api.core.annotations.WMAccessVisibility;
 import com.wavemaker.tools.api.core.models.AccessSpecifier;
@@ -67,6 +68,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_SubStr")
     @RequestMapping(value = "/queries/SV_SubStr/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_SubStr(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_SubStr");
 
@@ -95,6 +97,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_InnerJoins")
     @RequestMapping(value = "/queries/SV_InnerJoins/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_InnerJoins(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_InnerJoins");
 
@@ -123,6 +126,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_NOTNULL")
     @RequestMapping(value = "/queries/SV_NOTNULL/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_NOTNULL(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_NOTNULL");
 
@@ -174,6 +178,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_StudentDetails")
     @RequestMapping(value = "/queries/SV_StudentDetails/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_StudentDetails(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_StudentDetails");
 
@@ -202,6 +207,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_LeftOuterJoin")
     @RequestMapping(value = "/queries/SV_LeftOuterJoin/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_LeftOuterJoin(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_LeftOuterJoin");
 
@@ -230,6 +236,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_DateFormatSyntax")
     @RequestMapping(value = "/queries/SV_DateFormatSyntax/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_DateFormatSyntax(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_DateFormatSyntax");
 
@@ -281,6 +288,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_InnerJoinWithOrderBy")
     @RequestMapping(value = "/queries/SV_InnerJoinWithOrderBy/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_InnerJoinWithOrderBy(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_InnerJoinWithOrderBy");
 
@@ -309,6 +317,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query HQL_COUNT_DISTINCT")
     @RequestMapping(value = "/queries/HQL_COUNT_DISTINCT/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportHQL_COUNT_DISTINCT(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: HQL_COUNT_DISTINCT");
 
@@ -337,6 +346,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_MAXFunction")
     @RequestMapping(value = "/queries/SV_MAXFunction/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_MAXFunction(@RequestParam(value = "ACADEMIC_YEAR") String academicYear, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_MAXFunction");
 
@@ -365,6 +375,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_LowerFunction")
     @RequestMapping(value = "/queries/SV_LowerFunction/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_LowerFunction(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_LowerFunction");
 
@@ -393,6 +404,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_SumFunction")
     @RequestMapping(value = "/queries/SV_SumFunction/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_SumFunction(@RequestParam(value = "ACADEMIC_YEAR") String academicYear, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_SumFunction");
 
@@ -421,6 +433,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_GroupByHavingClause")
     @RequestMapping(value = "/queries/SV_GroupByHavingClause/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_GroupByHavingClause(@RequestParam(value = "ACADEMIC_YEAR") String academicYear, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_GroupByHavingClause");
 
@@ -449,6 +462,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_MinFunction")
     @RequestMapping(value = "/queries/SV_MinFunction/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_MinFunction(@RequestParam(value = "ACADEMIC_YEAR") String academicYear, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_MinFunction");
 
@@ -477,6 +491,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query HQL_GroupBy")
     @RequestMapping(value = "/queries/HQL_GroupBy/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportHQL_GroupBy(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: HQL_GroupBy");
 
@@ -505,6 +520,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_Alias")
     @RequestMapping(value = "/queries/SV_Alias/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_Alias(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_Alias");
 
@@ -533,6 +549,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_GroupBy")
     @RequestMapping(value = "/queries/SV_GroupBy/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_GroupBy(@RequestParam(value = "ACADEMIC_YEAR") String academicYear, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_GroupBy");
 
@@ -600,6 +617,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_UnionAll")
     @RequestMapping(value = "/queries/SV_UnionAll/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_UnionAll(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_UnionAll");
 
@@ -628,6 +646,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_UpperFunction")
     @RequestMapping(value = "/queries/SV_UpperFunction/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_UpperFunction(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_UpperFunction");
 
@@ -656,6 +675,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_CountSyntax")
     @RequestMapping(value = "/queries/SV_CountSyntax/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_CountSyntax(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_CountSyntax");
 
@@ -684,6 +704,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_AVGFunction")
     @RequestMapping(value = "/queries/SV_AVGFunction/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_AVGFunction(@RequestParam(value = "STUDENT_ID") Integer studentId, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_AVGFunction");
 
@@ -712,6 +733,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_FullJoin")
     @RequestMapping(value = "/queries/SV_FullJoin/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_FullJoin(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_FullJoin");
 
@@ -740,6 +762,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_NestedQuery")
     @RequestMapping(value = "/queries/SV_NestedQuery/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_NestedQuery(@RequestParam(value = "ACADEMIC_YEAR") String academicYear, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_NestedQuery");
 
@@ -768,6 +791,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_ConcatQuery")
     @RequestMapping(value = "/queries/SV_ConcatQuery/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_ConcatQuery(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_ConcatQuery");
 
@@ -796,6 +820,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_LengthFunction")
     @RequestMapping(value = "/queries/SV_LengthFunction/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_LengthFunction(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_LengthFunction");
 
@@ -847,6 +872,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_QueryWithDate")
     @RequestMapping(value = "/queries/SV_QueryWithDate/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_QueryWithDate(@RequestParam(value = "JDATE") Date jdate, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_QueryWithDate");
 
@@ -875,6 +901,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_IsNULL")
     @RequestMapping(value = "/queries/SV_IsNULL/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_IsNULL(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_IsNULL");
 
@@ -903,6 +930,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_RightJoin")
     @RequestMapping(value = "/queries/SV_RightJoin/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_RightJoin(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_RightJoin");
 

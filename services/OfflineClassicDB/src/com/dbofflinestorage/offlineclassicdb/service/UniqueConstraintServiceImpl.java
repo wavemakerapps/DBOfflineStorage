@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+import com.wavemaker.commons.MessageResource;
 import com.wavemaker.runtime.data.dao.WMGenericDao;
 import com.wavemaker.runtime.data.exception.EntityNotFoundException;
 import com.wavemaker.runtime.data.export.DataExportOptions;
@@ -128,7 +129,7 @@ public class UniqueConstraintServiceImpl implements UniqueConstraintService {
         UniqueConstraint deleted = this.wmGenericDao.findById(uniqueconstraintId);
         if (deleted == null) {
             LOGGER.debug("No UniqueConstraint found with id: {}", uniqueconstraintId);
-            throw new EntityNotFoundException(String.valueOf(uniqueconstraintId));
+            throw new EntityNotFoundException(MessageResource.create("com.wavemaker.runtime.entity.not.found"), UniqueConstraint.class.getSimpleName(), uniqueconstraintId);
         }
         this.wmGenericDao.delete(deleted);
         return deleted;

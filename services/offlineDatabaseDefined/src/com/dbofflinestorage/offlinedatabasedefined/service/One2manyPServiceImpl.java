@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+import com.wavemaker.commons.MessageResource;
 import com.wavemaker.runtime.data.dao.WMGenericDao;
 import com.wavemaker.runtime.data.exception.EntityNotFoundException;
 import com.wavemaker.runtime.data.export.DataExportOptions;
@@ -134,7 +135,7 @@ public class One2manyPServiceImpl implements One2manyPService {
         One2manyP deleted = this.wmGenericDao.findById(one2manypId);
         if (deleted == null) {
             LOGGER.debug("No One2manyP found with id: {}", one2manypId);
-            throw new EntityNotFoundException(String.valueOf(one2manypId));
+            throw new EntityNotFoundException(MessageResource.create("com.wavemaker.runtime.entity.not.found"), One2manyP.class.getSimpleName(), one2manypId);
         }
         this.wmGenericDao.delete(deleted);
         return deleted;

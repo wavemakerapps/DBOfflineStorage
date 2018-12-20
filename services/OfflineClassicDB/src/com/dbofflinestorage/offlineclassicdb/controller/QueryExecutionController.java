@@ -32,6 +32,7 @@ import com.wavemaker.commons.wrapper.StringWrapper;
 import com.wavemaker.runtime.data.export.ExportOptions;
 import com.wavemaker.runtime.file.manager.ExportedFileManager;
 import com.wavemaker.runtime.file.model.Downloadable;
+import com.wavemaker.runtime.security.xss.XssDisable;
 import com.wavemaker.runtime.util.WMMultipartUtils;
 import com.wavemaker.tools.api.core.annotations.WMAccessVisibility;
 import com.wavemaker.tools.api.core.models.AccessSpecifier;
@@ -70,6 +71,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_OROperator")
     @RequestMapping(value = "/queries/SV_OROperator/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_OROperator(@RequestParam(value = "officeCode1") Integer officeCode1, @RequestParam(value = "officeCode2") Integer officeCode2, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_OROperator");
 
@@ -98,6 +100,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_ANDOperator")
     @RequestMapping(value = "/queries/SV_ANDOperator/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_ANDOperator(@RequestParam(value = "status") String status, @RequestParam(value = "custNumber") Integer custNumber, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_ANDOperator");
 
@@ -126,6 +129,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query HQL_FromCustomer")
     @RequestMapping(value = "/queries/HQL_FromCustomer/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportHQL_FromCustomer(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: HQL_FromCustomer");
 
@@ -154,6 +158,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_LessThan")
     @RequestMapping(value = "/queries/SV_LessThan/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_LessThan(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_LessThan");
 
@@ -182,6 +187,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_DISTINCT")
     @RequestMapping(value = "/queries/SV_DISTINCT/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_DISTINCT(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_DISTINCT");
 
@@ -210,6 +216,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_WhereClause")
     @RequestMapping(value = "/queries/SV_WhereClause/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_WhereClause(@RequestParam(value = "city") String city, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_WhereClause");
 
@@ -238,6 +245,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query HQL_CustomQueryWithAlias")
     @RequestMapping(value = "/queries/HQL_CustomQueryWithAlias/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportHQL_CustomQueryWithAlias(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: HQL_CustomQueryWithAlias");
 
@@ -266,6 +274,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query HQL_GreaterThanOrderBy")
     @RequestMapping(value = "/queries/HQL_GreaterThanOrderBy/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportHQL_GreaterThanOrderBy(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: HQL_GreaterThanOrderBy");
 
@@ -294,6 +303,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query HQL_FromEntityWhereClause")
     @RequestMapping(value = "/queries/HQL_FromEntityWhereClause/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportHQL_FromEntityWhereClause(@RequestParam(value = "empNumber") Integer empNumber, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: HQL_FromEntityWhereClause");
 
@@ -345,6 +355,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_BetweenOperator")
     @RequestMapping(value = "/queries/SV_BetweenOperator/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_BetweenOperator(@RequestParam(value = "bytevalue1") Byte bytevalue1, @RequestParam(value = "bytevalue2") Byte bytevalue2, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_BetweenOperator");
 
@@ -396,6 +407,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_CombinedOrderBy")
     @RequestMapping(value = "/queries/SV_CombinedOrderBy/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_CombinedOrderBy(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_CombinedOrderBy");
 
@@ -424,6 +436,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_INOperator")
     @RequestMapping(value = "/queries/SV_INOperator/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_INOperator(@RequestParam(value = "PCODE") List<String> pcode, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_INOperator");
 
@@ -452,6 +465,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_LIKE")
     @RequestMapping(value = "/queries/SV_LIKE/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_LIKE(@RequestParam(value = "jobtitle") String jobtitle, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_LIKE");
 
@@ -480,6 +494,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_GreaterThan")
     @RequestMapping(value = "/queries/SV_GreaterThan/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_GreaterThan(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_GreaterThan");
 
@@ -508,6 +523,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query HQL_FromEntityUsingAlias")
     @RequestMapping(value = "/queries/HQL_FromEntityUsingAlias/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportHQL_FromEntityUsingAlias(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: HQL_FromEntityUsingAlias");
 
@@ -536,6 +552,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query HQL_CustomQueryWithoutAliasNames")
     @RequestMapping(value = "/queries/HQL_CustomQueryWithoutAliasNames/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportHQL_CustomQueryWithoutAliasNames(@RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: HQL_CustomQueryWithoutAliasNames");
 
@@ -564,6 +581,7 @@ public class QueryExecutionController {
     @ApiOperation(value = "Returns downloadable file url for query SV_AND_OR")
     @RequestMapping(value = "/queries/SV_AND_OR/export", method = RequestMethod.POST)
     @WMAccessVisibility(value = AccessSpecifier.APP_ONLY)
+    @XssDisable
     public StringWrapper exportSV_AND_OR(@RequestParam(value = "status") String status, @RequestParam(value = "custNumber1") Integer custNumber1, @RequestParam(value = "custNumber2") Integer custNumber2, @RequestBody ExportOptions exportOptions, Pageable pageable) {
         LOGGER.debug("Exporting named query: SV_AND_OR");
 

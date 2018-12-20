@@ -21,6 +21,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.wavemaker.commons.MessageResource;
 import com.wavemaker.runtime.data.dao.query.WMQueryExecutor;
 import com.wavemaker.runtime.data.exception.BlobContentNotFoundException;
 import com.wavemaker.runtime.data.exception.EntityNotFoundException;
@@ -53,7 +54,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_SubStr", params, SvSubStrResponse.class);
+        QueryProcedureInput<SvSubStrResponse> queryInput = new QueryProcedureInput<>("SV_SubStr", params, SvSubStrResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -73,7 +74,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_InnerJoins", params, SvInnerJoinsResponse.class);
+        QueryProcedureInput<SvInnerJoinsResponse> queryInput = new QueryProcedureInput<>("SV_InnerJoins", params, SvInnerJoinsResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -93,7 +94,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_NOTNULL", params, SvNotnullResponse.class);
+        QueryProcedureInput<SvNotnullResponse> queryInput = new QueryProcedureInput<>("SV_NOTNULL", params, SvNotnullResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -117,7 +118,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         SvStudentDetailsResponse _result =  queryExecutor.executeNamedQuery("SV_StudentDetails__identifier", params, SvStudentDetailsResponse.class);
         if(_result.getProfilePic() == null) {
             LOGGER.debug("Blob content not exists for profilePic in query SV_StudentDetails");
-            throw new BlobContentNotFoundException("Blob content not found for profilePic in query SV_StudentDetails");
+            throw new BlobContentNotFoundException(MessageResource.create("com.wavemaker.runtime.blob.content.not.found"), "profilePic", "query", "SV_StudentDetails");
         }
         return new ByteArrayInputStream(_result.getProfilePic());
     }
@@ -128,7 +129,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_StudentDetails", params, SvStudentDetailsResponse.class);
+        QueryProcedureInput<SvStudentDetailsResponse> queryInput = new QueryProcedureInput<>("SV_StudentDetails", params, SvStudentDetailsResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -148,7 +149,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_LeftOuterJoin", params, SvLeftOuterJoinResponse.class);
+        QueryProcedureInput<SvLeftOuterJoinResponse> queryInput = new QueryProcedureInput<>("SV_LeftOuterJoin", params, SvLeftOuterJoinResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -168,7 +169,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_DateFormatSyntax", params, SvDateFormatSyntaxResponse.class);
+        QueryProcedureInput<SvDateFormatSyntaxResponse> queryInput = new QueryProcedureInput<>("SV_DateFormatSyntax", params, SvDateFormatSyntaxResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -192,7 +193,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         SvInnerJoinWithOrderByResponse _result =  queryExecutor.executeNamedQuery("SV_InnerJoinWithOrderBy__identifier", params, SvInnerJoinWithOrderByResponse.class);
         if(_result.getPicUrl() == null) {
             LOGGER.debug("Blob content not exists for picUrl in query SV_InnerJoinWithOrderBy");
-            throw new BlobContentNotFoundException("Blob content not found for picUrl in query SV_InnerJoinWithOrderBy");
+            throw new BlobContentNotFoundException(MessageResource.create("com.wavemaker.runtime.blob.content.not.found"), "picUrl", "query", "SV_InnerJoinWithOrderBy");
         }
         return new ByteArrayInputStream(_result.getPicUrl());
     }
@@ -203,7 +204,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_InnerJoinWithOrderBy", params, SvInnerJoinWithOrderByResponse.class);
+        QueryProcedureInput<SvInnerJoinWithOrderByResponse> queryInput = new QueryProcedureInput<>("SV_InnerJoinWithOrderBy", params, SvInnerJoinWithOrderByResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -223,7 +224,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("HQL_COUNT_DISTINCT", params, HqlCountDistinctResponse.class);
+        QueryProcedureInput<HqlCountDistinctResponse> queryInput = new QueryProcedureInput<>("HQL_COUNT_DISTINCT", params, HqlCountDistinctResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -245,7 +246,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
 
         params.put("ACADEMIC_YEAR", academicYear);
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_MAXFunction", params, SvMaxfunctionResponse.class);
+        QueryProcedureInput<SvMaxfunctionResponse> queryInput = new QueryProcedureInput<>("SV_MAXFunction", params, SvMaxfunctionResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -265,7 +266,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_LowerFunction", params, SvLowerFunctionResponse.class);
+        QueryProcedureInput<SvLowerFunctionResponse> queryInput = new QueryProcedureInput<>("SV_LowerFunction", params, SvLowerFunctionResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -287,7 +288,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
 
         params.put("ACADEMIC_YEAR", academicYear);
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_SumFunction", params, SvSumFunctionResponse.class);
+        QueryProcedureInput<SvSumFunctionResponse> queryInput = new QueryProcedureInput<>("SV_SumFunction", params, SvSumFunctionResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -309,7 +310,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
 
         params.put("ACADEMIC_YEAR", academicYear);
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_GroupByHavingClause", params, SvGroupByHavingClauseResponse.class);
+        QueryProcedureInput<SvGroupByHavingClauseResponse> queryInput = new QueryProcedureInput<>("SV_GroupByHavingClause", params, SvGroupByHavingClauseResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -331,7 +332,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
 
         params.put("ACADEMIC_YEAR", academicYear);
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_MinFunction", params, SvMinFunctionResponse.class);
+        QueryProcedureInput<SvMinFunctionResponse> queryInput = new QueryProcedureInput<>("SV_MinFunction", params, SvMinFunctionResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -351,7 +352,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("HQL_GroupBy", params, HqlGroupByResponse.class);
+        QueryProcedureInput<HqlGroupByResponse> queryInput = new QueryProcedureInput<>("HQL_GroupBy", params, HqlGroupByResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -371,7 +372,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_Alias", params, SvAliasResponse.class);
+        QueryProcedureInput<SvAliasResponse> queryInput = new QueryProcedureInput<>("SV_Alias", params, SvAliasResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -393,7 +394,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
 
         params.put("ACADEMIC_YEAR", academicYear);
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_GroupBy", params, SvGroupByResponse.class);
+        QueryProcedureInput<SvGroupByResponse> queryInput = new QueryProcedureInput<>("SV_GroupBy", params, SvGroupByResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -417,7 +418,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         SvUnionAllResponse _result =  queryExecutor.executeNamedQuery("SV_UnionAll__identifier", params, SvUnionAllResponse.class);
         if(_result.getZip() == null) {
             LOGGER.debug("Blob content not exists for zip in query SV_UnionAll");
-            throw new BlobContentNotFoundException("Blob content not found for zip in query SV_UnionAll");
+            throw new BlobContentNotFoundException(MessageResource.create("com.wavemaker.runtime.blob.content.not.found"), "zip", "query", "SV_UnionAll");
         }
         return new ByteArrayInputStream(_result.getZip());
     }
@@ -432,7 +433,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         SvUnionAllResponse _result =  queryExecutor.executeNamedQuery("SV_UnionAll__identifier", params, SvUnionAllResponse.class);
         if(_result.getPicUrl() == null) {
             LOGGER.debug("Blob content not exists for picUrl in query SV_UnionAll");
-            throw new BlobContentNotFoundException("Blob content not found for picUrl in query SV_UnionAll");
+            throw new BlobContentNotFoundException(MessageResource.create("com.wavemaker.runtime.blob.content.not.found"), "picUrl", "query", "SV_UnionAll");
         }
         return new ByteArrayInputStream(_result.getPicUrl());
     }
@@ -443,7 +444,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_UnionAll", params, SvUnionAllResponse.class);
+        QueryProcedureInput<SvUnionAllResponse> queryInput = new QueryProcedureInput<>("SV_UnionAll", params, SvUnionAllResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -463,7 +464,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_UpperFunction", params, SvUpperFunctionResponse.class);
+        QueryProcedureInput<SvUpperFunctionResponse> queryInput = new QueryProcedureInput<>("SV_UpperFunction", params, SvUpperFunctionResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -483,7 +484,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_CountSyntax", params, SvCountSyntaxResponse.class);
+        QueryProcedureInput<SvCountSyntaxResponse> queryInput = new QueryProcedureInput<>("SV_CountSyntax", params, SvCountSyntaxResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -505,7 +506,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
 
         params.put("STUDENT_ID", studentId);
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_AVGFunction", params, SvAvgfunctionResponse.class);
+        QueryProcedureInput<SvAvgfunctionResponse> queryInput = new QueryProcedureInput<>("SV_AVGFunction", params, SvAvgfunctionResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -525,7 +526,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_FullJoin", params, SvFullJoinResponse.class);
+        QueryProcedureInput<SvFullJoinResponse> queryInput = new QueryProcedureInput<>("SV_FullJoin", params, SvFullJoinResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -547,7 +548,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
 
         params.put("ACADEMIC_YEAR", academicYear);
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_NestedQuery", params, SvNestedQueryResponse.class);
+        QueryProcedureInput<SvNestedQueryResponse> queryInput = new QueryProcedureInput<>("SV_NestedQuery", params, SvNestedQueryResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -567,7 +568,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_ConcatQuery", params, SvConcatQueryResponse.class);
+        QueryProcedureInput<SvConcatQueryResponse> queryInput = new QueryProcedureInput<>("SV_ConcatQuery", params, SvConcatQueryResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -587,7 +588,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_LengthFunction", params, SvLengthFunctionResponse.class);
+        QueryProcedureInput<SvLengthFunctionResponse> queryInput = new QueryProcedureInput<>("SV_LengthFunction", params, SvLengthFunctionResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -613,7 +614,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         SvQueryWithDateResponse _result =  queryExecutor.executeNamedQuery("SV_QueryWithDate__identifier", params, SvQueryWithDateResponse.class);
         if(_result.getProfilePic() == null) {
             LOGGER.debug("Blob content not exists for profilePic in query SV_QueryWithDate");
-            throw new BlobContentNotFoundException("Blob content not found for profilePic in query SV_QueryWithDate");
+            throw new BlobContentNotFoundException(MessageResource.create("com.wavemaker.runtime.blob.content.not.found"), "profilePic", "query", "SV_QueryWithDate");
         }
         return new ByteArrayInputStream(_result.getProfilePic());
     }
@@ -625,7 +626,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
 
         params.put("JDATE", jdate);
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_QueryWithDate", params, SvQueryWithDateResponse.class);
+        QueryProcedureInput<SvQueryWithDateResponse> queryInput = new QueryProcedureInput<>("SV_QueryWithDate", params, SvQueryWithDateResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -645,7 +646,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_IsNULL", params, SvIsNullResponse.class);
+        QueryProcedureInput<SvIsNullResponse> queryInput = new QueryProcedureInput<>("SV_IsNULL", params, SvIsNullResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -665,7 +666,7 @@ public class School_DBQueryExecutorServiceImpl implements School_DBQueryExecutor
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_RightJoin", params, SvRightJoinResponse.class);
+        QueryProcedureInput<SvRightJoinResponse> queryInput = new QueryProcedureInput<>("SV_RightJoin", params, SvRightJoinResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }

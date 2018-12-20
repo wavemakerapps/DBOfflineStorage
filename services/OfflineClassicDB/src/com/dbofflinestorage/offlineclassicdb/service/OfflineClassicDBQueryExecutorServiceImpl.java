@@ -21,6 +21,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.wavemaker.commons.MessageResource;
 import com.wavemaker.runtime.data.dao.query.WMQueryExecutor;
 import com.wavemaker.runtime.data.exception.BlobContentNotFoundException;
 import com.wavemaker.runtime.data.exception.EntityNotFoundException;
@@ -60,7 +61,7 @@ public class OfflineClassicDBQueryExecutorServiceImpl implements OfflineClassicD
         params.put("officeCode1", officeCode1);
         params.put("officeCode2", officeCode2);
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_OROperator", params, SvOroperatorResponse.class);
+        QueryProcedureInput<SvOroperatorResponse> queryInput = new QueryProcedureInput<>("SV_OROperator", params, SvOroperatorResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -84,7 +85,7 @@ public class OfflineClassicDBQueryExecutorServiceImpl implements OfflineClassicD
         params.put("status", status);
         params.put("custNumber", custNumber);
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_ANDOperator", params, SvAndoperatorResponse.class);
+        QueryProcedureInput<SvAndoperatorResponse> queryInput = new QueryProcedureInput<>("SV_ANDOperator", params, SvAndoperatorResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -104,7 +105,7 @@ public class OfflineClassicDBQueryExecutorServiceImpl implements OfflineClassicD
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("HQL_FromCustomer", params, Customers.class);
+        QueryProcedureInput<Customers> queryInput = new QueryProcedureInput<>("HQL_FromCustomer", params, Customers.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -124,7 +125,7 @@ public class OfflineClassicDBQueryExecutorServiceImpl implements OfflineClassicD
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_LessThan", params, SvLessThanResponse.class);
+        QueryProcedureInput<SvLessThanResponse> queryInput = new QueryProcedureInput<>("SV_LessThan", params, SvLessThanResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -144,7 +145,7 @@ public class OfflineClassicDBQueryExecutorServiceImpl implements OfflineClassicD
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_DISTINCT", params, SvDistinctResponse.class);
+        QueryProcedureInput<SvDistinctResponse> queryInput = new QueryProcedureInput<>("SV_DISTINCT", params, SvDistinctResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -166,7 +167,7 @@ public class OfflineClassicDBQueryExecutorServiceImpl implements OfflineClassicD
 
         params.put("city", city);
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_WhereClause", params, SvWhereClauseResponse.class);
+        QueryProcedureInput<SvWhereClauseResponse> queryInput = new QueryProcedureInput<>("SV_WhereClause", params, SvWhereClauseResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -186,7 +187,7 @@ public class OfflineClassicDBQueryExecutorServiceImpl implements OfflineClassicD
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("HQL_CustomQueryWithAlias", params, HqlCustomQueryWithAliasResponse.class);
+        QueryProcedureInput<HqlCustomQueryWithAliasResponse> queryInput = new QueryProcedureInput<>("HQL_CustomQueryWithAlias", params, HqlCustomQueryWithAliasResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -206,7 +207,7 @@ public class OfflineClassicDBQueryExecutorServiceImpl implements OfflineClassicD
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("HQL_GreaterThanOrderBy", params, Employees.class);
+        QueryProcedureInput<Employees> queryInput = new QueryProcedureInput<>("HQL_GreaterThanOrderBy", params, Employees.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -228,7 +229,7 @@ public class OfflineClassicDBQueryExecutorServiceImpl implements OfflineClassicD
 
         params.put("empNumber", empNumber);
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("HQL_FromEntityWhereClause", params, Employees.class);
+        QueryProcedureInput<Employees> queryInput = new QueryProcedureInput<>("HQL_FromEntityWhereClause", params, Employees.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -256,7 +257,7 @@ public class OfflineClassicDBQueryExecutorServiceImpl implements OfflineClassicD
         SvBetweenOperatorResponse _result =  queryExecutor.executeNamedQuery("SV_BetweenOperator__identifier", params, SvBetweenOperatorResponse.class);
         if(_result.getBlobCol() == null) {
             LOGGER.debug("Blob content not exists for blobCol in query SV_BetweenOperator");
-            throw new BlobContentNotFoundException("Blob content not found for blobCol in query SV_BetweenOperator");
+            throw new BlobContentNotFoundException(MessageResource.create("com.wavemaker.runtime.blob.content.not.found"), "blobCol", "query", "SV_BetweenOperator");
         }
         return new ByteArrayInputStream(_result.getBlobCol());
     }
@@ -269,7 +270,7 @@ public class OfflineClassicDBQueryExecutorServiceImpl implements OfflineClassicD
         params.put("bytevalue1", bytevalue1);
         params.put("bytevalue2", bytevalue2);
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_BetweenOperator", params, SvBetweenOperatorResponse.class);
+        QueryProcedureInput<SvBetweenOperatorResponse> queryInput = new QueryProcedureInput<>("SV_BetweenOperator", params, SvBetweenOperatorResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -293,7 +294,7 @@ public class OfflineClassicDBQueryExecutorServiceImpl implements OfflineClassicD
         SvCombinedOrderByResponse _result =  queryExecutor.executeNamedQuery("SV_CombinedOrderBy__identifier", params, SvCombinedOrderByResponse.class);
         if(_result.getBlobCol() == null) {
             LOGGER.debug("Blob content not exists for blobCol in query SV_CombinedOrderBy");
-            throw new BlobContentNotFoundException("Blob content not found for blobCol in query SV_CombinedOrderBy");
+            throw new BlobContentNotFoundException(MessageResource.create("com.wavemaker.runtime.blob.content.not.found"), "blobCol", "query", "SV_CombinedOrderBy");
         }
         return new ByteArrayInputStream(_result.getBlobCol());
     }
@@ -304,7 +305,7 @@ public class OfflineClassicDBQueryExecutorServiceImpl implements OfflineClassicD
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_CombinedOrderBy", params, SvCombinedOrderByResponse.class);
+        QueryProcedureInput<SvCombinedOrderByResponse> queryInput = new QueryProcedureInput<>("SV_CombinedOrderBy", params, SvCombinedOrderByResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -326,7 +327,7 @@ public class OfflineClassicDBQueryExecutorServiceImpl implements OfflineClassicD
 
         params.put("PCODE", pcode);
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_INOperator", params, SvInoperatorResponse.class);
+        QueryProcedureInput<SvInoperatorResponse> queryInput = new QueryProcedureInput<>("SV_INOperator", params, SvInoperatorResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -348,7 +349,7 @@ public class OfflineClassicDBQueryExecutorServiceImpl implements OfflineClassicD
 
         params.put("jobtitle", jobtitle);
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_LIKE", params, SvLikeResponse.class);
+        QueryProcedureInput<SvLikeResponse> queryInput = new QueryProcedureInput<>("SV_LIKE", params, SvLikeResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -368,7 +369,7 @@ public class OfflineClassicDBQueryExecutorServiceImpl implements OfflineClassicD
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_GreaterThan", params, SvGreaterThanResponse.class);
+        QueryProcedureInput<SvGreaterThanResponse> queryInput = new QueryProcedureInput<>("SV_GreaterThan", params, SvGreaterThanResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -388,7 +389,7 @@ public class OfflineClassicDBQueryExecutorServiceImpl implements OfflineClassicD
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("HQL_FromEntityUsingAlias", params, OrderDetails.class);
+        QueryProcedureInput<OrderDetails> queryInput = new QueryProcedureInput<>("HQL_FromEntityUsingAlias", params, OrderDetails.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -408,7 +409,7 @@ public class OfflineClassicDBQueryExecutorServiceImpl implements OfflineClassicD
         Map<String, Object> params = new HashMap<>(0);
 
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("HQL_CustomQueryWithoutAliasNames", params, HqlCustomQueryWithoutAliasNamesResponse.class);
+        QueryProcedureInput<HqlCustomQueryWithoutAliasNamesResponse> queryInput = new QueryProcedureInput<>("HQL_CustomQueryWithoutAliasNames", params, HqlCustomQueryWithoutAliasNamesResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }
@@ -434,7 +435,7 @@ public class OfflineClassicDBQueryExecutorServiceImpl implements OfflineClassicD
         params.put("custNumber1", custNumber1);
         params.put("custNumber2", custNumber2);
 
-        QueryProcedureInput queryInput = new QueryProcedureInput("SV_AND_OR", params, SvAndOrResponse.class);
+        QueryProcedureInput<SvAndOrResponse> queryInput = new QueryProcedureInput<>("SV_AND_OR", params, SvAndOrResponse.class);
 
         queryExecutor.exportNamedQueryData(queryInput, exportOptions, pageable, outputStream);
     }

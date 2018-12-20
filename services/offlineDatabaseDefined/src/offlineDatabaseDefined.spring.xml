@@ -1,5 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context" xmlns:security="http://www.springframework.org/schema/security" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
     <context:component-scan base-package="com.dbofflinestorage.offlinedatabasedefined.controller,com.dbofflinestorage.offlinedatabasedefined.service,com.dbofflinestorage.offlinedatabasedefined.dao"/>
     <bean class="com.wavemaker.runtime.data.spring.WMPropertyPlaceholderConfigurer">
         <property name="locations">
@@ -13,26 +17,30 @@
         <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE"/>
         <property name="searchSystemEnvironment" value="true"/>
     </bean>
-    <bean class="com.zaxxer.hikari.HikariConfig" id="offlineDatabaseDefinedHikariConfig">
+
+    <bean id="offlineDatabaseDefinedHikariConfig" class="com.zaxxer.hikari.HikariConfig">
         <property name="jdbcUrl" value="${offlineDatabaseDefined.url}"/>
         <property name="driverClassName" value="${offlineDatabaseDefined.driverClass}"/>
         <property name="username" value="${offlineDatabaseDefined.username}"/>
         <property name="password" value="${offlineDatabaseDefined.password}"/>
         <property name="maximumPoolSize" value="${offlineDatabaseDefined.maxPoolSize}"/>
         <property name="minimumIdle" value="${offlineDatabaseDefined.minPoolSize}"/>
-        <property name="connectionTimeout" value="30000"/>
-        <property name="validationTimeout" value="5000"/>
-        <property name="idleTimeout" value="600000"/>
-        <property name="maxLifetime" value="1800000"/>
-        <property name="initializationFailTimeout" value="-1"/>
-        <property name="leakDetectionThreshold" value="120000"/>
-        <property name="registerMbeans" value="false"/>
+        <property name="connectionTimeout" value="30000" />
+        <property name="validationTimeout" value="5000" />
+        <property name="idleTimeout" value="600000" />
+        <property name="maxLifetime" value="1800000" />
+        <property name="initializationFailTimeout" value="-1" />
+        <property name="leakDetectionThreshold" value="120000" />
+        <property name="registerMbeans" value="false" />
     </bean>
-    <bean class="com.zaxxer.hikari.HikariDataSource" destroy-method="close" id="offlineDatabaseDefinedWMManagedDataSource" lazy-init="true">
+
+    <bean id="offlineDatabaseDefinedWMManagedDataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close" lazy-init="true">
         <constructor-arg ref="offlineDatabaseDefinedHikariConfig"/>
     </bean>
-    <bean class="com.wavemaker.runtime.data.interceptors.WMEntityInterceptor" id="offlineDatabaseDefinedEntityInterceptor"/>
-    <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" id="offlineDatabaseDefinedSessionFactory">
+
+    <bean id="offlineDatabaseDefinedEntityInterceptor" class="com.wavemaker.runtime.data.interceptors.WMEntityInterceptor"/>
+
+    <bean id="offlineDatabaseDefinedSessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="offlineDatabaseDefinedDataSource"/>
         <property name="packagesToScan" value="com.dbofflinestorage.offlinedatabasedefined"/>
         <property name="entityInterceptor" ref="offlineDatabaseDefinedEntityInterceptor"/>
@@ -44,23 +52,28 @@
                 </value>
             </list>
         </property>
+
         <property name="hibernateProperties" ref="offlineDatabaseDefinedHibernateProperties"/>
     </bean>
-    <bean class="org.springframework.orm.hibernate5.HibernateTransactionManager" id="offlineDatabaseDefinedTransactionManager">
+    <bean id="offlineDatabaseDefinedTransactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="offlineDatabaseDefinedSessionFactory"/>
         <property name="defaultTimeout" value="${offlineDatabaseDefined.transactionTimeout}"/>
     </bean>
-    <bean class="org.springframework.orm.hibernate5.HibernateTemplate" id="offlineDatabaseDefinedTemplate">
+    <bean id="offlineDatabaseDefinedTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
         <property name="sessionFactory" ref="offlineDatabaseDefinedSessionFactory"/>
     </bean>
-    <bean class="com.wavemaker.runtime.data.dao.query.WMQueryExecutorImpl" id="offlineDatabaseDefinedWMQueryExecutor">
+    
+    <bean id="offlineDatabaseDefinedWMQLTypeHelper" class="com.wavemaker.runtime.data.dao.query.types.wmql.WMQLDefaultTypeHelper" lazy-init="false" />
+    
+    <bean id="offlineDatabaseDefinedWMQueryExecutor" class="com.wavemaker.runtime.data.dao.query.WMQueryExecutorImpl">
         <property name="template" ref="offlineDatabaseDefinedTemplate"/>
     </bean>
-    <bean class="com.wavemaker.runtime.data.dao.procedure.WMProcedureExecutorImpl" id="offlineDatabaseDefinedWMProcedureExecutor">
+    <bean id="offlineDatabaseDefinedWMProcedureExecutor" class="com.wavemaker.runtime.data.dao.procedure.WMProcedureExecutorImpl">
         <property name="template" ref="offlineDatabaseDefinedTemplate"/>
         <property name="serviceId" value="offlineDatabaseDefined"/>
     </bean>
-    <bean class="org.springframework.beans.factory.config.PropertiesFactoryBean" id="offlineDatabaseDefinedHibernateProperties">
+
+    <bean id="offlineDatabaseDefinedHibernateProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
         <property name="properties">
             <props>
                 <prop key="hibernate.dialect">
@@ -84,22 +97,28 @@
             </props>
         </property>
     </bean>
-    <bean class="com.wavemaker.runtime.resolver.WMPageableHandlerMethodArgumentResolver" id="offlineDatabaseDefinedPageableHandlerMethodResolver">
+
+    <bean id="offlineDatabaseDefinedPageableHandlerMethodResolver" class="com.wavemaker.runtime.resolver.WMPageableHandlerMethodArgumentResolver" >
         <property name="pageParameterName" value="page"/>
         <property name="sizeParameterName" value="size"/>
         <property name="oneIndexedParameters" value="true"/>
         <property name="maxPageSize" value="${offlineDatabaseDefined.maxPageSize}"/>
         <property name="fallbackPageable">
-            <bean class="org.springframework.data.domain.PageRequest">
-                <constructor-arg value="0"/>
-                <constructor-arg value="20"/>
+            <bean  class="org.springframework.data.domain.PageRequest">
+                <constructor-arg  value="0"/>
+                <constructor-arg  value="20"/>
             </bean>
         </property>
     </bean>
-    <bean class="com.wavemaker.runtime.data.datasource.WMDataSource" id="offlineDatabaseDefinedDataSource">
+
+    <bean id="offlineDatabaseDefinedDataSource" class="com.wavemaker.runtime.data.datasource.WMDataSource">
         <property name="dataSourceType" value="${offlineDatabaseDefined.dataSourceType}"/>
         <property name="jndiName" value="${offlineDatabaseDefined.jndiName}"/>
         <property name="serviceId" value="offlineDatabaseDefined"/>
     </bean>
+
+
     <tx:annotation-driven/>
+
 </beans>
+

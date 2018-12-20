@@ -20,6 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+import com.wavemaker.commons.MessageResource;
 import com.wavemaker.runtime.data.dao.WMGenericDao;
 import com.wavemaker.runtime.data.exception.EntityNotFoundException;
 import com.wavemaker.runtime.data.export.DataExportOptions;
@@ -112,7 +113,7 @@ public class ProductsServiceImpl implements ProductsService {
         Products deleted = this.wmGenericDao.findById(productsId);
         if (deleted == null) {
             LOGGER.debug("No Products found with id: {}", productsId);
-            throw new EntityNotFoundException(String.valueOf(productsId));
+            throw new EntityNotFoundException(MessageResource.create("com.wavemaker.runtime.entity.not.found"), Products.class.getSimpleName(), productsId);
         }
         this.wmGenericDao.delete(deleted);
         return deleted;

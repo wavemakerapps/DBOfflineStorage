@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+import com.wavemaker.commons.MessageResource;
 import com.wavemaker.runtime.data.dao.WMGenericDao;
 import com.wavemaker.runtime.data.exception.EntityNotFoundException;
 import com.wavemaker.runtime.data.export.DataExportOptions;
@@ -122,7 +123,7 @@ public class SubjectDetailsServiceImpl implements SubjectDetailsService {
         SubjectDetails deleted = this.wmGenericDao.findById(subjectdetailsId);
         if (deleted == null) {
             LOGGER.debug("No SubjectDetails found with id: {}", subjectdetailsId);
-            throw new EntityNotFoundException(String.valueOf(subjectdetailsId));
+            throw new EntityNotFoundException(MessageResource.create("com.wavemaker.runtime.entity.not.found"), SubjectDetails.class.getSimpleName(), subjectdetailsId);
         }
         this.wmGenericDao.delete(deleted);
         return deleted;

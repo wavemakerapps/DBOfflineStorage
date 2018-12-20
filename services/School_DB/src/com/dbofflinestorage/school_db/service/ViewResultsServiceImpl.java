@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
+import com.wavemaker.commons.MessageResource;
 import com.wavemaker.runtime.data.dao.WMGenericDao;
 import com.wavemaker.runtime.data.exception.EntityNotFoundException;
 import com.wavemaker.runtime.data.export.DataExportOptions;
@@ -107,7 +108,7 @@ public class ViewResultsServiceImpl implements ViewResultsService {
         ViewResults deleted = this.wmGenericDao.findById(viewresultsId);
         if (deleted == null) {
             LOGGER.debug("No ViewResults found with id: {}", viewresultsId);
-            throw new EntityNotFoundException(String.valueOf(viewresultsId));
+            throw new EntityNotFoundException(MessageResource.create("com.wavemaker.runtime.entity.not.found"), ViewResults.class.getSimpleName(), viewresultsId);
         }
         this.wmGenericDao.delete(deleted);
         return deleted;

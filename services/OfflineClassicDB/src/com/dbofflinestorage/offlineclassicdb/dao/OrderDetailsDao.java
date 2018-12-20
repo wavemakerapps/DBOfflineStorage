@@ -13,6 +13,7 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.wavemaker.runtime.data.dao.WMGenericDaoImpl;
+import com.wavemaker.runtime.data.dao.query.types.wmql.WMQLTypeHelper;
 
 import com.dbofflinestorage.offlineclassicdb.OrderDetails;
 import com.dbofflinestorage.offlineclassicdb.OrderDetailsId;
@@ -28,9 +29,19 @@ public class OrderDetailsDao extends WMGenericDaoImpl<OrderDetails, OrderDetails
     @Qualifier("OfflineClassicDBTemplate")
     private HibernateTemplate template;
 
+    @Autowired
+    @Qualifier("OfflineClassicDBWMQLTypeHelper")
+    private WMQLTypeHelper wmqlTypeHelper;
+
 
     @Override
     public HibernateTemplate getTemplate() {
         return this.template;
     }
+
+    @Override
+    public WMQLTypeHelper getWMQLTypeHelper() {
+        return this.wmqlTypeHelper;
+    }
+
 }
